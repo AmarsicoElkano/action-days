@@ -1,3 +1,4 @@
+# https://nuxt.com/deploy/digitalocean 
 # Prismic + Nuxt Minimal Starter
 
 Want to quickly get started building your own project with [Prismic][prismic] and [Nuxt][nuxt]? This project includes basic configurations and nothing else. The project includes one Rich Text Slice, a homepage, and a dynamic page.
