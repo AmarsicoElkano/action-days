@@ -1,0 +1,35 @@
+{
+  "format": "custom",
+  "id": "secondary_navigation_events",
+  "label": "Secondary Navigation Events ",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "links_menu": {
+        "type": "Group",
+        "config": {
+          "label": "Links Menu",
+          "repeat": true,
+          "fields": {
+            "link_title": {
+              "type": "Text",
+              "config": {
+                "label": "Link Title",
+                "placeholder": ""
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link URL",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

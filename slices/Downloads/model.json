@@ -1,0 +1,88 @@
+{
+  "id": "downloads",
+  "type": "SharedSlice",
+  "name": "Downloads",
+  "description": "Downloads",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "light_background_color": {
+          "type": "Boolean",
+          "config": {
+            "label": "Light Background Color",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Paragraph",
+            "placeholder": ""
+          }
+        },
+        "documents": {
+          "type": "Group",
+          "config": {
+            "label": "Documents",
+            "repeat": true,
+            "fields": {
+              "subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "Subtitle",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": ""
+                }
+              },
+              "banner_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Banner Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "download_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Download text",
+                  "placeholder": ""
+                }
+              },
+              "download_url": {
+                "type": "Link",
+                "config": {
+                  "label": "Download url",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

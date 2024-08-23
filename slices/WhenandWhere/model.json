@@ -1,0 +1,58 @@
+{
+  "id": "whenand_where",
+  "type": "SharedSlice",
+  "name": "WhenandWhere",
+  "description": "WhenandWhere",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "bg_symbol": {
+          "type": "Image",
+          "config": {
+            "label": "Background Symbol",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "questions": {
+          "type": "Group",
+          "config": {
+            "label": "Questions",
+            "repeat": true,
+            "fields": {
+              "question_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Question Title",
+                  "placeholder": ""
+                }
+              },
+              "question_response": {
+                "type": "Text",
+                "config": {
+                  "label": "Question response",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

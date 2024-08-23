@@ -1,0 +1,139 @@
+{
+  "format": "page",
+  "id": "home",
+  "label": "Home",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "date": {
+        "type": "Text",
+        "config": {
+          "label": "Date",
+          "placeholder": ""
+        }
+      },
+      "location": {
+        "type": "Text",
+        "config": {
+          "label": "Location",
+          "placeholder": ""
+        }
+      },
+      "title_one": {
+        "type": "Text",
+        "config": {
+          "label": "Title 1",
+          "placeholder": ""
+        }
+      },
+      "title_two": {
+        "type": "Text",
+        "config": {
+          "label": "Title 2",
+          "placeholder": ""
+        }
+      },
+      "title_three": {
+        "type": "Text",
+        "config": {
+          "label": "Title 3",
+          "placeholder": ""
+        }
+      },
+      "intro_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Intro text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading3,paragraph,strong,em"
+        }
+      },
+      "agenda_title": {
+        "type": "Text",
+        "config": {
+          "label": "Agenda Title",
+          "placeholder": ""
+        }
+      },
+      "agenda_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Agenda Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,o-list-item"
+        }
+      },
+      "main_image": {
+        "type": "Image",
+        "config": {
+          "label": "Main image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            },
+            "announcements": {
+              "type": "SharedSlice"
+            },
+            "downloads": {
+              "type": "SharedSlice"
+            },
+            "faqs": {
+              "type": "SharedSlice"
+            },
+            "whenand_where": {
+              "type": "SharedSlice"
+            },
+            "agenda": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

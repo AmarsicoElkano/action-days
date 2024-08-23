@@ -1,0 +1,92 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "brush",
+				"type": "Text"
+			},
+			"has_rooms": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"time_title": {
+				"__TYPE__": "FieldContent",
+				"value": "film",
+				"type": "Text"
+			},
+			"events_title": {
+				"__TYPE__": "FieldContent",
+				"value": "further",
+				"type": "Text"
+			},
+			"speakers_title": {
+				"__TYPE__": "FieldContent",
+				"value": "follow",
+				"type": "Text"
+			},
+			"room_title": {
+				"__TYPE__": "FieldContent",
+				"value": "eleven",
+				"type": "Text"
+			},
+			"agenda_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"time",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "glad",
+									"type": "Text"
+								}
+							],
+							[
+								"events",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Eu pariatur est et qui voluptate cupidatat ex excepteur eiusmod. Duis occaecat eiusmod est exercitation occaecat excepteur labore proident cupidatat dolor."
+											}
+										}
+									]
+								}
+							],
+							[
+								"speakers",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Tempor aliqua qui velit elit est incididunt ut eiusmod. Esse nulla veniam nisi laboris."
+											}
+										}
+									]
+								}
+							],
+							[
+								"room",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "wise",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

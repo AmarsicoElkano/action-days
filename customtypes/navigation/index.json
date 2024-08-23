@@ -1,0 +1,51 @@
+{
+  "format": "custom",
+  "id": "navigation",
+  "label": "Primary Navigation",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "main_button": {
+        "type": "Text",
+        "config": {
+          "label": "Learn the pact button text",
+          "placeholder": ""
+        }
+      },
+      "main_url": {
+        "type": "Link",
+        "config": {
+          "label": "Learn the pact url",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "links_menu": {
+        "type": "Group",
+        "config": {
+          "label": "Links menu",
+          "repeat": true,
+          "fields": {
+            "label_menu": {
+              "type": "Text",
+              "config": {
+                "label": "Label Menu",
+                "placeholder": ""
+              }
+            },
+            "url_link": {
+              "type": "Link",
+              "config": {
+                "label": "URL link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

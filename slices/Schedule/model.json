@@ -1,0 +1,104 @@
+{
+  "id": "schedule",
+  "type": "SharedSlice",
+  "name": "Schedule",
+  "description": "Schedule",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "has_rooms": {
+          "type": "Boolean",
+          "config": {
+            "label": "Has rooms",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "time_title": {
+          "type": "Text",
+          "config": {
+            "label": "Time title",
+            "placeholder": ""
+          }
+        },
+        "events_title": {
+          "type": "Text",
+          "config": {
+            "label": "Events title",
+            "placeholder": ""
+          }
+        },
+        "speakers_title": {
+          "type": "Text",
+          "config": {
+            "label": "Speakers Title",
+            "placeholder": ""
+          }
+        },
+        "room_title": {
+          "type": "Text",
+          "config": {
+            "label": "Room title",
+            "placeholder": ""
+          }
+        },
+        "agenda_items": {
+          "type": "Group",
+          "config": {
+            "label": "Agenda items",
+            "repeat": true,
+            "fields": {
+              "time": {
+                "type": "Text",
+                "config": {
+                  "label": "Time",
+                  "placeholder": ""
+                }
+              },
+              "events": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Events",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "speakers": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Speakers",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              },
+              "room": {
+                "type": "Text",
+                "config": {
+                  "label": "Room",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
