@@ -10,22 +10,30 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"title_faq",
+								"category_name",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "wrote",
+									"value": "other",
 									"type": "Text"
 								}
 							],
 							[
-								"description_faq",
+								"question_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "cage",
+									"type": "Text"
+								}
+							],
+							[
+								"question_response",
 								{
 									"__TYPE__": "StructuredTextContent",
 									"value": [
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Tempor pariatur occaecat do sunt duis elit proident nisi consectetur cillum aliquip."
+												"text": "Ad id eiusmod ea voluptate reprehenderit nisi quis pariatur reprehenderit fugiat eiusmod esse anim. Tempor sit commodo non excepteur incididunt in do duis velit cupidatat cupidatat. Aliqua Lorem pariatur id culpa sunt Lorem duis eiusmod nulla non."
 											}
 										}
 									]

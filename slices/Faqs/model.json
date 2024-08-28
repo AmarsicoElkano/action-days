@@ -18,17 +18,24 @@
             "label": "Faqs",
             "repeat": true,
             "fields": {
-              "title_faq": {
+              "category_name": {
                 "type": "Text",
                 "config": {
-                  "label": "Title Faq",
+                  "label": "Category name",
                   "placeholder": ""
                 }
               },
-              "description_faq": {
+              "question_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Question title",
+                  "placeholder": ""
+                }
+              },
+              "question_response": {
                 "type": "StructuredText",
                 "config": {
-                  "label": "Description Faq",
+                  "label": "Question response",
                   "placeholder": "",
                   "allowTargetBlank": true,
                   "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"

@@ -1174,24 +1174,34 @@ export type EmbeddedVideoSlice = prismic.SharedSlice<
  */
 export interface FaqsSliceDefaultPrimaryFaqsItem {
   /**
-   * Title Faq field in *Faqs → Default → Primary → Faqs*
+   * Category name field in *Faqs → Default → Primary → Faqs*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: faqs.default.primary.faqs[].title_faq
+   * - **API ID Path**: faqs.default.primary.faqs[].category_name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title_faq: prismic.KeyTextField;
+  category_name: prismic.KeyTextField;
 
   /**
-   * Description Faq field in *Faqs → Default → Primary → Faqs*
+   * Question title field in *Faqs → Default → Primary → Faqs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.default.primary.faqs[].question_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question_title: prismic.KeyTextField;
+
+  /**
+   * Question response field in *Faqs → Default → Primary → Faqs*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: faqs.default.primary.faqs[].description_faq
+   * - **API ID Path**: faqs.default.primary.faqs[].question_response
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  description_faq: prismic.RichTextField;
+  question_response: prismic.RichTextField;
 }
 
 /**
