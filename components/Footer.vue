@@ -1,5 +1,6 @@
 <script setup>
 import Logo from "./Logo.vue";
+import LogoPrimary from "./LogoPrimary.vue";
 
 
 const { client } = usePrismic();
@@ -13,7 +14,7 @@ const { data: footer } = await useAsyncData("footer", () =>
   <footer class="w-full bg-white text-primary text-sm">
     <div class="py-100 px-[16px] md:px-[60px]">
       <div class="flex items-center justify-between">
-        <Logo />
+        <LogoPrimary />
         <div>
           <ul v-for="item in footer.data.links" class="flex flex-row justify-end mt-20">
             <li>
