@@ -6,19 +6,34 @@
   "status": true,
   "json": {
     "Main": {
-      "main_button": {
+      "pact_title": {
         "type": "Text",
         "config": {
-          "label": "Learn the pact button text",
+          "label": "Pact Title",
           "placeholder": ""
         }
       },
-      "main_url": {
+      "pact_link": {
         "type": "Link",
         "config": {
-          "label": "Learn the pact url",
+          "label": "Pact Link",
           "placeholder": "",
           "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "sof_title": {
+        "type": "Text",
+        "config": {
+          "label": "SOF title",
+          "placeholder": ""
+        }
+      },
+      "sof_link": {
+        "type": "Link",
+        "config": {
+          "label": "SOF link",
+          "placeholder": "",
           "select": null
         }
       },

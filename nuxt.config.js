@@ -62,6 +62,7 @@ export default defineNuxtConfig({
 				"/",
 				"/event/youthlead",
 				"/event/digital-futures",
+				"/event/peace",
 				"/event/saturday-side-events",
 			];
 			const { createClient } = await import("@prismicio/client");

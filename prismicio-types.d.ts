@@ -321,26 +321,48 @@ export interface NavigationDocumentDataLinksMenuItem {
  */
 interface NavigationDocumentData {
   /**
-   * Learn the pact button text field in *Primary Navigation*
+   * Pact Title field in *Primary Navigation*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.main_button
+   * - **API ID Path**: navigation.pact_title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  main_button: prismic.KeyTextField;
+  pact_title: prismic.KeyTextField;
 
   /**
-   * Learn the pact url field in *Primary Navigation*
+   * Pact Link field in *Primary Navigation*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.main_url
+   * - **API ID Path**: navigation.pact_link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  main_url: prismic.LinkField;
+  pact_link: prismic.LinkField;
+
+  /**
+   * SOF title field in *Primary Navigation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.sof_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sof_title: prismic.KeyTextField;
+
+  /**
+   * SOF link field in *Primary Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.sof_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  sof_link: prismic.LinkField;
 
   /**
    * Links menu field in *Primary Navigation*
