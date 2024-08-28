@@ -1,0 +1,48 @@
+{
+  "format": "custom",
+  "id": "metadata",
+  "label": "Metadata",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "metadata",
+          "placeholder": ""
+        }
+      },
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "label": "Favicon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "share_image": {
+        "type": "Image",
+        "config": {
+          "label": "Share Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

@@ -292,6 +292,71 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 /**
+ * Content for Metadata documents
+ */
+interface MetadataDocumentData {
+  /**
+   * Favicon field in *Metadata*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: metadata.favicon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  favicon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Metadata*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: metadata.meta_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Metadata*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: metadata.meta_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Share Image field in *Metadata*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: metadata.share_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  share_image: prismic.ImageField<never>;
+}
+
+/**
+ * Metadata document from Prismic
+ *
+ * - **API ID**: `metadata`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MetadataDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<MetadataDocumentData>,
+    "metadata",
+    Lang
+  >;
+
+/**
  * Item in *Primary Navigation → Links menu*
  */
 export interface NavigationDocumentDataLinksMenuItem {
@@ -869,6 +934,7 @@ export type SecondaryNavigationEventsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
+  | MetadataDocument
   | NavigationDocument
   | PageDocument
   | RegistrationPageDocument
@@ -1991,6 +2057,8 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      MetadataDocument,
+      MetadataDocumentData,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksMenuItem,

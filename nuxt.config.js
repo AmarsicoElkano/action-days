@@ -62,15 +62,7 @@ export default defineNuxtConfig({
 				"/",
 				"/event/youthlead",
 				"/event/digital-futures",
-				"/event/peace",
-				"/event/sust-dev",
-				"/event/friday-closing",
-				"/event/saturday-closing",
-				"/event/friday-side-events",
 				"/event/saturday-side-events",
-				"/event/saturday-opening",
-				"/event/friday-opening",
-				"/event/dialogue-with-sg",
 			];
 			const { createClient } = await import("@prismicio/client");
 			const client = createClient("https://action-datys.cdn.prismic.io/api/v2");
