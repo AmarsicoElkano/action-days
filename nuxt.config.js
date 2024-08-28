@@ -65,6 +65,7 @@ export default defineNuxtConfig({
 			}
 			let routes = [
 				"/",
+				"/register",
 				"/event/youthlead",
 				"/event/digital-futures",
 				"/event/peace",
