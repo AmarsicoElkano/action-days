@@ -549,7 +549,9 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type RegistrationPageDocumentDataSlicesSlice = FaqsSlice;
+type RegistrationPageDocumentDataSlicesSlice =
+  | DontMissAnythingSlice
+  | FaqsSlice;
 
 /**
  * Content for Registration Page documents
@@ -1103,6 +1105,91 @@ type AnnouncementsSliceVariation = AnnouncementsSliceDefault;
 export type AnnouncementsSlice = prismic.SharedSlice<
   "announcements",
   AnnouncementsSliceVariation
+>;
+
+/**
+ * Primary content in *DontMissAnything → Default → Primary*
+ */
+export interface DontMissAnythingSliceDefaultPrimary {
+  /**
+   * Title field in *DontMissAnything → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dont_miss_anything.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *DontMissAnything → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dont_miss_anything.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Registration link field in *DontMissAnything → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dont_miss_anything.default.primary.registration_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  registration_link: prismic.LinkField;
+
+  /**
+   * Symbol top right field in *DontMissAnything → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dont_miss_anything.default.primary.symbol_top_right
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  symbol_top_right: prismic.ImageField<never>;
+
+  /**
+   * Symbol bottom left field in *DontMissAnything → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dont_miss_anything.default.primary.symbol_bottom_left
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  symbol_bottom_left: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for DontMissAnything Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DontMissAnythingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DontMissAnythingSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *DontMissAnything*
+ */
+type DontMissAnythingSliceVariation = DontMissAnythingSliceDefault;
+
+/**
+ * DontMissAnything Shared Slice
+ *
+ * - **API ID**: `dont_miss_anything`
+ * - **Description**: DontMissAnything
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DontMissAnythingSlice = prismic.SharedSlice<
+  "dont_miss_anything",
+  DontMissAnythingSliceVariation
 >;
 
 /**
@@ -1930,6 +2017,10 @@ declare module "@prismicio/client" {
       AnnouncementsSliceDefaultPrimary,
       AnnouncementsSliceVariation,
       AnnouncementsSliceDefault,
+      DontMissAnythingSlice,
+      DontMissAnythingSliceDefaultPrimary,
+      DontMissAnythingSliceVariation,
+      DontMissAnythingSliceDefault,
       DownloadsSlice,
       DownloadsSliceDefaultPrimaryDocumentsItem,
       DownloadsSliceDefaultPrimary,

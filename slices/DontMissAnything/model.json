@@ -1,0 +1,59 @@
+{
+  "id": "dont_miss_anything",
+  "type": "SharedSlice",
+  "name": "DontMissAnything",
+  "description": "DontMissAnything",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "registration_link": {
+          "type": "Link",
+          "config": {
+            "label": "Registration link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "symbol_top_right": {
+          "type": "Image",
+          "config": {
+            "label": "Symbol top right",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "symbol_bottom_left": {
+          "type": "Image",
+          "config": {
+            "label": "Symbol bottom left",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

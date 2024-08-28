@@ -8,6 +8,9 @@ export const components = defineSliceZoneComponents({
   announcements: defineAsyncComponent(
     () => import("./Announcements/index.vue"),
   ),
+  dont_miss_anything: defineAsyncComponent(
+    () => import("./DontMissAnything/index.vue"),
+  ),
   downloads: defineAsyncComponent(() => import("./Downloads/index.vue")),
   embedded_video: defineAsyncComponent(
     () => import("./EmbeddedVideo/index.vue"),

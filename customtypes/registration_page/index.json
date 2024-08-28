@@ -79,7 +79,7 @@
           "label": "Title App",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,strong"
+          "multi": "paragraph,strong,heading1,heading2,heading3,heading4,heading5,heading6"
         }
       },
       "description_app": {
@@ -112,6 +112,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "dont_miss_anything": {
+              "type": "SharedSlice"
+            },
             "faqs": {
               "type": "SharedSlice"
             }

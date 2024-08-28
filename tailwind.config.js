@@ -12,6 +12,7 @@ export default {
 			primary: "var(--primary-color)",
 			secondary: "var(--secondary-color)",
 			third: "var(--third-color)",
+			light: "var(--light-primary)",
 			white: "#ffffff",
 		},
 		fontFamily: {
@@ -28,6 +29,7 @@ export default {
 		},
 		fontSize: {
 			base: ["20px"],
+			base_mb: ["22px", { fontWeight: 100 }],
 			detail: [
 				"24px",
 				{
@@ -68,6 +70,12 @@ export default {
 			],
 			titleSection_mb: [
 				"40px",
+				{
+					lineHeight: 1,
+				},
+			],
+			title_base: [
+				"48px",
 				{
 					lineHeight: 1,
 				},
