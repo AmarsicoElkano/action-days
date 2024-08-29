@@ -6,7 +6,6 @@ const route = useRoute();
 //GET ALL EVENTS
 
 const slug = route.params.uid;
-console.log("slug", slug);
 
 const { data: page } = useAsyncData(`[slug]`, () =>
   client.getByUID("page", slug)
@@ -21,18 +20,26 @@ export default {
   data() {
     return {
       sections: [],
+      context: null,
     };
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    this.scroll();
+    this.context = gsap.context(() => {
+      this.scroll();
+    });
+
+  },
+  beforeDestroy() {
+    if (this.context) this.context.revert();
   },
   methods: {
     setRef(el) {
       if (el) this.sections.push(el);
     },
     scroll() {
+
       this.sections.forEach((el) => {
         const titles = gsap.utils.toArray("[data-title-event-hero]", el);
         const subtitles = gsap.utils.toArray("[data-subtitle]", el);
@@ -42,14 +49,14 @@ export default {
         if (titles) {
           titles.forEach((title, index) => {
             const duration = parseInt(title.dataset.duration) || 1.25;
-            const scrub = false || title.dataset.scrub;
+            // const scrub = false || title.dataset.scrub;
 
             const split = new SplitText(title, {
               type: "lines, words",
               linesClass: "overflow-hidden",
             });
 
-            gsap.fromTo(split.words, duration,
+            gsap.fromTo(split.words,
               {
                 yPercent: 150,
                 opacity: 0
@@ -59,15 +66,8 @@ export default {
                 yPercent: 0,
                 opacity: 1,
                 stagger: 0.075,
-                scrollTrigger: {
-                  trigger: el,
-                  scrub: scrub,
-                  start: "top 30%",
-                  markers: false,
-                },
-                onComplete: () => {
-                  split.revert();
-                },
+                delay: 0.3,
+                duration: duration
               });
           });
         }
@@ -75,31 +75,23 @@ export default {
         if (subtitles) {
           subtitles.forEach((title, index) => {
             const duration = parseInt(title.dataset.duration) || 1.25;
-            const scrub = false || title.dataset.scrub;
+            // const scrub = false || title.dataset.scrub;
 
             const split = new SplitText(title, {
               type: "lines, words",
               linesClass: "overflow-hidden",
             });
 
-            gsap.fromTo(split.words, duration,
+            gsap.fromTo(split.words,
               {
                 opacity: 0
               },
               {
                 ease: "expo.out",
                 opacity: 1,
-                delay: 0.5,
                 stagger: 0.075,
-                scrollTrigger: {
-                  trigger: el,
-                  scrub: scrub,
-                  start: "top 30%",
-                  markers: false,
-                },
-                onComplete: () => {
-                  split.revert();
-                },
+                delay: 0.4,
+                duration: duration
               });
           });
         }
@@ -163,17 +155,16 @@ export default {
         class="absolute top-0 z-0 w-full h-full object-cover" />
       <div class="absolute left-[16px] md:left-[0] bottom-[32px] md:bottom-0 md:relative text-secondary md:pt-[150px]">
         <p data-subtitle class="md:pl-[170px] text-detail">
-          {{ page?.data.label_event }}
+          {{ page.data?.label_event }}
         </p>
         <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase md:pl-[120px]">
-          {{ page?.data.title_one }}
+          {{ page.data?.title_one }}
         </h1>
         <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[60px] md:pl-[210px]">
-          {{ page?.data.title_two }}
+          {{ page.data?.title_two }}
         </h1>
-        <h1 v-if="page?.data.title_three" data-title-event-hero
-          class="text-headline_small_mb md:text-headline uppercase pl-[30px] md:pl-[170px]">
-          {{ page?.data.title_three }}
+        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[30px] md:pl-[170px]">
+          {{ page.data?.title_three }}
         </h1>
       </div>
     </section>

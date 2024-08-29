@@ -12,7 +12,8 @@ export default {
   data() {
     return {
       activeIndex: null,
-      sections: []
+      sections: [],
+      buttonLink: this.slice.primary.button_link
     };
   },
   mounted() {

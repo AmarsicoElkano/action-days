@@ -184,16 +184,16 @@ export default {
             </svg>
           </div>
         </div>
-        <SwiperSlide v-for="(item, idx) in slice.primary.speakers" :key="idx" ref="items"
+        <SwiperSlide v-for="(item, idx) in slice.primary?.speakers" :key="idx" ref="items"
           class="w-[25%] mt-[100px] max-w-[297px]" data-item>
           <div class="flex flex-col">
             <PrismicImage :field="item.image" class="pb-20" />
             <div>
               <p class="font-bold pb-[5px]">
-                {{ item.speaker_name }}
+                {{ item?.speaker_name }}
               </p>
               <p class="text-sm">
-                {{ item.description }}
+                {{ item?.description }}
               </p>
             </div>
           </div>
