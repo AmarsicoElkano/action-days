@@ -16,6 +16,7 @@ const { data: page } = useAsyncData(`[slug]`, () =>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
+
 export default {
   data() {
     return {
@@ -29,7 +30,6 @@ export default {
     this.context = gsap.context(() => {
       this.scroll();
     });
-
   },
   beforeDestroy() {
     if (this.context) this.context.revert();
@@ -39,7 +39,6 @@ export default {
       if (el) this.sections.push(el);
     },
     scroll() {
-
       this.sections.forEach((el) => {
         const titles = gsap.utils.toArray("[data-title-event-hero]", el);
         const subtitles = gsap.utils.toArray("[data-subtitle]", el);
@@ -56,10 +55,11 @@ export default {
               linesClass: "overflow-hidden",
             });
 
-            gsap.fromTo(split.words,
+            gsap.fromTo(
+              split.words,
               {
                 yPercent: 150,
-                opacity: 0
+                opacity: 0,
               },
               {
                 ease: "expo.out",
@@ -67,8 +67,9 @@ export default {
                 opacity: 1,
                 stagger: 0.075,
                 delay: 0.3,
-                duration: duration
-              });
+                duration: duration,
+              }
+            );
           });
         }
 
@@ -82,27 +83,30 @@ export default {
               linesClass: "overflow-hidden",
             });
 
-            gsap.fromTo(split.words,
+            gsap.fromTo(
+              split.words,
               {
-                opacity: 0
+                opacity: 0,
               },
               {
                 ease: "expo.out",
                 opacity: 1,
                 stagger: 0.075,
                 delay: 0.4,
-                duration: duration
-              });
+                duration: duration,
+              }
+            );
           });
         }
 
         if (texts) {
           texts.forEach((text, index) => {
             const scrub = false || text.dataset.scrub;
-            gsap.fromTo(text,
+            gsap.fromTo(
+              text,
               {
                 opacity: 0,
-                yPercent: 150
+                yPercent: 150,
               },
               {
                 opacity: 1,
@@ -114,16 +118,17 @@ export default {
                   markers: false,
                 },
               }
-            )
-          })
+            );
+          });
         }
 
         if (images) {
           images.forEach((image, index) => {
-            gsap.fromTo(image,
+            gsap.fromTo(
+              image,
               {
                 opacity: 0,
-                yPercent: 150
+                yPercent: 150,
               },
               {
                 opacity: 1,
@@ -136,34 +141,69 @@ export default {
                   markers: false,
                 },
               }
-            )
-          })
+            );
+          });
         }
-
-      })
-    }
+      });
+    },
+    formatTitle(title) {
+      return title.replace(
+        /#/g,
+        '<span class="text-[#fff] font-bold">#</span>'
+      );
+    },
   },
 };
 </script>
 
-
 <template>
   <div>
     <!-- hero -->
-    <section :ref="setRef" class="relative w-screen h-screen" data-nav="light" data-section="overview">
-      <PrismicImage v-if="page?.data.hero_image" :field="page?.data.hero_image"
-        class="absolute top-0 z-0 w-full h-full object-cover" />
-      <div class="absolute left-[16px] md:left-[0] bottom-[32px] md:bottom-0 md:relative text-secondary md:pt-[150px]">
+    <section
+      :ref="setRef"
+      class="relative w-screen h-screen"
+      data-nav="light"
+      data-section="overview"
+    >
+      <div class="absolute inset-0">
+        <PrismicImage
+          v-if="page?.data.hero_image"
+          :field="page?.data.hero_image"
+          class="absolute inset-0 top-0 z-0 w-full h-full object-cover z-1"
+        />
+        <div class="absolute inset-0 bg-[#000] bg-opacity-[0.1] z-2"></div>
+      </div>
+      <div
+        class="absolute left-[16px] md:left-[0] bottom-[32px] md:bottom-0 md:relative text-secondary md:pt-[150px] z-5"
+      >
         <p data-subtitle class="md:pl-[170px] text-detail">
           {{ page.data?.label_event }}
         </p>
-        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase md:pl-[120px]">
-          {{ page.data?.title_one }}
-        </h1>
-        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[60px] md:pl-[210px]">
+        <div
+          data-title-event-hero
+          class="relative text-white text-[38px] leading-none uppercase pl-[60px] md:pl-[210px] pt-20"
+        >
+          <template v-if="page?.data?.title_one?.includes('#')">
+            <span
+              class="font-bold"
+              v-html="formatTitle(page?.data?.title_one)"
+            ></span>
+          </template>
+
+          <template v-else>
+            {{ page.data?.title_one }}
+          </template>
+        </div>
+        <h1
+          data-title-event-hero
+          class="text-headline_small_mb md:text-headline uppercase pl-[60px] md:pl-[210px]"
+        >
           {{ page.data?.title_two }}
         </h1>
-        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[30px] md:pl-[170px]">
+        <h1
+          data-title-event-hero
+          class="text-headline_small_mb md:text-headline uppercase pl-[30px] md:pl-[170px]"
+        >
           {{ page.data?.title_three }}
         </h1>
       </div>
@@ -173,61 +213,75 @@ export default {
     <SecondaryNavigationEvents />
 
     <!-- info -->
-    <section id="overview" :ref="setRef" data-nav="light" data-section="overview"
-      class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary">
-      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px]">
+    <section
+      id="overview"
+      :ref="setRef"
+      data-nav="light"
+      data-section="overview"
+      class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px]"
+      >
         <div class="md:w-[30%] flex flex-col gap-[40px]">
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">
-              Convenor
-            </p>
+            <p class="uppercase font-bold mb-[14px]">Convenor</p>
             <p class="text-sm uppercase">
               {{ page?.data.agency }}
             </p>
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">
-              Focal Point
-            </p>
-            <PrismicRichText class="text-sm uppercase" :field="page?.data.focal_point" />
+            <p class="uppercase font-bold mb-[14px]">Focal Point</p>
+            <PrismicRichText
+              class="text-sm uppercase"
+              :field="page?.data.focal_point"
+            />
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">
-              Where
-            </p>
+            <p class="uppercase font-bold mb-[14px]">Where</p>
             <p class="text-sm uppercase">
               {{ page?.data.location }}
             </p>
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">
-              When
-            </p>
+            <p class="uppercase font-bold mb-[14px]">When</p>
             <p class="text-sm uppercase">
               {{ page?.data.date }}
             </p>
           </div>
         </div>
-        <div class="md:w-[70%] max-w-[750px]">
-          <p class="pt-80">
-            <PrismicRichText data-text :field="page?.data.overview_primary_text" />
-          </p>
-        </div>
-      </div>
-      <div>
-        <div class="md:ml-[50%] md:max-w-[545px] md:w-[50%]" data-text>
-          <PrismicRichText :field="page?.data.overview_secondary_text" class="pb-[54px]" />
-          <NuxtLink :to="'/register'">
-            <button
-              class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30">
-              Register to the event
-            </button>
-          </NuxtLink>
 
+        <div class="md:w-[70%] max-w-[750px]">
+          <p class="pt-80 pb-40">
+            <PrismicRichText
+              data-text
+              :field="page?.data.overview_primary_text"
+            />
+          </p>
+
+          <div class="relative">
+            <div class="relative" data-text>
+              <PrismicRichText
+                :field="page?.data.overview_secondary_text"
+                class="pb-[54px]"
+              />
+              <NuxtLink :to="'/register'">
+                <button
+                  class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30"
+                >
+                  Register to the event
+                </button>
+              </NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <SliceZone wrapper="main" :slices="page?.data.slices ?? []" :components="components" />
+    <SliceZone
+      wrapper="main"
+      :slices="page?.data.slices ?? []"
+      :components="components"
+    />
   </div>
 </template>

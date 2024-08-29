@@ -18,14 +18,14 @@ export default {
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    this.scroll()
+    this.scroll();
   },
   methods: {
     toggleFAQ(idx) {
       if (this.activeIndex === idx) {
-        this.activeIndex = null
+        this.activeIndex = null;
       } else {
-        this.activeIndex = idx
+        this.activeIndex = idx;
       }
     },
     setRef(el) {
@@ -46,10 +46,12 @@ export default {
               linesClass: "overflow-hidden",
             });
 
-            gsap.fromTo(split.words, duration,
+            gsap.fromTo(
+              split.words,
+              duration,
               {
                 yPercent: 150,
-                opacity: 0
+                opacity: 0,
               },
               {
                 ease: "expo.out",
@@ -65,12 +67,15 @@ export default {
                 onComplete: () => {
                   split.revert();
                 },
-              });
+              }
+            );
           });
         }
 
         if (items) {
-          gsap.fromTo(items, 1.25,
+          gsap.fromTo(
+            items,
+            1.25,
             {
               opacity: 0,
               yPercent: 100,
@@ -86,20 +91,28 @@ export default {
                 scrub: false,
                 start: "top 30%",
                 markers: false,
-              }
-            });
+              },
+            }
+          );
         }
-
-      })
-    }
+      });
+    },
   },
 };
 </script>
 
 <template>
-  <section id="agenda" :ref="setRef" class="py-[160px] bg-secondary text-primary px-[16px] md:px-[60px]" data-nav="dark"
-    data-section="agenda">
-    <h2 data-title class="uppercase text-titleSection_mb md:text-titleSection mb-[20px]">
+  <section
+    id="agenda"
+    :ref="setRef"
+    class="py-[160px] bg-secondary text-primary px-[16px] md:px-[60px]"
+    data-nav="dark"
+    data-section="agenda"
+  >
+    <h2
+      data-title
+      class="uppercase text-titleSection_mb md:text-titleSection mb-[20px]"
+    >
       {{ slice.primary.title }}
     </h2>
 
@@ -116,17 +129,25 @@ export default {
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
               {{ slice.primary.speakers_title }}
             </th>
-            <th v-if="slice.primary.has_rooms" data-item class="min-w-[170px] py-[40px] pl-[20px]">
+            <th
+              v-if="slice.primary.has_rooms"
+              data-item
+              class="min-w-[170px] py-[40px] pl-[20px]"
+            >
               {{ slice.primary.room_title }}
             </th>
           </tr>
         </thead>
         <tbody class="border">
-          <tr v-for="(item, idx) in slice.primary.agenda_items" :key="idx" data-item>
+          <tr
+            v-for="(item, idx) in slice.primary.agenda_items"
+            :key="idx"
+            data-item
+          >
             <td class="p-[20px]">
               <p>{{ item.time }}</p>
             </td>
-            <td class="p-[20px]">
+            <td class="p-[20px] md:w-[40%]">
               <PrismicRichText :field="item.events" />
             </td>
             <td class="p-[20px]">
