@@ -179,7 +179,7 @@ export default {
         <div class="md:w-[30%] flex flex-col gap-[40px]">
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">
-              Agency
+              Convenor
             </p>
             <p class="text-sm uppercase">
               {{ page?.data.agency }}
