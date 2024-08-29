@@ -1506,6 +1506,17 @@ export interface FaqsSliceDefaultPrimaryFaqsItem {
  */
 export interface FaqsSliceDefaultPrimary {
   /**
+   * Display title field in *Faqs → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: faqs.default.primary.display_title
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  display_title: prismic.BooleanField;
+
+  /**
    * Faqs field in *Faqs → Default → Primary*
    *
    * - **Field Type**: Group

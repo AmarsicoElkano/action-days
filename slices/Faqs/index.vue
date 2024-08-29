@@ -141,13 +141,15 @@ export default {
 <template>
   <section id="faqs" :ref="setRef" class="bg-primary w-full min-h-screen py-[100px] px-[16px] md:px-[60px]"
     data-section="faqs" data-nav="light">
-    <h1 data-title class="text-titleSection_mb md:text-titleSection text-secondary text-uppercase">
+    <h1 v-if="slice.primary.display_title" data-title
+      class="text-titleSection_mb md:text-titleSection text-secondary text-uppercase">
       FAQs
     </h1>
-    <div class="max-w-[1300px] flex flex-col md:flex-row justify-around m-[auto] pt-80 gap-80">
+    <div class="max-w-[1300px] flex flex-col md:flex-row justify-around m-[auto] pt-80 gap-80"
+      :class="{ 'pt-0': !slice.primary.display_title }">
       <div class="md:w-1/4 text-secondary relative mb-3">
         <div v-for="(item, categoryIdx) in uniqueCategories" :key="categoryIdx" class="py-[20px] flex flex-row">
-          <button :class="{
+          <button v-if="uniqueCategories.length > 1" :class="{
             'border-white border-[1px] font-bold w-full p-10 rounded-[30px]': activeCategoryIndex === categoryIdx,
             'border-white border-[1px] w-full p-10 rounded-[30px]': activeCategoryIndex !== categoryIdx
           }" class="flex flex-row  cursor-pointer" @click="toggleCategory(categoryIdx)">
