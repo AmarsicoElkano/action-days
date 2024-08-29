@@ -86,7 +86,7 @@ export default {
         <h2 data-title class="w-full uppercase text-titleSection_mb md:text-titleSection">
           {{ slice.primary.title }}
         </h2>
-        <h2 data-title class="w-full uppercase text-titleSection_mb md:text-titleSection md:ml-[180px]">
+        <h2 data-title class="w-full uppercase text-titleSection_mb md:text-titleSection md:ml-[180px] z-40">
           {{ slice.primary.title_2 }}
         </h2>
       </div>

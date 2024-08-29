@@ -19,20 +19,27 @@ export default {
     };
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger, SplitText,);
-
-    this.scroll()
-    if (this.categories !== "" || this.categories !== undefined) {
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+    this.scroll();
+    if (this.categories) {
       this.filterCategories(this.categories);
+
+      if (this.uniqueCategories.length > 0) {
+        this.activeCategoryIndex = 0;
+        if (this.uniqueCategories[0].questions.length > 0) {
+          this.activeQuestionIndex = 0;
+        }
+      }
     }
   },
   methods: {
     toggleCategory(categoryIdx) {
       if (this.activeCategoryIndex === categoryIdx) {
         this.activeCategoryIndex = null;
+        this.activeQuestionIndex = null;
       } else {
         this.activeCategoryIndex = categoryIdx;
-        this.activeQuestionIndex = null;
+        this.activeQuestionIndex = 0;
       }
     },
 
@@ -44,9 +51,10 @@ export default {
         this.activeQuestionIndex = questionIdx;
       }
     },
+
     filterCategories(categories) {
       categories.forEach(({ category_name, question_title, question_response }) => {
-        const category = this.uniqueCategories.find(category => category.category_name === category_name);
+        const category = this.uniqueCategories.find(cat => cat.category_name === category_name);
 
         if (category) {
           category.questions.push({ title: question_title, response: question_response });
@@ -61,9 +69,11 @@ export default {
       console.log("unique categories", this.uniqueCategories);
       return this.uniqueCategories;
     },
+
     setRef(el) {
       if (el) this.sections.push(el);
     },
+
     scroll() {
       this.sections.forEach((el) => {
         const titles = gsap.utils.toArray("[data-title]", el);
@@ -122,81 +132,49 @@ export default {
               }
             });
         }
-
-      })
+      });
     }
-  },
+  }
 };
 </script>
 
 <template>
-  <!-- <section id="faqs" :ref="setRef" class="bg-primary w-full min-h-screen w-full py-[140px] px-[16px] md:px-[60px]"
-    data-section="faqs" data-nav="light">
-    <div class="max-w-[1300px] flex flex-col md:flex-row justify-between m-[auto]">
-      <h1 data-title
-        class="md:max-w-[435px] w-1/3 text-titleSection_mb md:text-titleSection text-secondary text-uppercase">
-        FAQs
-      </h1>
-      <div class="md:w-2/3">
-        <div v-for=" (item, idx) in slice.primary.faqs" :key="idx" data-item>
-          <div class="relative mb-3 py-[40px] border-b border-solid border-secondary">
-            <div class="mb-0">
-              <span class="pr-80"> {{ item.category_name }}</span>
-              <div
-                class="relative flex justify-between items-center py-8 uppercase text-left transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
-                @click="toggleFAQ(idx)">
-                <span class="pr-80"> {{ item.question_title }}</span>
-                <img ref="minusSign-{idx}" src="/public/img/minus.svg" class="minusSign absolute right-0 ml-80 "
-                  :class="{ 'hidden': activeIndex !== idx, 'block': activeIndex === idx }">
-                <img ref="plusSign" src="/public/img/plus.svg" class="plusSign absolute right-0 ml-80"
-                  :class="{ 'block': activeIndex !== idx, 'hidden': activeIndex === idx }">
-              </div>
-            </div>
-            <div class="text-secondary transition-all duration-300 ease-in-out overflow-hidden"
-              :class="{ 'max-h-0': activeIndex !== idx, 'max-h-96': activeIndex === idx }">
-              <div class="p-4 text-sm leading-normal text-blue-gray-500">
-                <PrismicRichText class="faqResponse" :field="item.question_response" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
   <section id="faqs" :ref="setRef" class="bg-primary w-full min-h-screen py-[100px] px-[16px] md:px-[60px]"
     data-section="faqs" data-nav="light">
     <h1 data-title class="text-titleSection_mb md:text-titleSection text-secondary text-uppercase">
       FAQs
     </h1>
-    <div class="max-w-[1300px] flex flex-col  md:flex-row justify-around m-[auto] pt-80  gap-80">
-      <div class="md:w-1/4 text-secondary relative mb-3 py-20">
-        <div v-for="(item, categoryIdx) in uniqueCategories" :key="categoryIdx"
-          class="border-b  border-opacity-30  border-solid border-secondary py-[20px]">
-          <div class="flex flex-row justify-between cursor-pointer" @click="toggleCategory(categoryIdx)">
-            <span class="uppercase text-highlight font-bold">{{ item.category_name }}</span>
-            <span class="uppercase text-base font-bold"> ({{ item.questions.length }})</span>
-          </div>
-          <div v-if="activeCategoryIndex === categoryIdx">
-            <div v-for="(question, questionIdx) in item.questions" :key="questionIdx" data-item>
-              <div
-                class="py-15 text-base transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
-                @click="toggleFAQ(categoryIdx, questionIdx)">
-                {{ question.title.split(" ").splice(0, 6).join(" ") }}
-              </div>
-            </div>
-          </div>
+    <div class="max-w-[1300px] flex flex-col md:flex-row justify-around m-[auto] pt-80 gap-80">
+      <div class="md:w-1/4 text-secondary relative mb-3">
+        <div v-for="(item, categoryIdx) in uniqueCategories" :key="categoryIdx" class="py-[20px] flex flex-row">
+          <button :class="{
+            'border-white border-[1px] font-bold w-full p-10 rounded-[30px]': activeCategoryIndex === categoryIdx,
+            'border-white border-[1px] w-full p-10 rounded-[30px]': activeCategoryIndex !== categoryIdx
+          }" class="flex flex-row  cursor-pointer" @click="toggleCategory(categoryIdx)">
+            <span class="uppercase text-highlight w-full">{{ item.category_name }}</span>
+          </button>
         </div>
       </div>
       <div class="md:w-2/3 relative">
         <div v-for="(category, categoryIdx) in uniqueCategories" :key="categoryIdx">
-          <div v-for="(question, questionIdx) in category.questions" :key="questionIdx" class="absolute mb-3 py-[30px]"
-            v-show="activeCategoryIndex === categoryIdx && activeQuestionIndex === questionIdx">
-            <div class="text-secondary transition-all duration-300 ease-in-out">
-              <div class="py-8 text-left">
-                <div class="flex flex-col">
-                  <span class="uppercase font-bold">{{ category.category_name }}</span>
-                  <span class="py-20 uppercase font-bold text-highlight">{{ question.title }}</span>
-                  <div class="py-10 text-sm leading-normal text-blue-gray-500">
+          <div v-show="activeCategoryIndex === categoryIdx">
+            <span class="uppercase p-10 text-secondary text-base">{{ category.category_name }}</span>
+            <div v-for="(question, questionIdx) in category.questions" :key="questionIdx" class="mb-3 py-[10px]">
+              <div
+                class="text-secondary transition-all duration-300 ease-in-out border-b border-white pb-20 border-opacity-30 border-secondary">
+                <div
+                  class="relative flex justify-between items-center py-8 uppercase text-left transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
+                  @click="toggleFAQ(categoryIdx, questionIdx)">
+                  <span class="pr-80 font-bold p-10 text-highlight">{{ question.title }}</span>
+                  <img ref="minusSign-{questionIdx}" src="/public/img/minus.svg"
+                    class="minusSign absolute right-0 ml-80"
+                    :class="{ 'hidden': activeQuestionIndex !== questionIdx, 'block': activeQuestionIndex === questionIdx }">
+                  <img ref="plusSign" src="/public/img/plus.svg" class="plusSign absolute right-0 ml-80"
+                    :class="{ 'block': activeQuestionIndex !== questionIdx, 'hidden': activeQuestionIndex === questionIdx }">
+                </div>
+                <div class="text-secondary transition-all duration-300 ease-in-out overflow-hidden"
+                  :class="{ 'max-h-0': activeQuestionIndex !== questionIdx, 'max-h-auto pb-10': activeQuestionIndex === questionIdx }">
+                  <div class="p-10 pt-8 text-sm leading-normal text-blue-gray-500">
                     <PrismicRichText class="faqResponse" :field="question.response" />
                   </div>
                 </div>
@@ -208,3 +186,27 @@ export default {
     </div>
   </section>
 </template>
+
+<style>
+.gradient-border {
+  width: 100%;
+  border: 4px solid transparent;
+  border-radius: 30px;
+  background: linear-gradient(rgba(251, 176, 77, 1) 2%,
+      rgba(0, 158, 219, 1) 88%);
+  background-clip: border-box;
+  background-color: transparent;
+}
+
+.gradient-border button {
+  background-color: var(--primary-color);
+  border: none;
+  width: 100%;
+  padding: 2rem 2rem;
+  border-radius: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+</style>
