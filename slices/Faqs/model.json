@@ -12,6 +12,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "display_title": {
+          "type": "Boolean",
+          "config": {
+            "label": "Display title",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
         "faqs": {
           "type": "Group",
           "config": {

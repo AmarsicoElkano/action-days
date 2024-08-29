@@ -191,6 +191,7 @@ const downloadsSlice = getSliceByType(home, 'downloads');
     <h1 class="w-1/3 text-center text-titleSection text-secondary text-uppercase">
       FAQs
     </h1>
+
     <div v-for=" (data, index) in faqsSlice" :key="index">
       <div v-for=" (item, idx) in data.primary.faqs" :key="idx">
         <div class="relative mb-3 w-[650px] py-[40px] border-b border-solid border-secondary">
@@ -290,6 +291,7 @@ import 'swiper/css/pagination'
 
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
+import { data } from 'autoprefixer';
 
 export default {
   components: {
