@@ -15,7 +15,7 @@ export default {
     };
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger, SplitText,);
+    gsap.registerPlugin(ScrollTrigger, SplitText);
 
     this.scroll()
   },

@@ -29,7 +29,7 @@ export default {
     };
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger, SplitText,);
+    gsap.registerPlugin(ScrollTrigger, SplitText);
     this.init();
     this.scroll();
   },
@@ -47,7 +47,7 @@ export default {
     },
     scroll() {
       this.sections.forEach((el) => {
-        const titles = gsap.utils.toArray("[data-title]", el);
+        const titles = gsap.utils.toArray("[data-title-hero]", el);
 
         if (titles) {
           titles.forEach((title, index) => {
@@ -63,11 +63,11 @@ export default {
                 ease: "expo.out",
                 yPercent: 0,
                 opacity: 1,
-                stagger: 0.2,
+                stagger: 0.3,
                 scrollTrigger: {
                   trigger: el,
-                  scrub: scrub,
-                  start: "top 30%",
+                  // scrub: scrub,
+                  start: "top 0%",
                   markers: false,
                 },
               });
@@ -83,14 +83,13 @@ export default {
   <section :ref="setRef" class="bg-primary px-40 py-[200px] text-white" data-section="overview" data-nav="light">
     <div>
       <div class="md:w-[961px] m-[auto] relative md:top-[50px] z-10 mb-[40px] md:mb-[0px]">
-        <h2 data-title class="w-full uppercase text-titleSection_mb md:text-titleSection">
+        <h2 data-title-hero class="w-full uppercase text-titleSection_mb md:text-titleSection">
           {{ slice.primary.title }}
         </h2>
-        <h2 data-title class="w-full uppercase text-titleSection_mb md:text-titleSection md:ml-[180px] z-40">
+        <h2 data-title-hero class="w-full uppercase text-titleSection_mb md:text-titleSection md:ml-[180px] z-40">
           {{ slice.primary.title_2 }}
         </h2>
       </div>
-
 
       <Swiper :slides-per-view="1" :space-between="0" :loop="true" :navigation="{
         prevEl: '.custom-prev',
