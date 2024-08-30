@@ -46,7 +46,6 @@ export default defineNuxtConfig({
 					uid: "home",
 					path: "/",
 				},
-
 				{
 					type: "page",
 					uid: "action-days",
@@ -71,7 +70,7 @@ export default defineNuxtConfig({
 			}
 			let routes = [
 				"/",
-				"/register",
+				"/action-days/register",
 				"/action-days/event/youthlead",
 				"/action-days/event/digital-futures",
 				"/action-days/event/peace",
