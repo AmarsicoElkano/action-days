@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { components } from '~/slices';
 const prismic = usePrismic();
 
-import { components } from '~/slices';
+
+
 
 //GET Registration page
 const { data: register } = useAsyncData("[registration_page]", () =>
