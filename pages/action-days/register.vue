@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { components } from '~/slices';
 const prismic = usePrismic();
 
-
-
+import { components } from '~/slices';
 
 //GET Registration page
 const { data: register } = useAsyncData("[registration_page]", () =>
@@ -56,7 +54,7 @@ useHead({
           <PrismicRichText :field="register?.data.description_hero" />
 
           <button
-            class="font-bold w-full min-w-[360px] xs:w-full sm:w-[360px] md:w-[360px] lg:w-[360px] min-h-[68px] text-sm border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-25 mt-120 xs:mt-80 sm:mt-30 md:mt-30 lg:mt-30">
+            class="font-bold w-full min-w-[360px] xs:w-full sm:w-[360px] md:w-[330px] lg:w-[330px] min-h-[68px] text-sm border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-25 mt-120 xs:mt-80 sm:mt-30 md:mt-30 lg:mt-30">
             <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration"
               class="tracking-wider">
               Go to the registration site

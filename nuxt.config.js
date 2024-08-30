@@ -46,15 +46,16 @@ export default defineNuxtConfig({
 					uid: "home",
 					path: "/",
 				},
-				{
-					type: "page",
-					uid: "register",
-					path: "/register",
-				},
+
 				{
 					type: "page",
 					uid: "action-days",
 					path: "/action-days",
+				},
+				{
+					type: "page",
+					uid: "register",
+					path: "/action-days/register",
 				},
 				{
 					type: "page",
