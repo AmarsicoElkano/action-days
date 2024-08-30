@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 				},
 				{
 					type: "page",
-					path: "/event/:uid/",
+					path: "/action-days/event/:uid/",
 				},
 			],
 		},
