@@ -20,13 +20,14 @@ defineProps(
     <PrismicImage class="absolute bottom-[-240px] left-0 max-w-[750px] z-0" :field="slice.primary.symbol_bottom_left" />
 
 
-    <h1 class="uppercase text-headline_mb pt-140 pl-80 max-w-[500px] z-20 relative" v-if="slice.primary.title">
+    <h1 class="uppercase text-headline_mb pt-[220px] sm:pt-120 pl-80 max-w-[500px] lg:max-w-[700px] z-20 relative"
+      v-if="slice.primary.title">
       <span class="pl-60">{{ slice.primary.title.split(' ')[0] }}</span>
       {{ slice.primary.title.substring(slice.primary.title.indexOf(' ')) }}
     </h1>
 
-    <div class="flex flex-col items-end justify-center gap-60 pt-120 z-20">
-      <div class="w-[390px] xs:max-w-[390px] sm:max-w-[600px] h-full gap-20 mr-0 sm:mr-120 md:mr-120 lg:mr-120 z-20">
+    <div class="flex flex-col items-end justify-center gap-60 pt-140 sm:pt-180 z-20 md:pt-100 lg:w-[700px]">
+      <div class="w-[390px] xs:max-w-[390px] sm:max-w-[600px] h-full gap-20 pr-80 sm:mr-120 md:mr-120 lg:mr-120 z-20">
         <PrismicRichText class="z-20 leading-20 xs:leading-20 sm:leading-20 md:leading-20 lg:leading-20"
           :field="slice.primary.description" />
         <button
