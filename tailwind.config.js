@@ -24,6 +24,7 @@ export default {
       xs: "420px",
       sm: "768px",
       md: "1024px",
+      mdl: "1025px",
       lg: "1440px",
       xl: "1680px",
     },
@@ -44,8 +45,21 @@ export default {
           lineHeight: 1,
         },
       ],
+      landing_mb: [
+        "20px",
+        {
+          fontWeight: "400",
+          lineHeight: 1,
+        },
+      ],
       headline_landing: [
-        "8vw",
+        "9.8vw",
+        {
+          lineHeight: 1,
+        },
+      ],
+      headline_landing_mbl: [
+        "11.5vw",
         {
           lineHeight: 1,
         },

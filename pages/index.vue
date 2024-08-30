@@ -3,9 +3,8 @@ import { components } from "~/slices";
 const { client } = usePrismic();
 //METADATA
 const { data: metadata } = await useAsyncData("metadata", () =>
-	client.getSingle("metadata")
+  client.getSingle("metadata")
 );
-
 </script>
 
 <script>
@@ -21,7 +20,7 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
-    document.querySelector('footer').display = 'none'
+    document.querySelector("footer").display = "none";
     //this.scroll();
   },
   methods: {
@@ -159,288 +158,282 @@ export default {
 
 <template>
   <div>
-		<Html>
-			<Head>
-				<Title>{{ metadata?.data?.meta_title }}</Title>
-				<Meta name="description" :content="metadata?.data?.meta_description" />
-				<Meta property="og:title" :content="metadata?.data?.meta_title" />
-				<Meta
-					property="og:description"
-					:content="metadata?.data?.meta_description"
-				/>
-				<Meta
-					property="og:image"
-					:content="`${metadata?.data?.share_image.url}&w=1920`"
-				/>
-				<Meta property="og:type" content="website" />
-				<Meta property="twitter:card" content="summary_large_image" />
-				<Meta property="twitter:title" :content="metadata?.data?.meta_title" />
-				<Meta
-					property="twitter:description"
-					:content="metadata?.data?.meta_description"
-				/>
-				<Meta
-					property="twitter:image"
-					:content="`${metadata?.data?.share_image.url}&w=1920`"
-				/>
-				<Link rel="icon" type="image/png" :href="`${metadata?.data?.favicon.url}&w=64`" />
-			</Head>
-		</Html>
+    <Html>
+      <Head>
+        <Title>{{ metadata?.data?.meta_title }}</Title>
+        <Meta name="description" :content="metadata?.data?.meta_description" />
+        <Meta property="og:title" :content="metadata?.data?.meta_title" />
+        <Meta
+          property="og:description"
+          :content="metadata?.data?.meta_description"
+        />
+        <Meta
+          property="og:image"
+          :content="`${metadata?.data?.share_image.url}&w=1920`"
+        />
+        <Meta property="og:type" content="website" />
+        <Meta property="twitter:card" content="summary_large_image" />
+        <Meta property="twitter:title" :content="metadata?.data?.meta_title" />
+        <Meta
+          property="twitter:description"
+          :content="metadata?.data?.meta_description"
+        />
+        <Meta
+          property="twitter:image"
+          :content="`${metadata?.data?.share_image.url}&w=1920`"
+        />
+        <Link
+          rel="icon"
+          type="image/png"
+          :href="`${metadata?.data?.favicon.url}&w=64`"
+        />
+      </Head>
+    </Html>
     <article class="relative bg-primary">
       <section
         :ref="setRef"
-        class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] py-[127px] relative overflow-hidden"
+        class="bg-gradient-overlay min-h-screen pt-[150px] px-[16px] md:px-[60px] py-[127px] relative overflow-hidden"
         data-section="overview"
         data-nav="light"
       >
-        <svg
-          width="1932"
-          height="1664"
-          class="absolute right-0 top-0 z-[0] hidden md:block"
-          viewBox="0 0 1932 1664"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="relative w-full flex flex-col mdl:flex-row items-start justify-center mdl:justify-between"
         >
-          <path
-            d="M1854.31 700.278H1564.48C1385.91 700.278 1241.1 845.169 1241.1 1024"
-            stroke="url(#paint0_radial_2225_35)"
-            stroke-width="80"
-            stroke-miterlimit="10"
-          />
-          <path
-            d="M905 1033C905 763.923 1118.62 373 1558.08 373C1997.53 373 1715.14 373 1834.5 373"
-            stroke="url(#paint1_linear_2225_35)"
-            stroke-width="80"
-            stroke-miterlimit="10"
-          />
-          <g filter="url(#filter0_d_2225_35)">
-            <path
-              d="M1071 40C1071 242.623 1231.64 537 1562.1 537C1892.57 537 1739.24 537 1829 537"
-              stroke="url(#paint2_radial_2225_35)"
-              stroke-width="80"
-              stroke-miterlimit="10"
-              shape-rendering="crispEdges"
-            />
-          </g>
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M1195 40C1195 117.27 1225.26 209.501 1285.82 282.871C1347.26 357.317 1440.58 413 1564.74 413H1566.04H1567.33H1568.62H1569.9H1571.18H1572.45H1573.71H1574.97H1576.23H1577.47H1578.72H1579.96H1581.19H1582.42H1583.64H1584.86H1586.07H1587.27H1588.47H1589.67H1590.86H1592.05H1593.23H1594.4H1595.57H1596.74H1597.9H1599.05H1600.2H1601.35H1602.49H1603.62H1604.75H1605.88H1607H1608.11H1609.22H1610.32H1611.42H1612.52H1613.61H1614.69H1615.77H1616.85H1617.92H1618.99H1620.05H1621.1H1622.15H1623.2H1624.24H1625.28H1626.31H1627.34H1628.36H1629.38H1630.39H1631.4H1632.4H1633.4H1634.4H1635.39H1636.37H1637.35H1638.33H1639.3H1640.27H1641.23H1642.19H1643.14H1644.09H1645.04H1645.98H1646.91H1647.85H1648.77H1649.7H1650.61H1651.53H1652.44H1653.34H1654.24H1655.14H1656.03H1656.92H1657.8H1658.68H1659.56H1660.43H1661.3H1662.16H1663.02H1663.87H1664.72H1665.57H1666.41H1667.25H1668.08H1668.91H1669.73H1670.55H1671.37H1672.18H1672.99H1673.8H1674.6H1675.4H1676.19H1676.98H1677.77H1678.55H1679.32H1680.1H1680.87H1681.63H1682.4H1683.15H1683.91H1684.66H1685.41H1686.15H1686.89H1687.62H1688.36H1689.08H1689.81H1690.53H1691.25H1691.96H1692.67H1693.37H1694.08H1694.78H1695.47H1696.16H1696.85H1697.54H1698.22H1698.89H1699.57H1700.24H1700.91H1701.57H1702.23H1702.89H1703.54H1704.19H1704.83H1705.48H1706.12H1706.75H1707.39H1708.02H1708.64H1709.27H1709.89H1710.5H1711.12H1711.73H1712.33H1712.94H1713.54H1714.13H1714.73H1715.32H1715.91H1716.49H1717.07H1717.65H1718.23H1718.8H1719.37H1719.93H1720.5H1721.06H1721.61H1722.17H1722.72H1723.27H1723.81H1724.36H1724.9H1725.43H1725.97H1726.5H1727.02H1727.55H1728.07H1728.59H1729.11H1729.62H1730.13H1730.64H1731.15H1731.65H1732.15H1732.65H1733.14H1733.63H1734.12H1734.61H1735.09H1735.58H1736.06H1736.53H1737.01H1737.48H1737.95H1738.41H1738.88H1739.34H1739.79H1740.25H1740.7H1741.16H1741.61H1742.05H1742.5H1742.94H1743.38H1743.81H1744.25H1744.68H1745.11H1745.54H1745.96H1746.39H1746.81H1747.23H1747.64H1748.06H1748.47H1748.88H1749.29H1749.69H1750.09H1750.5H1750.89H1751.29H1751.69H1752.08H1752.47H1752.86H1753.24H1753.63H1754.01H1754.39H1754.77H1755.15H1755.52H1755.89H1756.27H1756.63H1757H1757.37H1757.73H1758.09H1758.45H1758.81H1759.16H1759.52H1759.87H1760.22H1760.57H1760.92H1761.26H1761.61H1761.95H1762.29H1762.63H1762.96H1763.3H1763.63H1763.97H1764.3H1764.63H1764.95H1765.28H1765.6H1765.93H1766.25H1766.57H1766.89H1767.2H1767.52H1767.83H1768.14H1768.46H1768.76H1769.07H1769.38H1769.69H1769.99H1770.29H1770.59H1770.9H1771.19H1771.49H1771.79H1772.08H1772.38H1772.67H1772.96H1773.25H1773.54H1773.83H1774.12H1774.4H1774.69H1774.97H1775.25H1775.54H1775.82H1776.1H1776.37H1776.65H1776.93H1777.2H1777.48H1777.75H1778.02H1778.29H1778.57H1778.84H1779.1H1779.37H1779.64H1779.91H1780.17H1780.44H1780.7H1780.96H1781.23H1781.49H1781.75H1782.01H1782.27H1782.53H1782.78H1783.04H1783.3H1783.55H1783.81H1784.06H1784.32H1784.57H1784.82H1785.08H1785.33H1785.58H1785.83H1786.08H1786.33H1786.58H1786.83H1787.08H1787.33H1787.57H1787.82H1788.07H1788.31H1788.56H1788.81H1789.05H1789.3H1789.54H1789.79H1790.03H1790.27H1790.52H1790.76H1791H1791.25H1791.49H1791.73H1791.97H1792.22H1792.46H1792.7H1792.94H1793.18H1793.43H1793.67H1793.91H1794.15H1794.39H1794.64H1794.88H1795.12H1795.36H1795.6H1795.84H1796.09H1796.33H1796.57H1796.81H1797.05H1797.3H1797.54H1797.78H1798.02H1798.27H1798.51H1798.76H1799H1799.24H1799.49H1799.73H1799.98H1800.22H1800.47H1800.71H1800.96H1801.21H1801.45H1801.7H1801.95H1802.2H1802.45H1802.7H1802.95H1803.2H1803.45H1803.7H1803.95H1804.2H1804.46H1804.71H1804.96H1805.22H1805.47H1805.73H1805.99H1806.24H1806.5H1806.76H1807.02H1807.28H1807.54H1807.8H1808.06H1808.33H1808.59H1808.86H1809.12H1809.39H1809.65H1809.92H1810.19H1810.46H1810.73H1811H1811.27H1811.55H1811.82H1812.1H1812.37H1812.65H1812.93H1813.21H1813.49H1813.77H1814.05H1814.34H1814.62H1814.91H1815.19H1815.48H1815.77H1816.06H1816.35H1816.65H1816.94H1817.24H1817.53H1817.83H1818.13H1818.43H1818.73H1819.03H1819.34H1819.64H1819.95H1820.26H1820.57H1820.88H1821.19H1821.5H1821.82H1822.14H1822.45H1822.77H1822.89V454.324L1932 373.446L1822.89 292.567V333H1822.77H1822.45H1822.14H1821.82H1821.5H1821.19H1820.88H1820.57H1820.26H1819.95H1819.64H1819.34H1819.03H1818.73H1818.43H1818.13H1817.83H1817.53H1817.24H1816.94H1816.65H1816.35H1816.06H1815.77H1815.48H1815.19H1814.91H1814.62H1814.34H1814.05H1813.77H1813.49H1813.21H1812.93H1812.65H1812.37H1812.1H1811.82H1811.55H1811.27H1811H1810.73H1810.46H1810.19H1809.92H1809.65H1809.39H1809.12H1808.86H1808.59H1808.33H1808.06H1807.8H1807.54H1807.28H1807.02H1806.76H1806.5H1806.24H1805.99H1805.73H1805.47H1805.22H1804.96H1804.71H1804.46H1804.2H1803.95H1803.7H1803.45H1803.2H1802.95H1802.7H1802.45H1802.2H1801.95H1801.7H1801.45H1801.21H1800.96H1800.71H1800.47H1800.22H1799.98H1799.73H1799.49H1799.24H1799H1798.76H1798.51H1798.27H1798.02H1797.78H1797.54H1797.3H1797.05H1796.81H1796.57H1796.33H1796.09H1795.84H1795.6H1795.36H1795.12H1794.88H1794.64H1794.39H1794.15H1793.91H1793.67H1793.43H1793.18H1792.94H1792.7H1792.46H1792.22H1791.97H1791.73H1791.49H1791.25H1791H1790.76H1790.52H1790.27H1790.03H1789.79H1789.54H1789.3H1789.05H1788.81H1788.56H1788.31H1788.07H1787.82H1787.57H1787.33H1787.08H1786.83H1786.58H1786.33H1786.08H1785.83H1785.58H1785.33H1785.08H1784.82H1784.57H1784.32H1784.06H1783.81H1783.55H1783.3H1783.04H1782.78H1782.53H1782.27H1782.01H1781.75H1781.49H1781.23H1780.96H1780.7H1780.44H1780.17H1779.91H1779.64H1779.37H1779.1H1778.84H1778.57H1778.29H1778.02H1777.75H1777.48H1777.2H1776.93H1776.65H1776.37H1776.1H1775.82H1775.54H1775.25H1774.97H1774.69H1774.4H1774.12H1773.83H1773.54H1773.25H1772.96H1772.67H1772.38H1772.08H1771.79H1771.49H1771.19H1770.9H1770.59H1770.29H1769.99H1769.69H1769.38H1769.07H1768.76H1768.46H1768.14H1767.83H1767.52H1767.2H1766.89H1766.57H1766.25H1765.93H1765.6H1765.28H1764.95H1764.63H1764.3H1763.97H1763.63H1763.3H1762.96H1762.63H1762.29H1761.95H1761.61H1761.26H1760.92H1760.57H1760.22H1759.87H1759.52H1759.16H1758.81H1758.45H1758.09H1757.73H1757.37H1757H1756.63H1756.27H1755.89H1755.52H1755.15H1754.77H1754.39H1754.01H1753.63H1753.24H1752.86H1752.47H1752.08H1751.69H1751.29H1750.89H1750.5H1750.09H1749.69H1749.29H1748.88H1748.47H1748.06H1747.64H1747.23H1746.81H1746.39H1745.96H1745.54H1745.11H1744.68H1744.25H1743.81H1743.38H1742.94H1742.5H1742.05H1741.61H1741.16H1740.7H1740.25H1739.79H1739.34H1738.88H1738.41H1737.95H1737.48H1737.01H1736.53H1736.06H1735.58H1735.09H1734.61H1734.12H1733.63H1733.14H1732.65H1732.15H1731.65H1731.15H1730.64H1730.13H1729.62H1729.11H1728.59H1728.07H1727.55H1727.02H1726.5H1725.97H1725.43H1724.9H1724.36H1723.81H1723.27H1722.72H1722.17H1721.61H1721.06H1720.5H1719.93H1719.37H1718.8H1718.23H1717.65H1717.07H1716.49H1715.91H1715.32H1714.73H1714.13H1713.54H1712.94H1712.33H1711.73H1711.12H1710.5H1709.89H1709.27H1708.64H1708.02H1707.39H1706.75H1706.12H1705.48H1704.83H1704.19H1703.54H1702.89H1702.23H1701.57H1700.91H1700.24H1699.57H1698.89H1698.22H1697.54H1696.85H1696.16H1695.47H1694.78H1694.08H1693.37H1692.67H1691.96H1691.25H1690.53H1689.81H1689.08H1688.36H1687.62H1686.89H1686.15H1685.41H1684.66H1683.91H1683.15H1682.4H1681.63H1680.87H1680.1H1679.32H1678.55H1677.77H1676.98H1676.19H1675.4H1674.6H1673.8H1672.99H1672.18H1671.37H1670.55H1669.73H1668.91H1668.08H1667.25H1666.41H1665.57H1664.72H1663.87H1663.02H1662.16H1661.3H1660.43H1659.56H1658.68H1657.8H1656.92H1656.03H1655.14H1654.24H1653.34H1652.44H1651.53H1650.61H1649.7H1648.77H1647.85H1646.91H1645.98H1645.04H1644.09H1643.14H1642.19H1641.23H1640.27H1639.3H1638.33H1637.35H1636.37H1635.39H1634.4H1633.4H1632.4H1631.4H1630.39H1629.38H1628.36H1627.34H1626.31H1625.28H1624.24H1623.2H1622.15H1621.1H1620.05H1618.99H1617.92H1616.85H1615.77H1614.69H1613.61H1612.52H1611.42H1610.32H1609.22H1608.11H1607H1605.88H1604.75H1603.62H1602.49H1601.35H1600.2H1599.05H1597.9H1596.74H1595.57H1594.4H1593.23H1592.05H1590.86H1589.67H1588.47H1587.27H1586.07H1584.86H1583.64H1582.42H1581.19H1579.96H1578.72H1577.47H1576.23H1574.97H1573.71H1572.45H1571.18H1569.9H1568.62H1567.33H1566.04H1564.74C1467.03 333 1395.48 290.064 1347.52 231.95C1298.67 172.761 1275 98.4913 1275 40H1195Z"
-            fill="url(#paint3_linear_2225_35)"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M1822.89 577.326V617.757L1932 536.879L1822.89 456V497.326L1556.1 497.326C1377.61 497.326 1243.95 577.323 1155.75 684.413C1068.44 790.428 1025 923.648 1025 1034.33H1105C1105 942.381 1141.88 827.1 1217.51 735.271C1292.25 644.517 1404.13 577.326 1556.1 577.326L1822.89 577.326Z"
-            fill="url(#paint4_linear_2225_35)"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M1195 367C1195 444.27 1225.26 536.501 1285.82 609.871C1347.26 684.317 1440.58 740 1564.74 740H1566.04H1567.33H1568.62H1569.9H1571.18H1572.45H1573.71H1574.97H1576.23H1577.47H1578.72H1579.96H1581.19H1582.42H1583.64H1584.86H1586.07H1587.27H1588.47H1589.67H1590.86H1592.05H1593.23H1594.4H1595.57H1596.74H1597.9H1599.05H1600.2H1601.35H1602.49H1603.62H1604.75H1605.88H1607H1608.11H1609.22H1610.32H1611.42H1612.52H1613.61H1614.69H1615.77H1616.85H1617.92H1618.99H1620.05H1621.1H1622.15H1623.2H1624.24H1625.28H1626.31H1627.34H1628.36H1629.38H1630.39H1631.4H1632.4H1633.4H1634.4H1635.39H1636.37H1637.35H1638.33H1639.3H1640.27H1641.23H1642.19H1643.14H1644.09H1645.04H1645.98H1646.91H1647.85H1648.77H1649.7H1650.61H1651.53H1652.44H1653.34H1654.24H1655.14H1656.03H1656.92H1657.8H1658.68H1659.56H1660.43H1661.3H1662.16H1663.02H1663.87H1664.72H1665.57H1666.41H1667.25H1668.08H1668.91H1669.73H1670.55H1671.37H1672.18H1672.99H1673.8H1674.6H1675.4H1676.19H1676.98H1677.77H1678.55H1679.32H1680.1H1680.87H1681.63H1682.4H1683.15H1683.91H1684.66H1685.41H1686.15H1686.89H1687.62H1688.36H1689.08H1689.81H1690.53H1691.25H1691.96H1692.67H1693.37H1694.08H1694.78H1695.47H1696.16H1696.85H1697.54H1698.22H1698.89H1699.57H1700.24H1700.91H1701.57H1702.23H1702.89H1703.54H1704.19H1704.83H1705.48H1706.12H1706.75H1707.39H1708.02H1708.64H1709.27H1709.89H1710.5H1711.12H1711.73H1712.33H1712.94H1713.54H1714.13H1714.73H1715.32H1715.91H1716.49H1717.07H1717.65H1718.23H1718.8H1719.37H1719.93H1720.5H1721.06H1721.61H1722.17H1722.72H1723.27H1723.81H1724.36H1724.9H1725.43H1725.97H1726.5H1727.02H1727.55H1728.07H1728.59H1729.11H1729.62H1730.13H1730.64H1731.15H1731.65H1732.15H1732.65H1733.14H1733.63H1734.12H1734.61H1735.09H1735.58H1736.06H1736.53H1737.01H1737.48H1737.95H1738.41H1738.88H1739.34H1739.79H1740.25H1740.7H1741.16H1741.61H1742.05H1742.5H1742.94H1743.38H1743.81H1744.25H1744.68H1745.11H1745.54H1745.96H1746.39H1746.81H1747.23H1747.64H1748.06H1748.47H1748.88H1749.29H1749.69H1750.09H1750.5H1750.89H1751.29H1751.69H1752.08H1752.47H1752.86H1753.24H1753.63H1754.01H1754.39H1754.77H1755.15H1755.52H1755.89H1756.27H1756.63H1757H1757.37H1757.73H1758.09H1758.45H1758.81H1759.16H1759.52H1759.87H1760.22H1760.57H1760.92H1761.26H1761.61H1761.95H1762.29H1762.63H1762.96H1763.3H1763.63H1763.97H1764.3H1764.63H1764.95H1765.28H1765.6H1765.93H1766.25H1766.57H1766.89H1767.2H1767.52H1767.83H1768.14H1768.46H1768.76H1769.07H1769.38H1769.69H1769.99H1770.29H1770.59H1770.9H1771.19H1771.49H1771.79H1772.08H1772.38H1772.67H1772.96H1773.25H1773.54H1773.83H1774.12H1774.4H1774.69H1774.97H1775.25H1775.54H1775.82H1776.1H1776.37H1776.65H1776.93H1777.2H1777.48H1777.75H1778.02H1778.29H1778.57H1778.84H1779.1H1779.37H1779.64H1779.91H1780.17H1780.44H1780.7H1780.96H1781.23H1781.49H1781.75H1782.01H1782.27H1782.53H1782.78H1783.04H1783.3H1783.55H1783.81H1784.06H1784.32H1784.57H1784.82H1785.08H1785.33H1785.58H1785.83H1786.08H1786.33H1786.58H1786.83H1787.08H1787.33H1787.57H1787.82H1788.07H1788.31H1788.56H1788.81H1789.05H1789.3H1789.54H1789.79H1790.03H1790.27H1790.52H1790.76H1791H1791.25H1791.49H1791.73H1791.97H1792.22H1792.46H1792.7H1792.94H1793.18H1793.43H1793.67H1793.91H1794.15H1794.39H1794.64H1794.88H1795.12H1795.36H1795.6H1795.84H1796.09H1796.33H1796.57H1796.81H1797.05H1797.3H1797.54H1797.78H1798.02H1798.27H1798.51H1798.76H1799H1799.24H1799.49H1799.73H1799.98H1800.22H1800.47H1800.71H1800.96H1801.21H1801.45H1801.7H1801.95H1802.2H1802.45H1802.7H1802.95H1803.2H1803.45H1803.7H1803.95H1804.2H1804.46H1804.71H1804.96H1805.22H1805.47H1805.73H1805.99H1806.24H1806.5H1806.76H1807.02H1807.28H1807.54H1807.8H1808.06H1808.33H1808.59H1808.86H1809.12H1809.39H1809.65H1809.92H1810.19H1810.46H1810.73H1811H1811.27H1811.55H1811.82H1812.1H1812.37H1812.65H1812.93H1813.21H1813.49H1813.77H1814.05H1814.34H1814.62H1814.91H1815.19H1815.48H1815.77H1816.06H1816.35H1816.65H1816.94H1817.24H1817.53H1817.83H1818.13H1818.43H1818.73H1819.03H1819.34H1819.64H1819.95H1820.26H1820.57H1820.88H1821.19H1821.5H1821.82H1822.14H1822.45H1822.77H1822.89V781.324L1932 700.446L1822.89 619.567V660H1822.77H1822.45H1822.14H1821.82H1821.5H1821.19H1820.88H1820.57H1820.26H1819.95H1819.64H1819.34H1819.03H1818.73H1818.43H1818.13H1817.83H1817.53H1817.24H1816.94H1816.65H1816.35H1816.06H1815.77H1815.48H1815.19H1814.91H1814.62H1814.34H1814.05H1813.77H1813.49H1813.21H1812.93H1812.65H1812.37H1812.1H1811.82H1811.55H1811.27H1811H1810.73H1810.46H1810.19H1809.92H1809.65H1809.39H1809.12H1808.86H1808.59H1808.33H1808.06H1807.8H1807.54H1807.28H1807.02H1806.76H1806.5H1806.24H1805.99H1805.73H1805.47H1805.22H1804.96H1804.71H1804.46H1804.2H1803.95H1803.7H1803.45H1803.2H1802.95H1802.7H1802.45H1802.2H1801.95H1801.7H1801.45H1801.21H1800.96H1800.71H1800.47H1800.22H1799.98H1799.73H1799.49H1799.24H1799H1798.76H1798.51H1798.27H1798.02H1797.78H1797.54H1797.3H1797.05H1796.81H1796.57H1796.33H1796.09H1795.84H1795.6H1795.36H1795.12H1794.88H1794.64H1794.39H1794.15H1793.91H1793.67H1793.43H1793.18H1792.94H1792.7H1792.46H1792.22H1791.97H1791.73H1791.49H1791.25H1791H1790.76H1790.52H1790.27H1790.03H1789.79H1789.54H1789.3H1789.05H1788.81H1788.56H1788.31H1788.07H1787.82H1787.57H1787.33H1787.08H1786.83H1786.58H1786.33H1786.08H1785.83H1785.58H1785.33H1785.08H1784.82H1784.57H1784.32H1784.06H1783.81H1783.55H1783.3H1783.04H1782.78H1782.53H1782.27H1782.01H1781.75H1781.49H1781.23H1780.96H1780.7H1780.44H1780.17H1779.91H1779.64H1779.37H1779.1H1778.84H1778.57H1778.29H1778.02H1777.75H1777.48H1777.2H1776.93H1776.65H1776.37H1776.1H1775.82H1775.54H1775.25H1774.97H1774.69H1774.4H1774.12H1773.83H1773.54H1773.25H1772.96H1772.67H1772.38H1772.08H1771.79H1771.49H1771.19H1770.9H1770.59H1770.29H1769.99H1769.69H1769.38H1769.07H1768.76H1768.46H1768.14H1767.83H1767.52H1767.2H1766.89H1766.57H1766.25H1765.93H1765.6H1765.28H1764.95H1764.63H1764.3H1763.97H1763.63H1763.3H1762.96H1762.63H1762.29H1761.95H1761.61H1761.26H1760.92H1760.57H1760.22H1759.87H1759.52H1759.16H1758.81H1758.45H1758.09H1757.73H1757.37H1757H1756.63H1756.27H1755.89H1755.52H1755.15H1754.77H1754.39H1754.01H1753.63H1753.24H1752.86H1752.47H1752.08H1751.69H1751.29H1750.89H1750.5H1750.09H1749.69H1749.29H1748.88H1748.47H1748.06H1747.64H1747.23H1746.81H1746.39H1745.96H1745.54H1745.11H1744.68H1744.25H1743.81H1743.38H1742.94H1742.5H1742.05H1741.61H1741.16H1740.7H1740.25H1739.79H1739.34H1738.88H1738.41H1737.95H1737.48H1737.01H1736.53H1736.06H1735.58H1735.09H1734.61H1734.12H1733.63H1733.14H1732.65H1732.15H1731.65H1731.15H1730.64H1730.13H1729.62H1729.11H1728.59H1728.07H1727.55H1727.02H1726.5H1725.97H1725.43H1724.9H1724.36H1723.81H1723.27H1722.72H1722.17H1721.61H1721.06H1720.5H1719.93H1719.37H1718.8H1718.23H1717.65H1717.07H1716.49H1715.91H1715.32H1714.73H1714.13H1713.54H1712.94H1712.33H1711.73H1711.12H1710.5H1709.89H1709.27H1708.64H1708.02H1707.39H1706.75H1706.12H1705.48H1704.83H1704.19H1703.54H1702.89H1702.23H1701.57H1700.91H1700.24H1699.57H1698.89H1698.22H1697.54H1696.85H1696.16H1695.47H1694.78H1694.08H1693.37H1692.67H1691.96H1691.25H1690.53H1689.81H1689.08H1688.36H1687.62H1686.89H1686.15H1685.41H1684.66H1683.91H1683.15H1682.4H1681.63H1680.87H1680.1H1679.32H1678.55H1677.77H1676.98H1676.19H1675.4H1674.6H1673.8H1672.99H1672.18H1671.37H1670.55H1669.73H1668.91H1668.08H1667.25H1666.41H1665.57H1664.72H1663.87H1663.02H1662.16H1661.3H1660.43H1659.56H1658.68H1657.8H1656.92H1656.03H1655.14H1654.24H1653.34H1652.44H1651.53H1650.61H1649.7H1648.77H1647.85H1646.91H1645.98H1645.04H1644.09H1643.14H1642.19H1641.23H1640.27H1639.3H1638.33H1637.35H1636.37H1635.39H1634.4H1633.4H1632.4H1631.4H1630.39H1629.38H1628.36H1627.34H1626.31H1625.28H1624.24H1623.2H1622.15H1621.1H1620.05H1618.99H1617.92H1616.85H1615.77H1614.69H1613.61H1612.52H1611.42H1610.32H1609.22H1608.11H1607H1605.88H1604.75H1603.62H1602.49H1601.35H1600.2H1599.05H1597.9H1596.74H1595.57H1594.4H1593.23H1592.05H1590.86H1589.67H1588.47H1587.27H1586.07H1584.86H1583.64H1582.42H1581.19H1579.96H1578.72H1577.47H1576.23H1574.97H1573.71H1572.45H1571.18H1569.9H1568.62H1567.33H1566.04H1564.74C1467.03 660 1395.48 617.064 1347.52 558.95C1298.67 499.761 1275 425.491 1275 367H1195Z"
-            fill="url(#paint5_linear_2225_35)"
-          />
-          <path
-            d="M945 1033C945 1127.95 907.282 1219.01 840.144 1286.14C773.006 1353.28 681.948 1391 587 1391C492.053 1391 400.994 1353.28 333.856 1286.14C266.718 1219.01 229 1127.95 229 1033L308.938 1033C308.938 1106.75 338.233 1177.47 390.38 1229.62C442.527 1281.77 513.253 1311.06 587 1311.06C660.747 1311.06 731.473 1281.77 783.62 1229.62C835.767 1177.47 865.062 1106.75 865.062 1033H945Z"
-            fill="url(#paint6_linear_2225_35)"
-          />
-          <path
-            d="M1281 1024.06C1280.85 1193.93 1213.23 1356.79 1093 1476.8C972.782 1596.81 809.809 1664.15 639.938 1664C470.067 1663.85 307.212 1596.23 187.201 1476C67.1892 1355.78 -0.14885 1192.81 0.00024671 1022.94L80.2248 1023.01C80.0944 1171.6 138.998 1314.16 243.978 1419.33C348.958 1524.49 491.414 1583.64 640.008 1583.78C788.602 1583.91 931.162 1525 1036.33 1420.02C1141.49 1315.04 1200.64 1172.59 1200.78 1023.99L1281 1024.06Z"
-            fill="url(#paint7_linear_2225_35)"
-          />
-          <defs>
-            <filter
-              id="filter0_d_2225_35"
-              x="978"
-              y="0"
-              width="886"
-              height="625"
-              filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
-            >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
-              <feColorMatrix
-                in="SourceAlpha"
-                type="matrix"
-                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                result="hardAlpha"
-              />
-              <feOffset dx="-9" dy="4" />
-              <feGaussianBlur stdDeviation="22" />
-              <feComposite in2="hardAlpha" operator="out" />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.25098 0 0 0 0 0.517647 0 0 0 0 0.745098 0 0 0 0.1 0"
-              />
-              <feBlend
-                mode="normal"
-                in2="BackgroundImageFix"
-                result="effect1_dropShadow_2225_35"
-              />
-              <feBlend
-                mode="normal"
-                in="SourceGraphic"
-                in2="effect1_dropShadow_2225_35"
-                result="shape"
-              />
-            </filter>
-            <radialGradient
-              id="paint0_radial_2225_35"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(1766 732) rotate(166.749) scale(566.692 742.19)"
-            >
-              <stop offset="0.0655321" stop-color="#0B9CD9" />
-              <stop offset="0.51831" stop-color="#FBB04D" stop-opacity="0.39" />
-              <stop
-                offset="0.963494"
-                stop-color="#E6F3F8"
-                stop-opacity="0.25"
-              />
-            </radialGradient>
-            <linearGradient
-              id="paint1_linear_2225_35"
-              x1="1816.44"
-              y1="1064.68"
-              x2="852.23"
-              y2="740.009"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0.210928" stop-color="#0B9CD9" />
-              <stop
-                offset="0.592645"
-                stop-color="#FBB04D"
-                stop-opacity="0.54"
-              />
-              <stop
-                offset="0.742245"
-                stop-color="#E6F3F8"
-                stop-opacity="0.25"
-              />
-            </linearGradient>
-            <radialGradient
-              id="paint2_radial_2225_35"
-              cx="0"
-              cy="0"
-              r="1"
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(1829 550) rotate(-161.556) scale(825.277 1294.47)"
-            >
-              <stop offset="0.25179" stop-color="#FBB04D" />
-              <stop
-                offset="0.471311"
-                stop-color="#009EDB"
-                stop-opacity="0.87"
-              />
-              <stop
-                offset="0.779778"
-                stop-color="#009EDB"
-                stop-opacity="0.05"
-              />
-              <stop offset="0.916589" stop-color="#E6F3F8" stop-opacity="0" />
-            </radialGradient>
-            <linearGradient
-              id="paint3_linear_2225_35"
-              x1="1250"
-              y1="323"
-              x2="1847"
-              y2="340"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#009EDB" stop-opacity="0" />
-              <stop offset="1" stop-color="#0094D7" />
-            </linearGradient>
-            <linearGradient
-              id="paint4_linear_2225_35"
-              x1="1860"
-              y1="538.326"
-              x2="1135.67"
-              y2="570.123"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0.0213742" stop-color="#FBB04D" />
-              <stop
-                offset="0.512169"
-                stop-color="#0B9CD9"
-                stop-opacity="0.59"
-              />
-              <stop offset="0.922169" stop-color="#0B9CD9" stop-opacity="0" />
-            </linearGradient>
-            <linearGradient
-              id="paint5_linear_2225_35"
-              x1="1250"
-              y1="650"
-              x2="1847"
-              y2="667"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stop-color="#009EDB" stop-opacity="0" />
-              <stop offset="1" stop-color="#0094D7" />
-            </linearGradient>
-            <linearGradient
-              id="paint6_linear_2225_35"
-              x1="366.5"
-              y1="1319"
-              x2="882"
-              y2="965.5"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0.02" stop-color="#FBB04D" />
-              <stop offset="1" stop-color="#E6F3F8" stop-opacity="0.25" />
-            </linearGradient>
-            <linearGradient
-              id="paint7_linear_2225_35"
-              x1="329.5"
-              y1="1583"
-              x2="1281"
-              y2="1023"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0.02" stop-color="#FBB04D" />
-              <stop offset="1" stop-color="#E6F3F8" stop-opacity="0.25" />
-            </linearGradient>
-          </defs>
-        </svg>
+          <div class="text-secondary relative z-10">
+            <div
+              class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px]"
+            ></div>
+            <div>
+              <h1
+                class="uppercase text-headline_landing_mb sm:text-headline_landing_mbl mdl:text-headline_landing"
+                data-title
+              >
+                Summit of
+              </h1>
+              <h1
+                class="uppercase text-headline_landing_mb sm:text-headline_landing_mbl mdl:text-headline_landing md:ml-[56px]"
+                data-title
+              >
+                the future
+              </h1>
+            </div>
 
-        <div class="text-secondary relative z-10">
-          <div
-            class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px]"
-          >
-          </div>
-          <div>
-            <h1
-              class="uppercase text-headline_landing_mb md:text-headline_landing"
-              data-title
+            <div
+              class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px] max-w-[580px] mt-50"
             >
-            Summit of
-            </h1>
-            <h1 class="uppercase text-headline_landing_mb md:text-headline_landing md:ml-[56px]" data-title>
-              the future
-            </h1>
+              <p
+                class="text-landing_mb sm:text-detail_mb md:text-detail"
+                data-subtitle
+              >
+                Lorem ipsum dolor sit amet, consectetuer elit. Aenean massa. Cum
+                sociis natoque penatibus et magnis dis parturient montes,
+                nascetur ridiculus .
+              </p>
+            </div>
           </div>
+
           <div
-            class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px] max-w-[580px] mt-50"
+            class="relative pt-[10vw] sm:pt-[5vw] mdl:pt-0 w-full mdl:w-[auto] text-primary flex flex-col items-center mdl:items-start gap-[30px] mdl:gap-[24px]"
           >
-            <p class="text-detail_mb md:text-detail" data-subtitle>
-              Lorem ipsum dolor sit amet, consectetuer  elit. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus .
-            </p>
+            <article
+              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]"
+            >
+              <div class="relative">
+                <p>22-23 September 2024</p>
+              </div>
+
+              <div
+                class="relative w-full text-primary flex items-center justify-between"
+              >
+                <div
+                  class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]"
+                >
+                  <h3>A PACT FOR THE FUTURE</h3>
+                </div>
+                <div class="relative">
+                  <svg
+                    class="w-[53px] h-[53px] self-end mr-10 mb-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="42"
+                    viewBox="0 0 42 42"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_6_6)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
+                        fill="#1C4098"
+                      />
+                    </g>
+                    <rect
+                      x="1"
+                      y="1"
+                      width="40"
+                      height="40"
+                      rx="20"
+                      stroke="#1C4098"
+                      stroke-linejoin="bevel"
+                    />
+                    <defs>
+                      <clipPath id="clip0_6_6">
+                        <rect
+                          x="1"
+                          y="1"
+                          width="40"
+                          height="40"
+                          rx="20"
+                          fill="white"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]"
+            >
+              <div class="relative">
+                <p>22-23 September 2024</p>
+              </div>
+
+              <div
+                class="relative w-full text-primary flex items-center justify-between"
+              >
+                <div
+                  class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]"
+                >
+                  <h3>A PACT FOR THE FUTURE</h3>
+                </div>
+                <div class="relative">
+                  <svg
+                    class="w-[53px] h-[53px] self-end mr-10 mb-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="42"
+                    viewBox="0 0 42 42"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_6_6)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
+                        fill="#1C4098"
+                      />
+                    </g>
+                    <rect
+                      x="1"
+                      y="1"
+                      width="40"
+                      height="40"
+                      rx="20"
+                      stroke="#1C4098"
+                      stroke-linejoin="bevel"
+                    />
+                    <defs>
+                      <clipPath id="clip0_6_6">
+                        <rect
+                          x="1"
+                          y="1"
+                          width="40"
+                          height="40"
+                          rx="20"
+                          fill="white"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]"
+            >
+              <div class="relative">
+                <p>22-23 September 2024</p>
+              </div>
+
+              <div
+                class="relative w-full text-primary flex items-center justify-between"
+              >
+                <div
+                  class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]"
+                >
+                  <h3>A PACT FOR THE FUTURE</h3>
+                </div>
+                <div class="relative">
+                  <svg
+                    class="w-[53px] h-[53px] self-end mr-10 mb-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="42"
+                    height="42"
+                    viewBox="0 0 42 42"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_6_6)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
+                        fill="#1C4098"
+                      />
+                    </g>
+                    <rect
+                      x="1"
+                      y="1"
+                      width="40"
+                      height="40"
+                      rx="20"
+                      stroke="#1C4098"
+                      stroke-linejoin="bevel"
+                    />
+                    <defs>
+                      <clipPath id="clip0_6_6">
+                        <rect
+                          x="1"
+                          y="1"
+                          width="40"
+                          height="40"
+                          rx="20"
+                          fill="white"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-        
       </section>
-
-     
     </article>
   </div>
 </template>
-<style>
+<style scoped>
 .gradient-overlay {
   background: linear-gradient(
     to bottom,
     rgba(0, 73, 135, 0) 55%,
     rgba(0, 73, 135, 1) 100%
   );
+}
+
+.bg-gradient-overlay {
+  background: radial-gradient(
+    122.77% 108.31% at 107.57% 108.31%,
+    #fbb04d 2.14%,
+    rgba(0, 158, 219, 0.5) 59.87%,
+    rgba(0, 73, 135, 0.06) 99%
+  );
+}
+
+.cards-landing {
+  background: white;
+  box-shadow: -9px 4px 44px 0px #4084be1a;
 }
 </style>
