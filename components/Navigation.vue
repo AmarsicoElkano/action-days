@@ -101,41 +101,42 @@ export default {
 </script>
 <template>
   <div ref="nav"
-    class="w-screen h-screen fixed inset-0 bg-primary bg-radial-gradient flex items-center justify-center nav z-20 ">
+    class="w-screen h-screen overflow-y-hidden fixed top-0 inset-0 bg-primary bg-radial-gradient flex items-center justify-center nav z-20 ">
     <img class="absolute top-0 max-w-[900px] z-0" width="100%" height="auto" src="/public/img/menu-ellipse.svg" />
     <nav class="w-full pl-70 pr-40">
-      <LogoWhite class="absolute left-0 top-20 px-[16px] md:px-[60px]" />
+      <LogoWhite class="absolute left-0 top-[10px] px-[16px] md:px-[60px]" />
 
-      <ul class="flex flex-col items-start absolute top-[10%] md:top-[35%]">
+      <ul class="flex flex-col items-start absolute w-full top-[20%] sm:top-[20%] md:top-[30%] lg:top-[35%]">
         <li v-for="(item, index) in navigation.data.links_menu" :key="index"
           class="text-white font-display uppercase text-lg md:text-md overflow-hidden relative py-20 md:py-10 last:border-b-[1px] last:border-white last:border-opacity-20 last:pb-30"
           @click="toggle">
           <div ref="navItems">
             <PrismicLink
-              class="flex items-center border-t-[1px] border-white border-opacity-20 cursor-pointer sm:w-[320px] md:[650px] lg:w-[720px]"
+              class="flex items-center border-t-[1px] border-white border-opacity-20 cursor-pointer w-[350px] sm:w-[320px] md:[650px] lg:w-[720px]"
               :field="item.url_link">
               <span class="font-light mt-40 ">0{{ index + 1 }}</span> <span
-                class="text-titleSection_mb pl-20 pt-30 ">{{ slugToString(item.label_menu) }}</span>
+                class="text-highlight sm:text-titleSection_mb md:text-titleSection_mb pl-20 pt-30 ">{{ slugToString(item.label_menu) }}</span>
             </PrismicLink>
           </div>
         </li>
       </ul>
     </nav>
-    <div class="flex flex-col pr-70 z-20 absolute right-10 top-[50%] gap-10">
+    <div
+      class="flex flex-col pr-40 z-20 absolute right-10 top-[55%] sm:top-[30%] md:top-[50%] lg:top-[50%] gap-40 md:gap-10 lg:gap-10">
       <PrismicLink :field="navigation.data.pact_link" class="max-w-[360px]">
-        <div class="w-[360px] h-[140px] py-8 pl-30 pt-20 pr-6 bg-box-bg flex flex-col cursor-pointer">
-          <p class="text-secondary uppercase w-[110px] font-bold sm:leading-20 md:leading-10 z-30">
+        <div class="w-[360px] h-[140px] py-8 pl-20 pr-6 bg-box-bg flex flex-row cursor-pointer justify-between">
+          <p class="text-secondary uppercase w-[110px] pt-10 font-bold sm:leading-20 md:leading-10 z-30 ">
             {{ navigation.data.pact_title }}
           </p>
-          <img class="w-[53px] h-[53px] self-end mt-auto mr-10 mb-10" src="/public/img/arrow-right-menu.svg">
+          <img class="w-[53px] h-[53px] self-end mr-10 mb-5" src="/public/img/arrow-right-menu.svg">
         </div>
       </PrismicLink>
       <PrismicLink :field="navigation.data.sof_link">
-        <div class="w-[360px] h-[140px] py-8 pl-30 pt-20 pr-6 bg-box-bg max-w-[360px] flex flex-col cursor-pointer">
-          <p class="text-secondary uppercase w-[110px] font-bold sm:leading-20 md:leading-10 z-30">
+        <div class="w-[360px] h-[140px] py-8 pl-20 pr-6 bg-box-bg flex flex-row cursor-pointer justify-between">
+          <p class="text-secondary uppercase w-[110px] pt-10 font-bold sm:leading-20 md:leading-10 z-30 ">
             {{ navigation.data.sof_title }}
           </p>
-          <img class="w-[53px] h-[53px] self-end mt-auto mr-10 mb-10" src="/public/img/arrow-right-menu.svg">
+          <img class="w-[53px] h-[53px] self-end mr-10 mb-5" src="/public/img/arrow-right-menu.svg">
         </div>
       </PrismicLink>
     </div>

@@ -46,8 +46,8 @@ useHead({
         </p>
       </div>
 
-      <div class="flex flex-col items-end justify-center gap-60 pt-80 ">
-        <div class="max-w-[600px] w-full h-full gap-20">
+      <div class="flex flex-col items-end justify-center gap-60 pt-80">
+        <div class=" max-w-[600px] w-full h-full gap-20">
           <PrismicRichText :field="register?.data.description_hero" />
 
           <button
@@ -64,7 +64,8 @@ useHead({
   </section>
 
   <!-- app stores -->
-  <section class="bg-primary h-auto pb-80 pt-[50px] px-[16px] md:px-[60px] relative">
+  <section class="bg-primary h-auto pb-80 pt-[50px] px-[16px] md:px-[60px] relative"
+    v-if="register?.data.title_app.length">
     <div class="border-[1px] border-white border-opacity-25 px-60 py-60 flex flex-row gap-40">
       <PrismicImage v-if="register?.data.image_qr_app" :field="register?.data.image_qr_app" />
 
