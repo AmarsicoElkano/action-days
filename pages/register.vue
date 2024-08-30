@@ -23,25 +23,28 @@ useHead({
 <template>
 
   <!-- hero -->
-  <section class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] py-[127px] relative">
+  <section class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] relative">
     <img src="/public/img/ellipse.svg" class="absolute top-20 left-0 right-0 mx-auto" />
     <div class="text-secondary relative z-10">
       <div class="pl-60">
-        <p class="uppercase text-titleSection font-bold" data-title>
+        <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold"
+          data-title>
           {{ register?.data.title_line_1 }}
           <span class="text-base_mb uppercase pl-40" data-subtitle>
             {{ register?.data.date }}
           </span>
         </p>
 
-        <p class="uppercase text-titleSection font-bold flex flex-row py-15" data-title>
-          <span class="text-detail_mb md:text-detail uppercase md:w-[120px] mr-40" data-subtitle>
+        <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold flex flex-row py-15"
+          data-title>
+          <span class="text-base_mb md:text-detail uppercase md:w-[120px] mr-40" data-subtitle>
             {{ register?.data.location }}
           </span>
           {{ register?.data.title_line_2 }}
         </p>
 
-        <p class="uppercase text-titleSection font-black md:text-headline_sm md:ml-[41px]" data-title>
+        <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-black ml-[41px]"
+          data-title>
           {{ register?.data.title_line_3 }}
         </p>
       </div>
@@ -51,8 +54,9 @@ useHead({
           <PrismicRichText :field="register?.data.description_hero" />
 
           <button
-            class="font-bold min-w-[330px] text-sm border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-25 mt-30">
-            <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration">
+            class="font-bold w-full min-w-[360px] xs:w-full sm:w-[360px] md:w-[360px] lg:w-[360px] min-h-[68px] text-sm border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-25 mt-120 xs:mt-80 sm:mt-30 md:mt-30 lg:mt-30">
+            <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration"
+              class="tracking-wider">
               Go to the registration site
             </PrismicLink>
           </button>
@@ -79,13 +83,15 @@ useHead({
         <div class="flex flex-row gap-20 ml-80">
           <button
             class="font-bold text-base min-w-[180px] border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white pl-30 pr-30 py-20 mt-30">
-            <PrismicLink v-if="register?.data.link_apple_store" :field="register?.data.link_apple_store">app store
+            <PrismicLink v-if="register?.data.link_apple_store" :field="register?.data.link_apple_store"
+              class="tracking-wider">app store
             </PrismicLink>
           </button>
 
           <button
             class="font-bold text-base min-w-[180px] border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white pl-30 pr-30 py-20 mt-30">
-            <PrismicLink v-if="register?.data.link_play_store" :field="register?.data.link_apple_store">play store
+            <PrismicLink v-if="register?.data.link_play_store" :field="register?.data.link_apple_store"
+              class="tracking-wider">play store
             </PrismicLink>
           </button>
         </div>

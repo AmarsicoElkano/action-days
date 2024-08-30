@@ -14,7 +14,7 @@ defineProps(
 </script>
 
 <template>
-  <section class="bg-light w-full h-[800px] relative text-primary overflow-hidden">
+  <section class="bg-light w-full h-auto min-h-[900px] py-[80px] relative text-primary overflow-hidden">
 
     <PrismicImage class="absolute top-[-240px] right-0 max-w-[750px] z-0" :field="slice.primary.symbol_top_right" />
     <PrismicImage class="absolute bottom-[-240px] left-0 max-w-[750px] z-0" :field="slice.primary.symbol_bottom_left" />
@@ -26,11 +26,15 @@ defineProps(
     </h1>
 
     <div class="flex flex-col items-end justify-center gap-60 pt-120 z-20">
-      <div class="max-w-[600px] w-full h-full gap-20 mr-120 z-20">
-        <PrismicRichText class="z-20 leading-10" :field="slice.primary.description" />
+      <div class="w-[390px] xs:max-w-[390px] sm:max-w-[600px] h-full gap-20 mr-0 sm:mr-120 md:mr-120 lg:mr-120 z-20">
+        <PrismicRichText class="z-20 leading-20 xs:leading-20 sm:leading-20 md:leading-20 lg:leading-20"
+          :field="slice.primary.description" />
         <button
-          class="font-bold max-w-[330px] text-sm border-[1px] border-primary border-opacity-25 z-20 rounded-full uppercase text-primary text-sm pl-30 pr-30 py-20 mt-30">
-          <PrismicLink :field="slice.primary.registration_link"> Go to the registration site</PrismicLink>
+          class="font-bold text-primary w-full min-w-[360px] xs:w-full sm:w-[360px] md:w-[360px] lg:w-[360px] min-h-[68px] text-sm border-[1px] border-primary border-opacity-25 z-[100] rounded-full uppercase  text-sm pl-30 pr-30 py-25 mt-120 xs:mt-80 sm:mt-30 md:mt-30 lg:mt-30">
+          <PrismicLink v-if="slice.primary.registration_link" :field="slice.primary.registration_link"
+            class="tracking-wider">
+            Go to the registration site
+          </PrismicLink>
         </button>
       </div>
     </div>
