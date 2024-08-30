@@ -6,8 +6,8 @@ export default defineNuxtConfig({
 	css: ["~/assets/css/main.css"],
 	devtools: { enabled: false },
 	app: {
-		baseURL: "/action-days",
-		//process.env.NODE_ENV === 'production' ? '/WIP/action-days/' : undefined,
+		baseURL: "/action-days", //process.env.NODE_ENV === 'production' ? '/WIP/action-days/' : undefined,
+		baseURL: "/",
 		head: {
 			title: "UN SOTF Action Days",
 			htmlAttrs: {
