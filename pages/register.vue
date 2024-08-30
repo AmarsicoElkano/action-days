@@ -4,10 +4,6 @@ const prismic = usePrismic();
 
 
 
-//METADATA
-const { data: metadata } = useAsyncData("metadata", () =>
-  prismic.client.getSingle("metadata")
-);
 
 //GET Registration page
 const { data: register } = useAsyncData("[registration_page]", () =>
@@ -27,33 +23,6 @@ useHead({
 
 
 <template>
-  <Html>
-    <Head>
-      <Title>{{ metadata?.data?.meta_title }}</Title>
-      <Meta name="description" :content="metadata?.data?.meta_description" />
-      <Meta property="og:title" :content="metadata?.data?.meta_title" />
-      <Meta
-        property="og:description"
-        :content="metadata?.data?.meta_description"
-      />
-      <Meta
-        property="og:image"
-        :content="`${metadata?.data?.share_image.url}&w=1920`"
-      />
-      <Meta property="og:type" content="website" />
-      <Meta property="twitter:card" content="summary_large_image" />
-      <Meta property="twitter:title" :content="metadata?.data?.meta_title" />
-      <Meta
-        property="twitter:description"
-        :content="metadata?.data?.meta_description"
-      />
-      <Meta
-        property="twitter:image"
-        :content="`${metadata?.data?.share_image.url}&w=1920`"
-      />
-      <Link rel="icon" type="image/png" :href="`${metadata?.data?.favicon.url}&w=64`" />
-    </Head>
-  </Html>
 
   <!-- hero -->
   <section class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] relative">

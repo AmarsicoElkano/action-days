@@ -28,7 +28,7 @@ export default {
       xl: "1680px",
     },
     fontSize: {
-      base: ["20px"],
+      base: ["24px"],
       base_mb: ["22px", { fontWeight: 100 }],
       detail: [
         "24px",

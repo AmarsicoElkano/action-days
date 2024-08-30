@@ -98,7 +98,7 @@ export default {
                     :field="el?.link"
                     class="group flex flex-col justify-between h-full"
                   >
-                    <span class="block text-[15px]">
+                    <span class="block text-[18px]">
                       {{ el.subtitle }}
                     </span>
                     <div class="">
