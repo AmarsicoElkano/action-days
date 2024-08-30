@@ -44,6 +44,24 @@ export default {
           lineHeight: 1,
         },
       ],
+      headline_landing: [
+        "8vw",
+        {
+          lineHeight: 1,
+        },
+      ],
+      headline_landing_mb: [
+        "72px",
+        {
+          lineHeight: 1,
+        },
+      ],
+      headline_landing_small_mb: [
+        "56px",
+        {
+          lineHeight: 1,
+        },
+      ],
       headline: [
         "6vw",
         {

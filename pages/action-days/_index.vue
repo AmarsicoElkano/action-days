@@ -1,12 +1,23 @@
 <script setup>
+import { components } from "~/slices";
+const { client } = usePrismic();
+const route = useRoute();
 
+//GET ALL EVENTS
+const { data: events } = await useAsyncData("index", () =>
+  client.getAllByType("page")
+);
+// GET SINGLE HOME
+const { data: home } = await useAsyncData("index", () =>
+  client.getSingle("home")
+);
+console.log(events, home);
 </script>
 
 <script>
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
-
 export default {
   data() {
     return {
@@ -15,8 +26,8 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
-    document.querySelector('footer').display = 'none'
-    //this.scroll();
+
+    this.scroll();
   },
   methods: {
     setRef(el) {
@@ -155,13 +166,13 @@ export default {
   <div>
     <Html>
       <Head>
-        <Title>Title</Title>
+        <Title>{{ home?.data?.meta_title }}</Title>
       </Head>
     </Html>
     <article class="relative bg-primary">
       <section
         :ref="setRef"
-        class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] py-[127px] relative overflow-hidden"
+        class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] py-[127px] relative"
         data-section="overview"
         data-nav="light"
       >
@@ -380,33 +391,67 @@ export default {
           <div
             class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px]"
           >
+            <p class="text-detail_mb md:text-detail" data-subtitle>
+              {{ home?.data.date }}
+            </p>
+            <p class="text-detail_mb md:text-detail" data-subtitle>
+              {{ home?.data.location }}
+            </p>
           </div>
           <div>
             <h1
-              class="uppercase text-headline_landing_mb md:text-headline_landing"
+              class="uppercase text-headline_mb md:text-headline md:ml-[56px]"
               data-title
             >
-            Summit of
+              {{ home?.data.title_one }}
             </h1>
-            <h1 class="uppercase text-headline_landing_mb md:text-headline_landing md:ml-[56px]" data-title>
-              the future
+            <h1 class="uppercase text-headline_mb md:text-headline" data-title>
+              {{ home?.data.title_two }}
             </h1>
-          </div>
-          <div
-            class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px] max-w-[580px] mt-50"
-          >
-            <p class="text-detail_mb md:text-detail" data-subtitle>
-              Lorem ipsum dolor sit amet, consectetuer  elit. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus .
-            </p>
+            <h1
+              class="uppercase text-headline_mb md:text-headline md:ml-[61px]"
+              data-title
+            >
+              {{ home?.data.title_three }}
+            </h1>
           </div>
         </div>
-        
       </section>
 
-     
+      <!-- secondary navigation -->
+      <SecondaryNavigation />
+
+      <section
+        id="overview"
+        :ref="setRef"
+        class="text-white relative z-10"
+        data-section="overview"
+        data-nav="light"
+      >
+        <div
+          class="flex flex-col-reverse md:flex-row items-center pt-[100px] md:pt-[0px]"
+        >
+          <div class="md:w-1/2 pt-[80px] md:pt-[132px] relative">
+            <PrismicImage
+              class="w-full h-auto max-w-[617px] z-10"
+              :field="home?.data.main_image"
+              data-image
+            />
+            <div class="absolute inset-0 gradient-overlay z-40"></div>
+          </div>
+          <div
+            class="rich-text-data md:w-1/2 px-[16px] ml-[84px] md:ml-[0] md:pr-[120px]"
+          >
+            <PrismicRichText data-text :field="home?.data.intro_text" />
+          </div>
+        </div>
+      </section>
+
+      <slice-zone :components="components" :slices="home?.data?.slices" />
     </article>
   </div>
 </template>
+
 <style>
 .gradient-overlay {
   background: linear-gradient(

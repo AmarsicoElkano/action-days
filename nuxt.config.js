@@ -6,8 +6,8 @@ export default defineNuxtConfig({
 	css: ["~/assets/css/main.css"],
 	devtools: { enabled: false },
 	app: {
-		baseURL: "/action-days", //process.env.NODE_ENV === 'production' ? '/WIP/action-days/' : undefined,
-		//baseURL: "/",
+		//baseURL: "/action-days", //process.env.NODE_ENV === 'production' ? '/WIP/action-days/' : undefined,
+		baseURL: "/",
 		head: {
 			title: "UN SOTF Action Days",
 			htmlAttrs: {
@@ -50,6 +50,11 @@ export default defineNuxtConfig({
 					type: "page",
 					uid: "register",
 					path: "/register",
+				},
+				{
+					type: "page",
+					uid: "action-days",
+					path: "/action-days",
 				},
 				{
 					type: "page",
