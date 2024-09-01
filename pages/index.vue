@@ -1,10 +1,25 @@
 <script setup>
-import { components } from "~/slices";
 const { client } = usePrismic();
+
 //METADATA
 const { data: metadata } = await useAsyncData("metadata", () =>
   client.getSingle("metadata")
 );
+
+//GET Root page
+const { data: root } = useAsyncData("[root_page]", () =>
+  client.getSingle("root_page")
+);
+
+useHead({
+  title: root.value?.data.meta_title,
+  meta: [
+    {
+      name: "description",
+      content: root.value?.data.meta_description,
+    },
+  ],
+});
 </script>
 
 <script>
@@ -16,6 +31,7 @@ export default {
   data() {
     return {
       sections: [],
+      hoveredIndex: null
     };
   },
   mounted() {
@@ -201,118 +217,61 @@ export default {
             <div>
               <h1 class="uppercase text-headline_landing_mb sm:text-headline_landing_mbl mdl:text-headline_landing"
                 data-title>
-                Summit of
+                {{ root?.data.title_one }}
               </h1>
               <h1
                 class="uppercase text-headline_landing_mb sm:text-headline_landing_mbl mdl:text-headline_landing md:ml-[56px]"
                 data-title>
-                the future
+                {{ root?.data.title_two }}
               </h1>
             </div>
 
             <div class="flex justify-between md:justify-normal md:gap-[126px] md:ml-[56px] max-w-[580px] mt-50">
-              <p class="text-landing_mb sm:text-detail_mb md:text-detail" data-subtitle>
-                Lorem ipsum dolor sit amet, consectetuer elit. Aenean massa. Cum
-                sociis natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus .
-              </p>
+              <PrismicRichText class="text-landing_mb sm:text-detail_mb md:text-detail" data-subtitle
+                :field="root?.data.description" />
             </div>
           </div>
 
           <div
             class="relative pt-[10vw] sm:pt-[5vw] mdl:pt-0 w-full mdl:w-[auto] text-primary flex flex-col items-center mdl:items-start gap-[30px] mdl:gap-[24px]">
-            <article
-              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]">
-              <div class="relative">
-                <p>22-23 September 2024</p>
-              </div>
-
-              <div class="relative w-full text-primary flex items-center justify-between">
-                <div class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]">
-                  <h3>A PACT FOR THE FUTURE</h3>
+            <PrismicLink v-for="(item, index) in root?.data.card_group" :key="index" :field="item.url_link">
+              <article
+                class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px] card-background"
+                @mouseover="hoveredIndex = index" @mouseleave="hoveredIndex = null"
+                :class="{ 'overlay-mode': hoveredIndex !== null && hoveredIndex !== index }">
+                <div class="relative bg-white">
+                  <p v-if="item.date">{{ item.date }}</p>
                 </div>
-                <div class="relative">
-                  <svg class="w-[53px] h-[53px] self-end mr-10 mb-5" xmlns="http://www.w3.org/2000/svg" width="42"
-                    height="42" viewBox="0 0 42 42" fill="none">
-                    <g clip-path="url(#clip0_6_6)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
-                        fill="#1C4098" />
-                    </g>
-                    <rect x="1" y="1" width="40" height="40" rx="20" stroke="#1C4098" stroke-linejoin="bevel" />
-                    <defs>
-                      <clipPath id="clip0_6_6">
-                        <rect x="1" y="1" width="40" height="40" rx="20" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
+                <div class="relative w-full text-primary flex items-center justify-between">
+                  <div class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem] uppercase">
+                    <h3>{{ item.title }}</h3>
+                  </div>
+                  <div class="relative">
+                    <svg class="w-[53px] h-[53px] self-end mr-10 mb-5" xmlns="http://www.w3.org/2000/svg" width="42"
+                      height="42" viewBox="0 0 42 42" fill="none">
+                      <g clip-path="url(#clip0_6_6)">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
+                          fill="#1C4098" />
+                      </g>
+                      <rect x="1" y="1" width="40" height="40" rx="20" stroke="#1C4098" stroke-linejoin="bevel" />
+                      <defs>
+                        <clipPath id="clip0_6_6">
+                          <rect x="1" y="1" width="40" height="40" rx="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-            </article>
-
-            <article
-              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]">
-              <div class="relative">
-                <p>22-23 September 2024</p>
-              </div>
-
-              <div class="relative w-full text-primary flex items-center justify-between">
-                <div class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]">
-                  <h3>A PACT FOR THE FUTURE</h3>
-                </div>
-                <div class="relative">
-                  <svg class="w-[53px] h-[53px] self-end mr-10 mb-5" xmlns="http://www.w3.org/2000/svg" width="42"
-                    height="42" viewBox="0 0 42 42" fill="none">
-                    <g clip-path="url(#clip0_6_6)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
-                        fill="#1C4098" />
-                    </g>
-                    <rect x="1" y="1" width="40" height="40" rx="20" stroke="#1C4098" stroke-linejoin="bevel" />
-                    <defs>
-                      <clipPath id="clip0_6_6">
-                        <rect x="1" y="1" width="40" height="40" rx="20" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </article>
-
-            <article
-              class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px]">
-              <div class="relative">
-                <p>22-23 September 2024</p>
-              </div>
-
-              <div class="relative w-full text-primary flex items-center justify-between">
-                <div class="relative max-w-[70rem] sm:max-w-[30rem] mdl:max-w-[15rem]">
-                  <h3>A PACT FOR THE FUTURE</h3>
-                </div>
-                <div class="relative">
-                  <svg class="w-[53px] h-[53px] self-end mr-10 mb-5" xmlns="http://www.w3.org/2000/svg" width="42"
-                    height="42" viewBox="0 0 42 42" fill="none">
-                    <g clip-path="url(#clip0_6_6)">
-                      <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M15.8414 20.5473H25.5375L21.9525 16.7704C21.741 16.5471 21.7378 16.1825 21.9454 15.9551C22.1537 15.728 22.4934 15.7249 22.7049 15.9474L27.2161 20.7003C27.3185 20.8082 27.3764 20.9554 27.3768 21.1091C27.3775 21.2628 27.321 21.4107 27.2197 21.5194L22.701 26.3703C22.5961 26.4829 22.4586 26.539 22.3212 26.539C22.1841 26.539 22.0467 26.4829 21.9418 26.3703C21.7321 26.1451 21.7321 25.7801 21.9418 25.5553L25.5332 21.7H15.8414C15.5451 21.7 15.3046 21.4418 15.3046 21.1237C15.3046 20.8051 15.5451 20.5473 15.8414 20.5473"
-                        fill="#1C4098" />
-                    </g>
-                    <rect x="1" y="1" width="40" height="40" rx="20" stroke="#1C4098" stroke-linejoin="bevel" />
-                    <defs>
-                      <clipPath id="clip0_6_6">
-                        <rect x="1" y="1" width="40" height="40" rx="20" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-            </article>
+              </article>
+            </PrismicLink>
           </div>
         </div>
       </section>
     </article>
   </div>
 </template>
+
 <style scoped>
 .gradient-overlay {
   background: linear-gradient(to bottom,
@@ -330,5 +289,14 @@ export default {
 .cards-landing {
   background: white;
   box-shadow: -9px 4px 44px 0px #4084be1a;
+  transition: background-color 0.3s ease, mix-blend-mode 0.3s ease;
+}
+
+.card-background {
+  transition: mix-blend-mode 0.3s ease;
+}
+
+.cards-landing.overlay-mode {
+  opacity: 0.7;
 }
 </style>

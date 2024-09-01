@@ -814,6 +814,150 @@ export type RegistrationPageDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Root page → Card Group*
+ */
+export interface RootPageDocumentDataCardGroupItem {
+  /**
+   * Date field in *Root page → Card Group*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.card_group[].date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Title field in *Root page → Card Group*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.card_group[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * URL Link field in *Root page → Card Group*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.card_group[].url_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url_link: prismic.LinkField;
+}
+
+type RootPageDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Root page documents
+ */
+interface RootPageDocumentData {
+  /**
+   * Title one field in *Root page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.title_one
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_one: prismic.KeyTextField;
+
+  /**
+   * Title two field in *Root page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.title_two
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title_two: prismic.KeyTextField;
+
+  /**
+   * Description field in *Root page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Card Group field in *Root page*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.card_group[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_group: prismic.GroupField<Simplify<RootPageDocumentDataCardGroupItem>>;
+
+  /**
+   * Slice Zone field in *Root page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<RootPageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Root page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: root_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Root page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: root_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Root page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: root_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Root page document from Prismic
+ *
+ * - **API ID**: `root_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RootPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<RootPageDocumentData>,
+    "root_page",
+    Lang
+  >;
+
+/**
  * Item in *Secondary Navigation → Links Menu*
  */
 export interface SecondaryNavigationDocumentDataLinksMenuItem {
@@ -938,6 +1082,7 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | RegistrationPageDocument
+  | RootPageDocument
   | SecondaryNavigationDocument
   | SecondaryNavigationEventsDocument;
 
@@ -2079,6 +2224,10 @@ declare module "@prismicio/client" {
       RegistrationPageDocument,
       RegistrationPageDocumentData,
       RegistrationPageDocumentDataSlicesSlice,
+      RootPageDocument,
+      RootPageDocumentData,
+      RootPageDocumentDataCardGroupItem,
+      RootPageDocumentDataSlicesSlice,
       SecondaryNavigationDocument,
       SecondaryNavigationDocumentData,
       SecondaryNavigationDocumentDataLinksMenuItem,
