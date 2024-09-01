@@ -1249,6 +1249,16 @@ export interface AnnouncementsSliceDefaultPrimaryAnnouncementsItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
+
+  /**
+   * Announcement Button text field in *Announcements → Default → Primary → Announcements*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcements.default.primary.announcements[].announcement_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  announcement_button_text: prismic.KeyTextField;
 }
 
 /**

@@ -99,16 +99,16 @@ export default {
           <div class="flex flex-col md:flex-row items-center bg-[#195587]">
             <PrismicImage :field="item.image" class="w-full aspect-square md:aspect-auto md:w-1/2" />
             <div class="px-[24px] py-[40px] md:py-[0px] md:px-[65px] w-full md:w-1/2">
-              <div class="mb-[20px] md:mb-[160px]">
+              <div class="mb-[20px] md:mb-[160px] lg:mb-[140px]">
                 <p class="uppercase font-bold pb-40 text-base">
                   {{ item.subtitle }}
                 </p>
                 <PrismicRichText :field="item.paragraph" />
               </div>
-              <div class="flex pt-80">
+              <div class="flex pt-80 ">
                 <button
                   class="font-bold text-sm border border-[var(--burger-color)] z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-10">
-                  View the Programme
+                  {{ item.announcement_button_text }}
                 </button>
 
                 <div class="md:absolute right-[40px] z-40 flex gap-[20px] justify-center md:justify-end">

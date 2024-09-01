@@ -63,6 +63,13 @@
                   "placeholder": "",
                   "select": null
                 }
+              },
+              "announcement_button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Announcement Button text",
+                  "placeholder": ""
+                }
               }
             }
           }

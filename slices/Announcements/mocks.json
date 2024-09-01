@@ -71,6 +71,14 @@
 									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
+							],
+							[
+								"announcement_button_text",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "floating",
+									"type": "Text"
+								}
 							]
 						]
 					}
