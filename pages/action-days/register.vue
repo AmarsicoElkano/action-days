@@ -53,10 +53,10 @@ useHead({
         <div class=" max-w-[600px] w-full h-full gap-20">
           <PrismicRichText :field="register?.data.description_hero" />
 
-          <button
-            class="font-bold w-full min-w-[360px] xs:w-full sm:w-[360px] md:w-[330px] lg:w-[330px] min-h-[68px] text-sm border-[1px] border-white border-opacity-25 z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-25 mt-120 xs:mt-80 sm:mt-30 md:mt-30 lg:mt-30">
+          <button class="px-20 font-bold text-white w-full md:w-auto lg:w-auto min-h-[68px] max-w-[390px] text-sm border-[1px]
+            border-white border-opacity-25 rounded-full uppercase px-8 py-4 mt-40">
             <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration"
-              class="tracking-wider">
+              class="tracking-wider" style="font-size: 20px;">
               Go to the registration site
             </PrismicLink>
           </button>
