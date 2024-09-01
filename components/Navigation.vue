@@ -96,13 +96,13 @@ export default {
     <nav class="w-full pl-70 pr-40">
       <LogoWhite class="absolute left-0 top-[10px] px-[16px] md:px-[60px]" />
 
-      <ul class="flex flex-col items-start absolute w-full top-[20%] sm:top-[20%] md:top-[30%] lg:top-[35%]">
+      <ul class="flex flex-col items-start absolute top-[20%] sm:top-[20%] md:top-[30%] lg:top-[35%]">
         <li v-for="(item, index) in navigation.data.links_menu" :key="index"
           class="text-white font-display uppercase text-lg md:text-md overflow-hidden relative py-20 md:py-10 last:border-b-[1px] last:border-white last:border-opacity-20 last:pb-30"
           @click="toggle">
           <div ref="navItems">
             <PrismicLink
-              class="flex items-center border-t-[1px] border-white border-opacity-20 cursor-pointer min-w-[360px] sm:w-[320px] md:[650px] lg:w-[720px]"
+              class="flex items-center border-t-[1px] border-white border-opacity-20 cursor-pointer min-w-[360px] sm:w-[450px] md:[650px] lg:w-[720px]"
               :field="item.url_link">
               <span class="font-light mt-40 ">0{{ index + 1 }}</span> <span
                 class="text-highlight sm:text-titleSection_mb md:text-titleSection_mb pl-20 pt-30 ">{{ slugToString(item.label_menu) }}</span>
@@ -112,7 +112,7 @@ export default {
       </ul>
     </nav>
     <div
-      class="flex flex-col px-0 md:px-80 sm:px-10 z-20 absolute top-[55%] sm:top-[31%] sm:right-[7%] md:top-[50%] lg:top-[50%] gap-40 md:gap-10 lg:gap-10">
+      class="flex flex-col px-0 md:px-80 sm:px-10 z-20 absolute top-[55%] sm:top-[31%] sm:right-[7%] md:top-[50%] lg:top-[56%] lg:right-[1%] gap-40 md:gap-10 lg:gap-10">
       <PrismicLink :field="navigation.data.pact_link" class="max-w-[360px]">
         <div class="w-[360px] h-[140px] py-8 pl-20 pr-6 bg-box-bg flex flex-row cursor-pointer justify-between">
           <p
