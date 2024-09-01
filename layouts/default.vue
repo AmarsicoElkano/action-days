@@ -8,6 +8,6 @@ import '../assets/css/main.css';
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer v-if="$route.path !== '/'" />
   </div>
 </template>

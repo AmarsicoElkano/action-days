@@ -20,8 +20,7 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
-    document.querySelector("footer").display = "none";
-    //this.scroll();
+    this.scroll();
   },
   methods: {
     setRef(el) {
