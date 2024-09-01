@@ -1,21 +1,16 @@
 <script setup>
 import { components } from "~/slices";
 const { client } = usePrismic();
-const route = useRoute();
+
 //METADATA
 const { data: metadata } = await useAsyncData("metadata", () =>
   client.getSingle("metadata")
 );
 
-//GET ALL EVENTS
-const { data: events } = await useAsyncData("index", () =>
-  client.getAllByType("page")
-);
 // GET SINGLE HOME
 const { data: home } = await useAsyncData("index", () =>
   client.getSingle("home")
 );
-console.log(events, home);
 </script>
 
 <script>

@@ -40,11 +40,6 @@ export default {
     init() {
       this.addEvents();
     },
-    addEvents() {
-    },
-    toggleFAQ() {
-      console.log("hello")
-    },
     scroll() {
       this.sections.forEach((el) => {
         const titles = gsap.utils.toArray("[data-title-hero]", el);

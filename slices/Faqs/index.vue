@@ -66,7 +66,6 @@ export default {
         }
       });
 
-      console.log("unique categories", this.uniqueCategories);
       return this.uniqueCategories;
     },
 

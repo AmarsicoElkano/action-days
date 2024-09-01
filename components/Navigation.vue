@@ -5,16 +5,6 @@ const { data: navigation } = await useAsyncData("navigation", () =>
   client.getSingle("navigation")
 );
 
-
-// const result = await client.getSingle("navigation");
-// console.log(navigation);
-
-// Object.entries(result.data.links_menu).forEach((e) => {
-//   const route = e.url_link ? e.link.url : "/";
-//   console.log(route);
-// });
-
-// console.log(result.data.links_menu)
 </script>
 
 <script>
