@@ -30,15 +30,11 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(ScrollTrigger, SplitText);
-    this.init();
     this.scroll();
   },
   methods: {
     setRef(el) {
       if (el) this.sections.push(el);
-    },
-    init() {
-      this.addEvents();
     },
     scroll() {
       this.sections.forEach((el) => {
