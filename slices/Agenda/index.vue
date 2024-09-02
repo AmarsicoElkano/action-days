@@ -79,12 +79,12 @@ export default {
             <div class="content text-primary text-download uppercase">
               <div class="py-20 md:p-20 md:grid grid-cols-2 md:w-[720px] gap-20">
                 <div v-for="(el, idx) in slice.primary.card_group" :key="idx"
-                  class="p-[24px] mb-[20px] md:p-20 bg-white w-full max-w-[330px] h-[22rem] flex flex-col"
+                  class="p-[24px] mb-[20px] md:p-20 bg-white w-full max-w-[330px] h-[22rem] flex flex-col relative box-agenda"
                   :class="idx === 1 ? 'mt-20' : ''" data-item>
                   <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
 
                     <!-- Hover image -->
-                    <PrismicImage :field="el?.hover_image" />
+                    <PrismicImage v-if="el?.hover_image" :field="el?.hover_image" class="image-hover-agenda absolute w-full h-full object-cover object-center top-0 left-0 z-[-1]" />
 
                     <span class="block text-[18px]">
                       {{ el.subtitle }}
@@ -102,3 +102,13 @@ export default {
     </div>
   </section>
 </template>
+<style>
+.box-agenda:hover .image-hover-agenda{
+  opacity: 1;
+}
+.box-agenda:hover{color:white !important}
+.image-hover-agenda{
+  opacity: 0;
+  transition: ease-in .5s;
+}
+</style>
