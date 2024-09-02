@@ -106,7 +106,9 @@ export default {
 .box-agenda:hover .image-hover-agenda{
   opacity: 1;
 }
-.box-agenda:hover{color:white !important}
+.box-agenda:hover {
+  color: white
+}
 .image-hover-agenda{
   opacity: 0;
   transition: ease-in .5s;
