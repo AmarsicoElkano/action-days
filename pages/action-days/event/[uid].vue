@@ -265,7 +265,7 @@ export default {
                 :field="page?.data.overview_secondary_text"
                 class="pb-[54px]"
               />
-              <NuxtLink :to="'/register'">
+              <NuxtLink :to="'/action-days/register'">
                 <button
                   class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30"
                 >
