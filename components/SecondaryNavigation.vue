@@ -137,7 +137,7 @@ export default {
           </p>
         </li>
       </ul>
-      <NuxtLink :to="'/register'">
+      <NuxtLink :to="'/action-days/register'">
         <button
           class="hidden md:block text-xsm h-[40px] border rounded-full uppercase text-sm pl-30 pr-30 transition-all ease-in-out duration-300"
           :class="currentNav === 'light' ? 'text-secondary border-secondary' : 'text-primary border-primary'">
