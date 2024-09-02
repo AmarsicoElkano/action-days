@@ -11,6 +11,7 @@ const { data: metadata } = await useAsyncData("metadata", () =>
 const { data: home } = await useAsyncData("index", () =>
   client.getSingle("home")
 );
+
 </script>
 
 <script>

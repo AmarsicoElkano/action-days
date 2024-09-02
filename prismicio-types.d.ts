@@ -1130,6 +1130,16 @@ export interface AgendaSliceDefaultPrimaryCardGroupItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * Hover Image field in *Agenda → Default → Primary → Card group*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: agenda.default.primary.card_group[].hover_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hover_image: prismic.ImageField<never>;
 }
 
 /**

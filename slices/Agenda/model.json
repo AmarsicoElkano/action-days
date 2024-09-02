@@ -72,6 +72,14 @@
                   "placeholder": "",
                   "select": null
                 }
+              },
+              "hover_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Hover Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }
