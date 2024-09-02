@@ -149,10 +149,10 @@ export default {
       <div class="md:w-1/4 text-secondary relative mb-3">
         <div v-for="(item, categoryIdx) in uniqueCategories" :key="categoryIdx" class="py-[20px] flex flex-row">
           <button v-if="uniqueCategories.length > 1" :class="{
-            'border-white border-[1px] font-bold w-full p-10 rounded-[30px]': activeCategoryIndex === categoryIdx,
-            'border-white border-[1px] w-full p-10 rounded-[30px]': activeCategoryIndex !== categoryIdx
-          }" class="flex flex-row  cursor-pointer" @click="toggleCategory(categoryIdx)">
-            <span class="uppercase text-highlight w-full">{{ item.category_name }}</span>
+            ' font-bold btn-gradient-box w-full p-10 rounded-[50px]': activeCategoryIndex === categoryIdx,
+            'border-white border-[1px] w-full p-10 rounded-[50px]': activeCategoryIndex !== categoryIdx
+          }" class="flex flex-row  cursor-pointer h-[70px] items-center" @click="toggleCategory(categoryIdx)">
+            <span class="uppercase text-landing_mb w-full">{{ item.category_name }}</span>
           </button>
         </div>
       </div>
@@ -209,5 +209,33 @@ export default {
   cursor: pointer;
   position: relative;
   z-index: 1;
+}
+.btn-gradient-box{position: relative;}
+
+.btn-gradient-box:after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: 1px; /* !importanté */
+  border-radius: inherit;
+  background:#004987;
+  background-clip: padding-box; /* !importanté */
+  border: solid 5px transparent; /* !importanté */
+  border-radius: 50px;
+  z-index: 1;
+}
+.btn-gradient-box span{z-index: 2;}
+
+.btn-gradient-box:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 0;
+  border-radius: 50px;
+  background: linear-gradient(260.06deg, #FBB04D -9.61%, rgba(11, 156, 217, 0.59) 116.66%);
+
+
 }
 </style>
