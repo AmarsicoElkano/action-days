@@ -252,6 +252,7 @@ export default {
               v-for="(item, index) in root?.data.card_group"
               :key="index"
               :field="item.url_link"
+              class="w-full md:w-[inherit]"
             >
               <article
                 class="cards-landing relative p-[32px] flex flex-col items-start justify-between w-full sm:w-[500px] mdl:w-[400px] h-full min-h-[220px] mdl:min-h-[180px] card-background"

@@ -81,9 +81,7 @@ export default {
     data-nav="light"
   >
     <div>
-      <div
-        class="md:w-[961px] m-[auto] relative md:top-[50px] z-10 mb-[40px] md:mb-[0px]"
-      >
+      <div class="md:w-[961px] m-[auto] relative z-10 mb-[40px] md:mb-[20px]">
         <h2
           data-title-hero
           class="w-full uppercase text-titleSection_mb md:text-titleSection"
