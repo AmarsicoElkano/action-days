@@ -30,6 +30,7 @@ export default {
 		},
 		fontSize: {
 			base: ["24px"],
+			xsm: ["18px"],
 			md: ["36px"],
 			base_mb: ["22px", { fontWeight: 100 }],
 			detail: [

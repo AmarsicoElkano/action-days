@@ -144,14 +144,14 @@ export default {
               <figure class="relative">
                 <figcaption
                   class="absolute z-10 w-full h-full p-[32px] md:px-20 md:py-30 text-primary flex flex-col justify-between">
-                  <p class="text-md md:text-base">
+                  <p class="text-base_mb ">
                     {{ item.subtitle }}
                   </p>
                   <h3 class="text-download uppercase text-md md:text-base">
                     {{ item.title }}
                   </h3>
                 </figcaption>
-                <PrismicImage class="z-0 w-full md:w-auto" :field="item.banner_image" />
+                <PrismicImage class="z-0 w-full max-w-[297px] min-h-[343px] md:w-auto" :field="item.banner_image" />
               </figure>
               <div class="flex items-center justify-between mt-20">
                 <h4 class="uppercase tracking-[0.08em] text-md md:text-xsm"
@@ -159,7 +159,7 @@ export default {
                   {{ item.download_text }}
                 </h4>
                 <div
-                  class="w-[35px] h-[35px] flex flex-col border border-[var(--secondary-color)] rounded-full items-center justify-center relative before:absolute before:w-full before:h-full before:bg-primary before:inset-0 before:rounded-full before:scale-0 before:transition-transform group-hover:before:scale-90 before:duration-300 active:before:scale-100">
+                  class="w-[35px] h-[35px] flex flex-col border border-[var(--primary-color)] cursor-pointer rounded-full items-center justify-center relative before:absolute before:w-full before:h-full before:bg-primary before:inset-0 before:rounded-full before:scale-0 before:transition-transform group-hover:before:scale-90 before:duration-300 active:before:scale-100">
                   <div class="inline-flex relative overflow-hidden">
                     <div
                       class="w-full h-full relative delay-150 group-hover:delay-0 transition-transform duration-200 expo-out group-hover:translate-y-full">

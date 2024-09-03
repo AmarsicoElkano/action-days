@@ -217,6 +217,7 @@ export default {
     </button>
   </div>
 </template>
+
 <style scoped>
 .nav {
   clip-path: inset(0% 0% 100% 0%);
