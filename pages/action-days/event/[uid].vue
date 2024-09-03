@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       sections: [],
-      context: null,
+      context: [],
     };
   },
   mounted() {
@@ -159,53 +159,32 @@ export default {
 <template>
   <div>
     <!-- hero -->
-    <section
-      :ref="setRef"
-      class="relative w-screen h-screen"
-      data-nav="light"
-      data-section="overview"
-    >
+    <section :ref="setRef" class="relative w-screen h-screen" data-nav="light" data-section="overview">
       <div class="absolute inset-0">
-        <PrismicImage
-          v-if="page?.data.hero_image"
-          :field="page?.data.hero_image"
-          class="absolute inset-0 top-0 z-0 w-full h-full object-cover z-1"
-        />
+        <PrismicImage v-if="page?.data.hero_image" :field="page?.data.hero_image"
+          class="absolute inset-0 top-0 z-0 w-full h-full object-cover z-1" />
         <div class="absolute inset-0 bg-[#000] bg-opacity-[0.1] z-2"></div>
       </div>
       <div
-        class="absolute left-[16px] md:left-[0] bottom-[32px] md:bottom-0 md:relative text-secondary md:pt-[150px] z-5"
-      >
+        class="absolute left-[16px] md:left-[0] bottom-[32px] md:bottom-0 md:relative text-secondary md:pt-[150px] z-5">
         <p data-subtitle class="md:pl-[170px] text-detail">
           {{ page.data?.label_event }}
         </p>
-        <div
-          data-title-event-hero
-          class="relative text-white text-[38px] leading-none uppercase pl-[60px] md:pl-[210px] pt-20"
-        >
-          <template v-if="page?.data?.title_one?.includes('#')">
-            <span
-              class="font-bold"
-              v-html="formatTitle(page?.data?.title_one)"
-            ></span>
-          </template>
 
-          <template v-else>
-            {{ page.data?.title_one }}
-          </template>
-        </div>
-        <h1
-          data-title-event-hero
-          class="text-headline_small_mb md:text-headline uppercase pl-[60px] md:pl-[210px]"
-        >
+        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[60px] md:pl-[210px]">
+          {{ page.data?.title_one }}
+        </h1>
+
+        <h1 data-title-event-hero class="text-headline_small_mb md:text-headline uppercase pl-[20px] md:pl-[110px]">
           {{ page.data?.title_two }}
         </h1>
-        <h1
-          data-title-event-hero
-          class="text-headline_small_mb md:text-headline uppercase pl-[30px] md:pl-[170px]"
-        >
-          {{ page.data?.title_three }}
-        </h1>
+
+        <div data-title-event-hero
+          class="relative text-white text-[38px] leading-none uppercase pl-[60px] md:pl-[210px] pt-20">
+          <div v-if="page?.data?.title_three">
+            <span class="font-bold text-secondary">{{ page?.data?.title_three }}</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -213,16 +192,9 @@ export default {
     <SecondaryNavigationEvents />
 
     <!-- info -->
-    <section
-      id="overview"
-      :ref="setRef"
-      data-nav="light"
-      data-section="overview"
-      class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary"
-    >
-      <div
-        class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px]"
-      >
+    <section id="overview" :ref="setRef" data-nav="light" data-section="overview"
+      class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary">
+      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px]">
         <div class="md:w-[30%] flex flex-col gap-[40px]">
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Convenor</p>
@@ -232,10 +204,7 @@ export default {
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Focal Point</p>
-            <PrismicRichText
-              class="text-sm uppercase"
-              :field="page?.data.focal_point"
-            />
+            <PrismicRichText class="text-sm uppercase" :field="page?.data.focal_point" />
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Where</p>
@@ -253,22 +222,15 @@ export default {
 
         <div class="md:w-[70%] max-w-[750px]">
           <p class="pt-80 pb-40">
-            <PrismicRichText
-              data-text
-              :field="page?.data.overview_primary_text"
-            />
+            <PrismicRichText data-text :field="page?.data.overview_primary_text" />
           </p>
 
           <div class="relative">
             <div class="relative" data-text>
-              <PrismicRichText
-                :field="page?.data.overview_secondary_text"
-                class="pb-[54px]"
-              />
+              <PrismicRichText :field="page?.data.overview_secondary_text" class="pb-[54px]" />
               <NuxtLink :to="'/action-days/register'">
                 <button
-                  class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30"
-                >
+                  class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30">
                   Register to the event
                 </button>
               </NuxtLink>
@@ -278,10 +240,6 @@ export default {
       </div>
     </section>
 
-    <SliceZone
-      wrapper="main"
-      :slices="page?.data.slices ?? []"
-      :components="components"
-    />
+    <SliceZone wrapper="main" :slices="page?.data.slices ?? []" :components="components" />
   </div>
 </template>

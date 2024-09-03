@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       modules: [Pagination, Navigation],
-      items: [],
       sections: [],
+      items: this.slice.primary.speakers,
     };
   },
   mounted() {
@@ -46,6 +46,7 @@ export default {
         const titles = gsap.utils.toArray("[data-title]", el);
         const texts = gsap.utils.toArray("[data-text]", el);
         const items = gsap.utils.toArray("[data-item]", el);
+
         const buttons = gsap.utils.toArray("[data-buttons]", el);
 
         if (titles) {
@@ -105,7 +106,7 @@ export default {
           );
         }
 
-        if (items) {
+        if (items.length > 0) {
           gsap.fromTo(
             items,
             1.25,
@@ -151,111 +152,50 @@ export default {
         }
       });
     },
-    addEvents() {},
+    addEvents() { },
   },
 };
 </script>
 
 <template>
-  <section
-    id="speakers"
-    :ref="setRef"
-    class="bg-primary text-secondary py-[120px]"
-    data-nav="light"
-    data-section="speakers"
-  >
+  <section id="speakers" :ref="setRef" class="bg-primary text-secondary py-[120px]" data-nav="light"
+    data-section="speakers">
     <div class="flex flex-col md:flex-row w-full px-[16px] md:px-[120px]">
-      <h2
-        data-title
-        class="w-1/2 text-titleSection_mb md:text-titleSection uppercase mb-[100px]"
-      >
+      <h2 data-title class="w-1/2 text-titleSection_mb md:text-titleSection uppercase mb-[100px]">
         {{ slice.primary.title }}
       </h2>
       <div class="md:w-1/2 h-fit md:self-end">
-        <PrismicRichText
-          data-text
-          class="md:w-[600px]"
-          :field="slice.primary.paragraph"
-        />
+        <PrismicRichText data-text class="md:w-[600px]" :field="slice.primary.paragraph" />
       </div>
     </div>
 
     <div class="ml-[16px] md:ml-[120px]">
-      <Swiper
-        :slides-per-view="'auto'"
-        :space-between="20"
-        :loop="true"
-        :navigation="{
-          prevEl: '.custom-prev',
-          nextEl: '.custom-next',
-        }"
-        :modules="modules"
-        class="relative"
-      >
+      <Swiper :slides-per-view="2" :space-between="20" :loop="false" :navigation="{
+        prevEl: '.custom-prev',
+        nextEl: '.custom-next',
+      }" :modules="modules" class="relative">
         <!-- Custom Navigation Buttons -->
-        <div
-          data-buttons
-          class="absolute block top-[0px] left-[0px] z-40 flex gap-[20px] mt-[26px] justify-end"
-        >
+        <div data-buttons class="absolute block top-[0px] left-[0px] z-40 flex gap-[20px] mt-[26px] justify-end">
           <div class="custom-prev cursor-pointer">
-            <svg
-              width="53"
-              height="53"
-              viewBox="0 0 53 53"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M29 19.6858L21.4286 27.2572L29 34.8286"
-                stroke="#FFFFFF"
-                stroke-width="2"
-                stroke-miterlimit="13.33"
-                stroke-linecap="square"
-              />
-              <circle
-                opacity="0.5"
-                cx="26.5"
-                cy="26.5"
-                r="26"
-                transform="matrix(-1 0 0 1 53 0)"
-                stroke="#FFFFFF"
-              />
+            <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29 19.6858L21.4286 27.2572L29 34.8286" stroke="#FFFFFF" stroke-width="2"
+                stroke-miterlimit="13.33" stroke-linecap="square" />
+              <circle opacity="0.5" cx="26.5" cy="26.5" r="26" transform="matrix(-1 0 0 1 53 0)" stroke="#FFFFFF" />
             </svg>
           </div>
           <div class="custom-next cursor-pointer">
-            <svg
-              width="53"
-              height="53"
-              viewBox="0 0 53 53"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M24 19.6858L31.5714 27.2572L24 34.8286"
-                stroke="#FFFFFF"
-                stroke-width="2"
-                stroke-miterlimit="13.33"
-                stroke-linecap="square"
-              />
-              <circle
-                opacity="0.5"
-                cx="26.5"
-                cy="26.5"
-                r="26"
-                stroke="#FFFFFF"
-              />
+            <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 19.6858L31.5714 27.2572L24 34.8286" stroke="#FFFFFF" stroke-width="2"
+                stroke-miterlimit="13.33" stroke-linecap="square" />
+              <circle opacity="0.5" cx="26.5" cy="26.5" r="26" stroke="#FFFFFF" />
             </svg>
           </div>
         </div>
-        <SwiperSlide
-          v-for="(item, idx) in slice.primary?.speakers"
-          :key="idx"
-          ref="items"
-          class="w-[25%] mt-[100px] max-w-[297px]"
-          data-item
-        >
+        <!-- @TODO: responsive swiper width -->
+        <SwiperSlide v-for="(item, idx) in slice.primary?.speakers" :key="idx" ref="items"
+          class="w-[25%] mt-[100px] max-w-[297px]" data-item>
           <div class="flex flex-col">
-            <PrismicImage :field="item.image" class="pb-20" />
+            <PrismicImage :field="item?.image" class="pb-20" />
             <div>
               <p class="font-bold pb-[5px]">
                 {{ item?.speaker_name }}
