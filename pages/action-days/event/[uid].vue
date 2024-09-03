@@ -145,13 +145,7 @@ export default {
           });
         }
       });
-    },
-    formatTitle(title) {
-      return title.replace(
-        /#/g,
-        '<span class="text-[#fff] font-bold">#</span>'
-      );
-    },
+    }
   },
 };
 </script>
