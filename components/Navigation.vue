@@ -193,25 +193,25 @@ export default {
       </div>
 
       <!-- Prismic Links Section -->
-      <div class="flex flex-col md:flex-col space-y-10 z-20 w-full flex-end max-w-[360px]">
+      <div class="flex flex-col md:flex-col space-y-20 z-20 w-full flex-end max-w-[360px]">
         <PrismicLink :field="navigation.data.pact_link" class=" ">
           <div
-            class="w-full md:w-[360px] h-[140px] py-8 pl-20 pr-6 bg-box-bg flex flex-row cursor-pointer justify-between">
+            class="w-full md:w-[360px] h-[140px] py-20 md:py-8 pl-20 xs:pr-20 xs:py-20 sm:py-20 sm:pr-10 md:pr-10 bg-box-bg flex flex-row cursor-pointer justify-between">
             <p
               class="text-secondary uppercase w-[150px] pt-40 pl-40 md:pt-20 md:pl-10 font-bold sm:w-[110px] md:w-[140px] sm:leading-20 md:leading-10 z-30">
               {{ navigation.data.pact_title }}
             </p>
-            <img class="w-[53px] h-[53px] self-end mr-10 mb-5" src="/public/img/arrow-right-menu.svg">
+            <img class="w-[53px] h-[53px] self-end mb-5" src="/public/img/arrow-right-menu.svg">
           </div>
         </PrismicLink>
         <PrismicLink :field="navigation.data.sof_link">
           <div
-            class="hover:bg-secondary w-full md:w-[360px] h-[140px] py-8 pl-20 pr-6 bg-box-bg flex flex-row cursor-pointer justify-between">
+            class="w-full md:w-[360px] h-[140px] py-20 md:py-8 pl-20 xs:pr-20 xs:py-20 sm:py-20 sm:pr-10 md:pr-10 bg-box-bg flex flex-row cursor-pointer justify-between">
             <p
               class="text-secondary uppercase w-[150px] pt-40 pl-40 md:pt-20 md:pl-10 font-bold sm:w-[110px] md:w-[140px] sm:leading-20 md:leading-10 z-30">
               {{ navigation.data.sof_title }}
             </p>
-            <img class="w-[53px] h-[53px] self-end mr-10 mb-5" src="/public/img/arrow-right-menu.svg">
+            <img class="w-[53px] h-[53px] self-end mb-5" src="/public/img/arrow-right-menu.svg">
           </div>
         </PrismicLink>
       </div>
