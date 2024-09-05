@@ -130,6 +130,8 @@ export default {
       <div class="flex flex-col-reverse md:flex-row gap-[40px] md:gap-[0]">
         <div class="md:w-1/2">
           <div class="md:mt-[135px]">
+            {{ console.log("link test", slice.primary.button_link) }}
+            {{ console.log("link test url", slice.primary.button_link.url) }}
             <NuxtLink v-if="slice.primary.button_link.url" class="text-secondary uppercase flex gap-[40px] items-center"
               :to="slice.primary.button_link.url">
               {{ slice.primary.button_text }}
