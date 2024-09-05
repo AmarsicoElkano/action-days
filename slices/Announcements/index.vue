@@ -81,7 +81,7 @@ export default {
     data-nav="light"
   >
     <div>
-      <div class="md:w-[961px] m-[auto] relative z-10 mb-[40px] md:mb-[20px]">
+      <div class="md:w-[961px] m-[auto] relative z-10 mb-[40px] md:mb-[-30px]">
         <h2
           data-title-hero
           class="w-full uppercase text-titleSection_mb md:text-titleSection"
@@ -105,18 +105,20 @@ export default {
           nextEl: '.custom-next',
         }"
         :modules="modules"
-        class="relative overflow-hidden"
+        class="relative overflow-hidden h-[60rem]"
       >
         <SwiperSlide
           v-for="(item, idx) in slice.primary.announcements"
           :key="idx"
           ref="items"
-          class=""
+          class="w-full h-full"
         >
-          <div class="flex flex-col md:flex-row items-center bg-[#195587]">
+          <div
+            class="w-full h-full flex flex-col md:flex-row items-center bg-[#195587]"
+          >
             <PrismicImage
               :field="item.image"
-              class="w-full aspect-square md:aspect-auto md:w-1/2"
+              class="w-full h-full aspect-square md:aspect-auto md:w-1/2 object-cover"
             />
             <div
               class="px-[24px] py-[40px] md:py-[0px] md:px-[65px] w-full md:w-1/2"
