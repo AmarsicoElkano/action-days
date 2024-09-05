@@ -1,8 +1,8 @@
 <script></script>
 
 <template>
-  <header class="w-full h-[100px] absolute bg-transparent">
-    <div class="flex h-full items-center justify-between items-center px-[16px] md:px-[60px]">
+  <header class="w-full h-[100px] sticky top-0 z-20 md:absolute bg-primary">
+    <div class="flex  h-[100px] items-center justify-between items-center px-[16px] md:px-[60px]">
       <LogoWhite />
       <Navigation />
     </div>

@@ -121,7 +121,8 @@ export default {
 </script>
 
 <template>
-  <div class="sticky top-[-1px] z-50 px-[16px] md:px-[60px] h-[64px] text-sm transition-all ease-in-out duration-300"
+  <div
+    class="sticky top-[100px] md:top-[-1px] z-50 px-[16px] md:px-[60px] h-[64px] text-sm transition-all ease-in-out duration-300"
     :class="currentNav === 'light' ? 'text-secondary' : 'text-primary'">
     <div class="h-full flex flex-row justify-between items-center ">
       <ul
