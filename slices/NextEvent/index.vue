@@ -129,29 +129,8 @@ export default {
       <div class="flex flex-col-reverse md:flex-row gap-[40px] md:gap-[0]">
         <div class="md:w-1/2">
           <div class="md:mt-[135px]">
-            {{ console.log("link test", slice.primary.button_link) }}
-            {{ console.log("link test url", slice.primary.button_link.url) }}
-            <NuxtLink class="text-secondary uppercase flex gap-[40px] items-center"
-              :to="'/action-days/event/' + slice.primary.button_link.uid">
-              1.{{ slice.primary.button_text }}
-              <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.0019 2L39.2304 16.2286L25.0019 30.4571" stroke="white" stroke-width="2"
-                  stroke-miterlimit="13.33" stroke-linecap="square" />
-                <path d="M39.0009 16L1.00095 16" stroke="white" stroke-width="2" stroke-linecap="square"
-                  stroke-linejoin="round" />
-              </svg>
-            </NuxtLink>
-            <PrismicLink class="text-secondary uppercase flex gap-[40px] items-center" :field=slice.primary.button_link>
-              2.{{ slice.primary.button_text }}
-              <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.0019 2L39.2304 16.2286L25.0019 30.4571" stroke="white" stroke-width="2"
-                  stroke-miterlimit="13.33" stroke-linecap="square" />
-                <path d="M39.0009 16L1.00095 16" stroke="white" stroke-width="2" stroke-linecap="square"
-                  stroke-linejoin="round" />
-              </svg>
-            </PrismicLink>
             <a class="text-secondary uppercase flex gap-[40px] items-center" :href=slice.primary.button_link.url>
-              3.{{ slice.primary.button_text }}
+              {{ slice.primary.button_text }}
               <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.0019 2L39.2304 16.2286L25.0019 30.4571" stroke="white" stroke-width="2"
                   stroke-miterlimit="13.33" stroke-linecap="square" />
