@@ -193,35 +193,35 @@ export default {
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Convenor</p>
             <p class="text-sm uppercase">
-              {{ page?.data.agency }}
+              {{ page.data?.agency }}
             </p>
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Focal Point</p>
-            <PrismicRichText class="text-sm uppercase" :field="page?.data.focal_point" />
+            <PrismicRichText class="text-sm uppercase" :field="page.data?.focal_point" />
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Where</p>
             <p class="text-sm uppercase">
-              {{ page?.data.location }}
+              {{ page.data?.location }}
             </p>
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">When</p>
             <p class="text-sm uppercase">
-              {{ page?.data.date }}
+              {{ page.data?.date }}
             </p>
           </div>
         </div>
 
         <div class="md:w-[70%] max-w-[750px]">
-          <p class="pt-80 pb-40">
-            <PrismicRichText data-text :field="page?.data.overview_primary_text" />
-          </p>
+          <div class="pt-80 pb-40">
+            <PrismicRichText data-text :field="page.data?.overview_primary_text" />
+          </div>
 
           <div class="relative">
             <div class="relative" data-text>
-              <PrismicRichText :field="page?.data.overview_secondary_text" class="pb-[54px]" />
+              <PrismicRichText :field="page.data?.overview_secondary_text" class="pb-[54px]" />
               <NuxtLink :to="'/action-days/register'">
                 <button
                   class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30">

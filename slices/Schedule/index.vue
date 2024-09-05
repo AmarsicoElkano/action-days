@@ -102,18 +102,10 @@ export default {
 </script>
 
 <template>
-  <section
-    id="agenda"
-    :ref="setRef"
-    class="py-[160px] bg-secondary text-primary px-[16px] md:px-[60px]"
-    data-nav="dark"
-    data-section="agenda"
-  >
-    <h2
-      data-title
-      class="uppercase text-titleSection_mb md:text-titleSection mb-[20px]"
-    >
-      {{ slice.primary.title }}
+  <section id="agenda" :ref="setRef" class="py-[160px] bg-secondary text-primary px-[16px] md:px-[60px]" data-nav="dark"
+    data-section="agenda">
+    <h2 data-title class="uppercase text-titleSection_mb md:text-titleSection mb-[20px]">
+      {{ slice.primary?.title }}
     </h2>
 
     <div class="overflow-hidden overflow-x-scroll">
@@ -121,29 +113,22 @@ export default {
         <thead class="">
           <tr class="uppercase text-sm font-normal text-left">
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary.time_title }}
+              {{ slice.primary?.time_title }}
             </th>
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary.events_title }}
+              {{ slice.primary?.events_title }}
             </th>
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary.speakers_title }}
+              {{ slice.primary?.speakers_title }}
             </th>
-            <th
-              v-if="slice.primary.has_rooms"
-              data-item
-              class="min-w-[170px] py-[40px] pl-[20px]"
-            >
-              {{ slice.primary.room_title }}
+            <th v-if="slice.primary.has_rooms" data-item class="min-w-[170px] py-[40px] pl-[20px]">
+              {{ slice.primary?.room_title }}
             </th>
           </tr>
         </thead>
         <tbody class="border">
-          <tr
-            v-for="(item, idx) in slice.primary.agenda_items"
-            :key="idx"
-            data-item
-          >
+          <tr v-if="slice.primary.agenda_items.length > 0" v-for="(item, idx) in slice.primary.agenda_items" :key="idx"
+            data-item>
             <td class="p-[20px]">
               <p>{{ item.time }}</p>
             </td>
