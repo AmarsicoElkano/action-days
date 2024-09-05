@@ -126,7 +126,7 @@ export default {
             </th>
           </tr>
         </thead>
-        <tbody class="border">
+        <tbody class="border text-base_mb">
           <tr v-if="slice.primary.agenda_items.length > 0" v-for="(item, idx) in slice.primary.agenda_items" :key="idx"
             data-item>
             <td class="p-[20px]">
