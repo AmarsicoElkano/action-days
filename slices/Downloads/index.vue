@@ -162,10 +162,11 @@ export default {
               </h4>
               <div
                 class="w-[35px] h-[35px] flex flex-col border border-[var(--primary-color)] cursor-pointer rounded-full items-center justify-center relative before:absolute before:w-full before:h-full before:bg-primary before:inset-0 before:rounded-full before:scale-0 before:transition-transform group-hover:before:scale-90 before:duration-300 active:before:scale-100">
-                <div class="inline-flex relative overflow-hidden">
+                <div class="flex relative overflow-hidden">
                   <div
-                    class="w-full h-full relative delay-150 group-hover:delay-0 transition-transform duration-200 expo-out group-hover:translate-y-full">
-                    <svg class="w-15 h-15" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    class="w-[15px] h-[15px] max-w-[15px] max-h-[15px]relative delay-150 group-hover:delay-0 transition-transform duration-200 expo-out group-hover:translate-y-full">
+                    <svg class="min-w-[10px] min-h-[10px]" viewBox="0 0 17 18" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 9.22754L8.37892 15.9028L1.75784 9.22754"
                         :stroke="slice.primary.light_background_color ? 'var(--primary-color)' : 'var(--secondary-color)'"
                         stroke-width="2" stroke-miterlimit="13.33" stroke-linecap="square" />
@@ -175,8 +176,9 @@ export default {
                     </svg>
                   </div>
                   <div
-                    class="w-full h-full absolute -top-full delay-0 group-hover:delay-150 transition-transform duration-200 expo-out group-hover:translate-y-full">
-                    <svg class="w-15 h-15" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    class="w-[15px] h-[15px] max-w-[15px] max-h-[15px] absolute -top-full delay-0 group-hover:delay-150 transition-transform duration-200 expo-out group-hover:translate-y-full">
+                    <svg class="min-w-[10px] min-h-[10px]" viewBox="0 0 17 18" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 9.22754L8.37892 15.9028L1.75784 9.22754" stroke="var(--white)" stroke-width="2"
                         stroke-miterlimit="13.33" stroke-linecap="square" />
                       <path d="M8.38281 14.9028L8.38281 1" stroke="var(--white)" stroke-width="2"
