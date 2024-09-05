@@ -130,8 +130,8 @@ export default {
       <div class="flex flex-col-reverse md:flex-row gap-[40px] md:gap-[0]">
         <div class="md:w-1/2">
           <div class="md:mt-[135px]">
-            <PrismicLink class="text-secondary uppercase flex gap-[40px] items-center"
-              :field="slice.primary.button_link">
+            <NuxtLink v-if="slice.primary.button_link.url" class="text-secondary uppercase flex gap-[40px] items-center"
+              :to="slice.primary.button_link.url">
               {{ slice.primary.button_text }}
               <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M25.0019 2L39.2304 16.2286L25.0019 30.4571" stroke="white" stroke-width="2"
@@ -139,7 +139,7 @@ export default {
                 <path d="M39.0009 16L1.00095 16" stroke="white" stroke-width="2" stroke-linecap="square"
                   stroke-linejoin="round" />
               </svg>
-            </PrismicLink>
+            </NuxtLink>
           </div>
         </div>
         <div class="md:w-1/2">
