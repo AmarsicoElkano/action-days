@@ -119,7 +119,7 @@ export default {
               {{ slice.primary?.events_title }}
             </th>
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary?.speakers_title }}
+              {{ slice.primary.speakers_title }}
             </th>
             <th v-if="slice.primary.has_rooms" data-item class="min-w-[170px] py-[40px] pl-[20px]">
               {{ slice.primary?.room_title }}
