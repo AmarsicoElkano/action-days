@@ -116,7 +116,6 @@ export default {
   },
 };
 </script>
-
 <template>
   <section id="livesession" :ref="setRef" data-section="livesession"
     class="pt-[160px] px-[16px] md:px-[120px] pb-[100px]" data-nav="dark">
@@ -135,7 +134,12 @@ export default {
           {{ slice.primary.text }}
         </p>
       </div>
-      <div data-item class="md:w-1/2 aspect-video bg-primary rounded-xl" />
+
+      <div data-item class="md:w-1/2 aspect-video bg-primary  rounded-xl">
+        <PrismicLink :field="slice.primary.source" target="_blank">
+          <img class=" rounded-xl" :src="slice.primary.source.thumbnail_url" />
+        </PrismicLink>
+      </div>
     </div>
   </section>
 </template>

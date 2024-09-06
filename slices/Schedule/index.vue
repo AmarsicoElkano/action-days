@@ -105,7 +105,7 @@ export default {
   <section id="agenda" :ref="setRef" class="py-[160px] bg-secondary text-primary px-[16px] md:px-[60px]" data-nav="dark"
     data-section="agenda">
     <h2 data-title class="uppercase text-titleSection_mb md:text-titleSection mb-[20px]">
-      {{ slice.primary?.title }}
+      {{ slice.primary.title }}
     </h2>
 
     <div class="overflow-hidden overflow-x-scroll">
