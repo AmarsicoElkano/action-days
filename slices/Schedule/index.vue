@@ -113,16 +113,16 @@ export default {
         <thead class="">
           <tr class="uppercase text-sm font-normal text-left">
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary?.time_title }}
+              {{ slice.primary.time_title }}
             </th>
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary?.events_title }}
+              {{ slice.primary.events_title }}
             </th>
             <th data-item class="min-w-[170px] py-[40px] pl-[20px]">
               {{ slice.primary.speakers_title }}
             </th>
             <th v-if="slice.primary.has_rooms" data-item class="min-w-[170px] py-[40px] pl-[20px]">
-              {{ slice.primary?.room_title }}
+              {{ slice.primary.room_title }}
             </th>
           </tr>
         </thead>
