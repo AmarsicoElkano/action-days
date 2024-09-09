@@ -162,14 +162,14 @@ export default {
 <template>
   <div
     class="nav-actions sticky top-[100px] md:top-0 z-50 h-[64px] text-sm transition-all ease-in-out duration-300"
-    :class="currentNav === 'light' ? 'text-secondary' : 'text-primary'"
+    :class="currentNav === 'light' ? 'text-secondary' : 'text-secondary'"
   >
     <div
       class="nav-actions-bg px-[16px] md:px-[60px] md:bg-primary h-full flex flex-row justify-between items-center"
     >
       <ul
         class="flex flex-row gap-60 h-full border-b transition-all ease-in-out duration-300 overflow-x-scroll md:overflow-x-auto"
-        :class="currentNav === 'light' ? 'border-secondary' : 'border-primary'"
+        :class="currentNav === 'light' ? 'border-secondary' : 'border-secondary'"
       >
         <li
           v-for="(item, index) in secondary_nav.data.links_menu"

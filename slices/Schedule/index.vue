@@ -126,16 +126,16 @@ export default {
             </th>
           </tr>
         </thead>
-        <tbody class="border text-base_mb">
-          <tr v-if="slice.primary.agenda_items.length > 0" v-for="(item, idx) in slice.primary.agenda_items" :key="idx"
+        <tbody class="border text-base_mb" v-if="slice.primary.agenda_items.length > 0">
+          <tr v-for="(item, idx) in slice.primary.agenda_items" :key="idx"
             data-item>
-            <td class="p-[20px]">
+            <td class="p-[20px] max-w-[170px]">
               <p>{{ item.time }}</p>
             </td>
             <td class="p-[20px] md:w-[40%]">
               <PrismicRichText :field="item.events" />
             </td>
-            <td class="p-[20px]">
+            <td class="p-[20px] md:w-[50%]">
               <PrismicRichText :field="item.speakers" />
             </td>
             <td v-if="slice.primary.has_rooms" class="p-[20px]">
