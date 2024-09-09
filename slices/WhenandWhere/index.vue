@@ -115,7 +115,7 @@ export default {
   <section id="whenwhere" :ref="setRef" class="bg-primary w-full min-h-screen relative" data-section="when&where"
     data-nav="light">
     <div>
-      <PrismicImage :field="slice.primary.bg_symbol" class="z-[10] absolute w-full h-full left-0" />
+      <PrismicImage :field="slice.primary.bg_symbol" class="z-[10] absolute w-full h-full left-0 opacity-0 md:opacity-100" />
       <div class="flex flex-col md:flex-row gap-100 py-[140px] pl-40 pr-40">
         <PrismicImage :field="slice.primary.image" class="sm:w-[450px] pt-10" data-image />
         <div class="z-[20] flex flex-col gap-100 pt-40">

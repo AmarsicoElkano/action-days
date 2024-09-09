@@ -177,7 +177,7 @@ export default {
                 <div class="flex relative overflow-hidden">
                   <div
                     class="w-[15px] h-[15px] max-w-[15px] max-h-[15px] relative delay-150 group-hover:delay-0 transition-transform duration-200 expo-out group-hover:translate-y-full">
-                    <svg class="min-w-[10px] min-h-[10px]" viewBox="0 0 17 18" fill="none"
+                    <svg class="min-w-[15px] min-h-[15px]" viewBox="0 0 17 18" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 9.22754L8.37892 15.9028L1.75784 9.22754" :stroke="slice.primary.light_background_color
                           ? 'var(--primary-color)'
@@ -191,7 +191,7 @@ export default {
                   </div>
                   <div
                     class="w-[15px] h-[15px] max-w-[15px] max-h-[15px] absolute -top-full delay-0 group-hover:delay-150 transition-transform duration-200 expo-out group-hover:translate-y-full">
-                    <svg class="min-w-[10px] min-h-[10px]" viewBox="0 0 17 18" fill="none"
+                    <svg class="min-w-[15px] min-h-[15px]" viewBox="0 0 17 18" fill="none"
                       xmlns="http://www.w3.org/2000/svg">
                       <path d="M15 9.22754L8.37892 15.9028L1.75784 9.22754" stroke="var(--white)" stroke-width="2"
                         stroke-miterlimit="13.33" stroke-linecap="square" />
