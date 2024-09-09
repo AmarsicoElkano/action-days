@@ -10,6 +10,11 @@ const slug = route.params.uid;
 const { data: page } = useAsyncData(`[slug]`, () =>
   client.getByUID("page", slug)
 );
+
+//METADATA
+const { data: metadata } = await useAsyncData("metadata", () =>
+  client.getSingle("metadata")
+);
 </script>
 
 <script>
@@ -151,6 +156,23 @@ export default {
 </script>
 
 <template>
+  <Html>
+
+    <Head>
+      <Title>{{ metadata?.data?.meta_title }}</Title>
+      <Meta name="description" :content="metadata?.data?.meta_description" />
+      <Meta property="og:title" :content="metadata?.data?.meta_title" />
+      <Meta property="og:description" :content="metadata?.data?.meta_description" />
+      <Meta property="og:image" :content="`${metadata?.data?.share_image.url}&w=1920`" />
+      <Meta property="og:type" content="website" />
+      <Meta property="twitter:card" content="summary_large_image" />
+      <Meta property="twitter:title" :content="metadata?.data?.meta_title" />
+      <Meta property="twitter:description" :content="metadata?.data?.meta_description" />
+      <Meta property="twitter:image" :content="`${metadata?.data?.share_image.url}&w=1920`" />
+      <Link rel="icon" type="image/png" :href="`${metadata?.data?.favicon.url}&w=64`" />
+    </Head>
+
+  </Html>
   <div>
     <!-- hero -->
     <section :ref="setRef" class="relative w-screen h-screen" data-nav="light" data-section="overview">

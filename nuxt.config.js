@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 				{ hid: "description", name: "description", content: "" },
 				{ name: "format-detection", content: "telephone=no" },
 			],
-			link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+			//link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
 		},
 	},
 	tailwindcss: {
@@ -34,7 +34,7 @@ export default defineNuxtConfig({
 	modules: ["@nuxtjs/prismic", "@nuxtjs/tailwindcss"],
 	prismic: {
 		endpoint: apiEndpoint || repositoryName,
-		preview: "/api/preview",
+		//preview: "/api/preview",
 		clientConfig: {
 			routes: [
 				// {
