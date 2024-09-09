@@ -82,8 +82,8 @@ export default {
                   class="p-[24px] min-w-[328px] max-w-[420px] mb-[20px] md:mb-0 md:p-20 bg-white w-full max-w-full md:max-w-[330px] h-auto md:h-[22rem] flex flex-col relative box-agenda justify-center"
                   :class="[
                     el?.xl_font_size
-                      ? 'min-h-[300px] md:min-h-[420px]'
-                      : 'min-h-[164px] md:min-h-[343px]'
+                      ? 'min-h-[300px] md:min-h-[380px]'
+                      : 'min-h-[164px] md:min-h-[260px]'
                   ]" data-item>
                   <a :href="el?.link.url" class="group flex flex-col justify-between h-full link">
                   <!-- <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
