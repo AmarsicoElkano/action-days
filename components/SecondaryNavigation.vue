@@ -197,13 +197,13 @@ export default {
               : 'text-primary border-primary'
           "
         >
-          Register
+          Registration
         </button>
       </NuxtLink>
     </div>
   </div>
   <div class="relative top-[-64px]">
-    <div class="h-[64px] bg-primary absolute w-full bg-primary" />
+    <div class="h-[64px] bg-primary absolute w-full" />
   </div>
 </template>
 
