@@ -85,7 +85,9 @@ export default {
                       ? 'min-h-[300px] md:min-h-[420px]'
                       : 'min-h-[164px] md:min-h-[343px]'
                   ]" data-item>
-                  <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
+                  <nuxt-link :to="el?.link.url" class="group flex flex-col justify-between h-full">
+                  <!-- <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
+                  </PrismicLink> -->
                     <!-- Hover image -->
                     <PrismicImage v-if="el?.hover_image" :field="el?.hover_image"
                       class="image-hover-agenda absolute w-full h-full object-cover object-center top-0 left-0 z-[-1]" />
@@ -96,7 +98,8 @@ export default {
                     <div class="">
                       <PrismicRichText :field="el.paragraph" :class="el.xl_font_size ? ' text-md' : ' text-base'" />
                     </div>
-                  </PrismicLink>
+                 
+                  </nuxt-link>
                 </div>
               </div>
             </div>
