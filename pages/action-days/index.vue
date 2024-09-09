@@ -290,7 +290,7 @@ export default {
         </svg>
 
 
-        <svg width="1932" height="1664" class="absolute right-0 top-0 z-[0] hidden sm:block" viewBox="0 0 1932 1664"
+        <svg width="1932" height="1664" class="absolute right-0 top-0 z-[0] hidden sm:block md:max-h-[1500px]" viewBox="0 0 1932 1664"
           fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1854.31 700.278H1564.48C1385.91 700.278 1241.1 845.169 1241.1 1024"
             stroke="url(#paint0_radial_2225_35)" stroke-width="80" stroke-miterlimit="10" />
