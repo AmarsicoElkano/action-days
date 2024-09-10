@@ -108,7 +108,7 @@ export default {
     <div class="grid grid-cols-12 md:grid-cols-12 gap-6 z-20 w-full">
       <h1
         data-title
-        class="col-span-6 col-start-1 px-40 xs:col-start-2 md:col-start-3 lg:col-start-3 uppercase text-headline_mb pt-[220px] sm:pt-[180px] z-20 max-w-[900px] lg:max-w-[1200px]"
+        class="col-span-6 col-start-1 px-0 xs:col-start-2 md:col-start-3 lg:col-start-3 uppercase text-headline_mb pt-[220px] sm:pt-[180px] z-20 max-w-[900px] lg:max-w-[1200px]"
         v-if="slice.primary.title"
       >
         <span class="pl-60">{{ slice.primary.title.split(" ")[0] }}</span>
@@ -127,7 +127,7 @@ export default {
         />
 
         <button
-          class="px-20 font-bold text-primary w-full md:w-auto lg:w-auto min-h-[68px] max-w-[360px] text-sm border-[1px] border-primary border-opacity-25 rounded-full uppercase px-8 py-4 mt-8"
+          class="md:px-30 font-bold text-primary w-full md:w-auto lg:w-auto min-h-[68px] max-w-[360px] text-sm border-[1px] border-primary border-opacity-25 rounded-full uppercase px-14 py-4 mt-8"
         >
           <PrismicLink
             v-if="slice.primary.registration_link"
