@@ -197,7 +197,7 @@ export default {
               : 'text-primary border-primary'
           "
         >
-          Registration
+          Participation
         </button>
       </NuxtLink>
     </div>
