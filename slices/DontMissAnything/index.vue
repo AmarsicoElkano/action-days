@@ -108,7 +108,7 @@ export default {
     <div class="grid grid-cols-12 md:grid-cols-12 gap-6 z-20 w-full">
       <h1
         data-title
-        class="col-span-6 col-start-1 px-0 xs:col-start-2 md:col-start-3 lg:col-start-3 uppercase text-headline_mb pt-[220px] sm:pt-[180px] z-20 max-w-[900px] lg:max-w-[1200px]"
+        class="col-span-6 col-start-1 px-0 xs:col-start-2 md:col-start-3 lg:col-start-3 uppercase text-headline_mb pt-[220px] sm:pt-[180px] z-20 max-w-[600px]"
         v-if="slice.primary.title"
       >
         <span class="pl-60">{{ slice.primary.title.split(" ")[0] }}</span>
