@@ -152,7 +152,7 @@ export default {
               class="md:px-30 font-bold text-white w-full md:w-auto lg:w-auto min-h-[68px] max-w-[390px] text-sm border-[1px] border-white border-opacity-25 rounded-full uppercase px-14 py-4 mt-40">
               <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration"
                 class="tracking-wider" style="font-size: 20px">
-                Go to the registration site
+                Go to the PARTICIPATION site
               </PrismicLink>
             </button>
           </div>

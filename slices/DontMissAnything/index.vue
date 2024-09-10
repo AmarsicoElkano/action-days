@@ -135,7 +135,7 @@ export default {
             class="tracking-wider"
             style="font-size: 20px"
           >
-            Go to the registration site
+            Go to the PARTICIPATION site
           </PrismicLink>
         </button>
       </div>
