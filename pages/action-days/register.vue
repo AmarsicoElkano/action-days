@@ -119,24 +119,24 @@ export default {
     <section ref="hero" class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] relative">
       <img src="/public/img/ellipse.svg" class="absolute top-20 left-0 right-0 mx-auto" />
       <div class="text-secondary relative z-10">
-        <div class="pl-60">
-          <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold invisible"
+        <div class="pl-40">
+          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold invisible"
             data-item>
             {{ register?.data.title_line_1 }}
-            <span class="text-base_mb uppercase pl-40" data-subtitle>
+            <span class="text-base_mb uppercase pl-30 tracking-normal whitespace-nowrap" data-subtitle>
               {{ register?.data.date }}
             </span>
           </p>
 
-          <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold flex flex-row py-15 invisible"
+          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold flex flex-row pt-25 invisible"
             data-item>
-            <span class="text-base_mb md:text-detail uppercase md:w-[120px] mr-40" data-subtitle>
+            <span class="tracking-normal text-base_mb md:text-detail uppercase md:w-[120px] mr-40 pt-8" data-subtitle>
               {{ register?.data.location }}
             </span>
             {{ register?.data.title_line_2 }}
           </p>
 
-          <p class="uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-black ml-[41px] invisible"
+          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-black ml-[41px] invisible"
             data-item>
             {{ register?.data.title_line_3 }}
           </p>
@@ -149,10 +149,10 @@ export default {
             </div>
 
             <button
-              class="px-20 font-bold text-white w-full md:w-auto lg:w-auto min-h-[68px] max-w-[390px] text-sm border-[1px] border-white border-opacity-25 rounded-full uppercase px-8 py-4 mt-40">
+              class="md:px-30 font-bold text-white w-full md:w-auto lg:w-auto min-h-[68px] max-w-[390px] text-sm border-[1px] border-white border-opacity-25 rounded-full uppercase px-14 py-4 mt-40">
               <PrismicLink v-if="register?.data.link_to_registration" :field="register?.data.link_to_registration"
                 class="tracking-wider" style="font-size: 20px">
-                Go to the registration site
+                Go to the PARTICIPATION site
               </PrismicLink>
             </button>
           </div>

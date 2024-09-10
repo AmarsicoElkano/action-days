@@ -185,15 +185,15 @@ export default {
       <div id="faqs-qa" class="md:w-2/3 relative">
         <div v-for="(category, categoryIdx) in uniqueCategories" :key="categoryIdx">
           <div v-show="activeCategoryIndex === categoryIdx">
-            <div data-title class="uppercase p-10 text-secondary text-base">
+            <div data-title class="uppercase p-10 text-secondary text-base mb-20">
               {{ category.category_name }}
             </div>
-            <div v-for="(question, questionIdx) in category.questions" :key="questionIdx" class="mb-3 py-[10px]"
+            <div v-for="(question, questionIdx) in category.questions" :key="questionIdx" class="mb-3 py-[0px]"
               data-item>
               <div
-                class="text-secondary transition-all duration-300 ease-in-out border-b border-white pb-20 border-opacity-30 border-secondary">
+                class="text-secondary transition-all duration-300 ease-in-out border-b border-white pb-0 border-opacity-30 border-secondary">
                 <div
-                  class="relative flex justify-between items-center py-8 uppercase text-left transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
+                  class="relative flex justify-between items-center py-14 md:py-20 uppercase text-left transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
                   @click="toggleFAQ(categoryIdx, questionIdx)">
                   <span class="pr-80 font-bold p-10 text-highlight">{{
                     question.title
@@ -210,7 +210,7 @@ export default {
                 </div>
                 <div class="text-secondary transition-all duration-300 ease-in-out overflow-hidden" :class="{
                   'max-h-0': activeQuestionIndex !== questionIdx,
-                  'max-h-auto pb-10': activeQuestionIndex === questionIdx,
+                  'max-h-auto py-20': activeQuestionIndex === questionIdx,
                 }">
                   <div class="p-10 pt-8 text-sm leading-normal text-blue-gray-500">
                     <PrismicRichText class="faqResponse" :field="question.response" />
