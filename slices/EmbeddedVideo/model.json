@@ -33,11 +33,20 @@
             "placeholder": ""
           }
         },
-        "source": {
-          "type": "Embed",
+        "sources": {
+          "type": "Group",
           "config": {
-            "label": "source",
-            "placeholder": ""
+            "label": "sources",
+            "repeat": true,
+            "fields": {
+              "source": {
+                "type": "Embed",
+                "config": {
+                  "label": "source",
+                  "placeholder": ""
+                }
+              }
+            }
           }
         }
       },
