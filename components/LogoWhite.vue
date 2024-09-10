@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-  <NuxtLink :to="'/'" class="flex items-center" ref="navItems">
+  <NuxtLink :to="'/action-days'" class="flex items-center" ref="navItems">
     <figure class="z-20">
       <svg width="139" height="58" viewBox="0 0 139 58" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
