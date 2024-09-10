@@ -1557,6 +1557,21 @@ export type DownloadsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *EmbeddedVideo → Default → Primary → sources*
+ */
+export interface EmbeddedVideoSliceDefaultPrimarySourcesItem {
+  /**
+   * source field in *EmbeddedVideo → Default → Primary → sources*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embedded_video.default.primary.sources[].source
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  source: prismic.EmbedField;
+}
+
+/**
  * Primary content in *EmbeddedVideo → Default → Primary*
  */
 export interface EmbeddedVideoSliceDefaultPrimary {
@@ -1591,14 +1606,16 @@ export interface EmbeddedVideoSliceDefaultPrimary {
   text: prismic.KeyTextField;
 
   /**
-   * source field in *EmbeddedVideo → Default → Primary*
+   * sources field in *EmbeddedVideo → Default → Primary*
    *
-   * - **Field Type**: Embed
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: embedded_video.default.primary.source
-   * - **Documentation**: https://prismic.io/docs/field#embed
+   * - **API ID Path**: embedded_video.default.primary.sources[]
+   * - **Documentation**: https://prismic.io/docs/field#group
    */
-  source: prismic.EmbedField;
+  sources: prismic.GroupField<
+    Simplify<EmbeddedVideoSliceDefaultPrimarySourcesItem>
+  >;
 }
 
 /**
@@ -2275,6 +2292,7 @@ declare module "@prismicio/client" {
       DownloadsSliceVariation,
       DownloadsSliceDefault,
       EmbeddedVideoSlice,
+      EmbeddedVideoSliceDefaultPrimarySourcesItem,
       EmbeddedVideoSliceDefaultPrimary,
       EmbeddedVideoSliceVariation,
       EmbeddedVideoSliceDefault,
