@@ -120,26 +120,26 @@ export default {
       <img src="/public/img/ellipse.svg" class="absolute top-20 left-0 right-0 mx-auto" />
       <div class="text-secondary relative z-10">
         <div class="pl-40">
-          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold invisible"
+          <h2 class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold invisible"
             data-item>
             {{ register?.data.title_line_1 }}
-            <span class="text-base_mb uppercase pl-30 tracking-normal whitespace-nowrap" data-subtitle>
+            <span class="text-base_mb uppercase pl-30 tracking-normal whitespace-nowrap font-body" data-subtitle>
               {{ register?.data.date }}
             </span>
-          </p>
+          </h2>
 
-          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold flex flex-row pt-25 invisible"
+          <h2 class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-bold flex flex-row pt-25 invisible"
             data-item>
-            <span class="tracking-normal text-base_mb md:text-detail uppercase md:w-[120px] mr-40 pt-8" data-subtitle>
+            <span class="tracking-normal text-base_mb md:text-detail uppercase md:w-[120px] mr-40 pt-8 font-body" data-subtitle>
               {{ register?.data.location }}
             </span>
             {{ register?.data.title_line_2 }}
-          </p>
+          </h2>
 
-          <p class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-black ml-[41px] invisible"
+          <h2 class="tracking-tighter uppercase text-highlight sm:text-titleSection_mb md:text-titleSection lg:text-titleSection font-black ml-[41px] invisible"
             data-item>
             {{ register?.data.title_line_3 }}
-          </p>
+          </h2>
         </div>
 
         <div class="flex flex-col items-end justify-center gap-60 pt-80 ">
