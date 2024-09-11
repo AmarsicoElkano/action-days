@@ -75,7 +75,7 @@ export default {
 
 <template>
   <section :ref="setRef" class="bg-primary px-40 py-[200px] text-white" data-section="overview" data-nav="light">
-    <div>
+    <div class="">
       <div class="md:w-[961px] m-[auto] relative z-10 mb-[40px] md:mb-[-30px]">
         <h2 data-title-hero class="w-full uppercase text-titleSection_mb md:text-titleSection">
           {{ slice.primary.title }}
@@ -88,22 +88,22 @@ export default {
       <Swiper :slides-per-view="1" :space-between="0" :loop="true" :navigation="{
         prevEl: '.custom-prev',
         nextEl: '.custom-next',
-      }" :modules="modules" class="relative overflow-hidden h-[60rem]">
+      }" :modules="modules" class="relative overflow-hidden min-h-[60rem]">
         <SwiperSlide v-for="(item, idx) in slice.primary.announcements" :key="idx" ref="items" class="w-full h-full">
           <div class="w-full h-full flex flex-col md:flex-row items-center bg-[#195587]">
             <PrismicImage :field="item.image"
-              class="w-full h-full aspect-square md:aspect-auto md:w-1/2 object-cover" />
-            <div class="px-[24px] py-[40px] md:py-[0px] md:px-[65px] w-full md:w-1/2">
-              <div class="mb-[20px] md:mb-[130px] lg:mb-[130px]">
-                <p class="uppercase font-bold pb-40 text-base">
+              class="w-full h-full aspect-square md:aspect-auto md:w-1/2 object-cover md:min-h-[620px]" />
+            <div class=" flex flex-col px-60 h-[360px] md:h-[620px] justify-between py-60 md:pt-[120px]">
+              <div class="mb-[20px]">
+                <p class="uppercase font-bold pb-40 text-highlight">
                   {{ item.subtitle }}
                 </p>
-                <PrismicRichText :field="item.paragraph" />
+                <PrismicRichText class="text-landing_mb leading-[1.48]" :field="item.paragraph" />
               </div>
-              <div class="flex pt-80">
+              <div class="flex pt-80 justify-between">
                 <PrismicLink :field="item.button_link" target="_blank">
                   <button
-                    class="font-bold text-sm border border-[var(--burger-color)] z-[100] rounded-full uppercase text-white text-sm pl-30 pr-30 py-10">
+                    class="min-h-[52px] font-bold text-base_xsm tracking-wider	border border-white border-opacity-20 z-[100] rounded-full uppercase text-white text-xsm pl-60 pr-60 md:pl-30 md:pr-30 py-20">
                     {{ item.announcement_button_text }}
                   </button>
                 </PrismicLink>
@@ -134,8 +134,8 @@ export default {
   </section>
 </template>
 
-<style>
+<style scoped>
 .swiper-wrapper {
-  max-height: 620px !important;
+  max-height: 1620px !important;
 }
 </style>
