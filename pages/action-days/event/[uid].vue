@@ -210,7 +210,7 @@ export default {
     <!-- info -->
     <section id="overview" :ref="setRef" data-nav="light" data-section="overview"
       class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary">
-      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px]">
+      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px] gap-40">
         <div class="md:w-[30%] flex flex-col gap-[40px]">
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Convenor</p>
@@ -220,7 +220,7 @@ export default {
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Focal Point</p>
-            <PrismicRichText class="text-sm uppercase" :field="page.data?.focal_point" />
+            <PrismicRichText class="text-sm uppercase break-words" :field="page.data?.focal_point" />
           </div>
           <div data-text>
             <p class="uppercase font-bold mb-[14px]">Where</p>

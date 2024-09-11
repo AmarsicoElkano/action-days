@@ -290,8 +290,8 @@ export default {
         </svg>
 
 
-        <svg width="1932" height="1664" class="absolute right-0 top-0 z-[0] hidden sm:block md:max-h-[1500px]" viewBox="0 0 1932 1664"
-          fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="1932" height="1664" class="absolute right-0 top-0 z-[0] hidden sm:block md:max-h-[1500px]"
+          viewBox="0 0 1932 1664" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1854.31 700.278H1564.48C1385.91 700.278 1241.1 845.169 1241.1 1024"
             stroke="url(#paint0_radial_2225_35)" stroke-width="80" stroke-miterlimit="10" />
           <path d="M905 1033C905 763.923 1118.62 373 1558.08 373C1997.53 373 1715.14 373 1834.5 373"
@@ -387,13 +387,13 @@ export default {
             </p>
           </div>
           <div>
-            <h1 class="uppercase text-headline_mb md:text-headline md:ml-[56px]" data-title>
+            <h1 class="uppercase text-headline_mb sm:text-titleSection md:text-titleSection_lg md:ml-[56px]" data-title>
               {{ home?.data.title_one }}
             </h1>
-            <h1 class="uppercase text-headline_mb md:text-headline" data-title>
+            <h1 class="uppercase text-headline_mb sm:text-titleSection md:text-titleSection_lg" data-title>
               {{ home?.data.title_two }}
             </h1>
-            <h1 class="uppercase text-headline_mb md:text-headline md:ml-[61px]" data-title>
+            <h1 class="uppercase text-headline_mb sm:text-titleSection md:text-titleSection_lg md:ml-[61px]" data-title>
               {{ home?.data.title_three }}
             </h1>
           </div>
@@ -410,7 +410,7 @@ export default {
             <div class="absolute inset-0 gradient-overlay z-40"></div>
           </div>
           <div class="rich-text-data md:w-1/2 px-[16px] ml-[84px] md:ml-[0] md:pr-[120px]">
-            <PrismicRichText data-text :field="home?.data.intro_text" />
+            <PrismicRichText data-text class="text-landing_mb leading-9" :field="home?.data.intro_text" />
           </div>
         </div>
       </section>
@@ -425,5 +425,9 @@ export default {
   background: linear-gradient(to bottom,
       rgba(0, 73, 135, 0) 55%,
       rgba(0, 73, 135, 1) 100%);
+}
+
+[data-text] h3 {
+  @apply text-highlight;
 }
 </style>

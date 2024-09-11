@@ -54,7 +54,7 @@
           "label": "Intro text",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "heading3,paragraph,strong,em"
+          "multi": "paragraph,heading3,strong,em,preformatted,heading1,heading2,heading4,heading5,heading6,rtl,o-list-item,list-item,embed,image,hyperlink"
         }
       },
       "agenda_title": {

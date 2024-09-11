@@ -102,6 +102,12 @@ export default {
 					lineHeight: 1,
 				},
 			],
+			titleSection_lg: [
+				"150px",
+				{
+					lineHeight: 1,
+				},
+			],
 			titleSection_mb: [
 				"40px",
 				{
