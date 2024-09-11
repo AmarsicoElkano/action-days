@@ -246,7 +246,7 @@ export default {
                 class="pb-[54px] text-landing_mb leading-[1.48]" />
               <NuxtLink :to="'/action-days/register'">
                 <button
-                  class="min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
+                  class="tracking-wider	min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
                   PARTICIPATION to the event
                 </button>
               </NuxtLink>
