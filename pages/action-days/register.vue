@@ -142,9 +142,9 @@ export default {
           </p>
         </div>
 
-        <div class="flex flex-col items-end justify-center gap-60 pt-80">
+        <div class="flex flex-col items-end justify-center gap-60 pt-80 ">
           <div class="max-w-[600px] w-full h-full">
-            <div class="rich-text-register relatuve w-full invisible">
+            <div class="rich-text-register relatuve w-full invisible leading-[1.48]">
               <PrismicRichText :field="register?.data.description_hero" />
             </div>
 
