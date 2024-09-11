@@ -195,7 +195,7 @@ export default {
                 <div
                   class="relative flex justify-between items-center py-14 md:py-20 uppercase text-left transition-all ease-in cursor-pointer border-slate-100 text-slate-700 rounded-t-1 group text-secondary"
                   @click="toggleFAQ(categoryIdx, questionIdx)">
-                  <span class="pr-80 font-bold p-10 text-highlight">{{
+                  <span class="pr-80 font-bold p-10 text-highlight leading-[1.3]">{{
                     question.title
                   }}</span>
                   <img ref="minusSign-{questionIdx}" src="/public/img/minus.svg"
