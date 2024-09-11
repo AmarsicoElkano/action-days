@@ -410,7 +410,7 @@ export default {
             <div class="absolute inset-0 gradient-overlay z-40"></div>
           </div>
           <div class="rich-text-data md:w-1/2 px-[16px] ml-[84px] md:ml-[0] md:pr-[120px]">
-            <PrismicRichText data-text class="text-landing_mb leading-9" :field="home?.data.intro_text" />
+            <PrismicRichText data-text class="text-landing_mb leading-[1.48]" :field="home?.data.intro_text" />
           </div>
         </div>
       </section>

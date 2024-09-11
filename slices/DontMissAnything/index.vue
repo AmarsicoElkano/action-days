@@ -111,7 +111,7 @@ export default {
         <PrismicRichText class="w-full leading-20 pb-10" style="font-size: 20px" :field="slice.primary.description" />
 
         <button
-          class="px-20 font-bold text-primary w-full md:w-auto lg:w-auto min-h-[68px] max-w-[360px] text-sm border-[1px] border-primary border-opacity-25 rounded-full uppercase px-8 py-4 mt-8">
+          class="md:px-30 font-bold text-primary w-full md:w-auto lg:w-auto min-h-[68px] max-w-[360px] text-sm border-[1px] border-primary border-opacity-25 rounded-full uppercase px-8 py-4 mt-8">
           <PrismicLink v-if="slice.primary.registration_link" :field="slice.primary.registration_link"
             class="tracking-wider" style="font-size: 20px">
             PARTICIPATION

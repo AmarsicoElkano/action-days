@@ -94,7 +94,7 @@ export default {
             <PrismicImage :field="item.image"
               class="w-full h-full aspect-square md:aspect-auto md:w-1/2 object-cover" />
             <div class="px-[24px] py-[40px] md:py-[0px] md:px-[65px] w-full md:w-1/2">
-              <div class="mb-[20px] md:mb-[160px] lg:mb-[140px]">
+              <div class="mb-[20px] md:mb-[130px] lg:mb-[130px]">
                 <p class="uppercase font-bold pb-40 text-base">
                   {{ item.subtitle }}
                 </p>
