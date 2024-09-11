@@ -174,9 +174,9 @@ export default {
             <Swiper :slides-per-view="1" :space-between="0" :loop="false" :navigation="{
               prevEl: '.custom-prev',
               nextEl: '.custom-next',
-            }" :modules="modules" class="relative ">
+            }" :modules="modules" class="relative">
               <SwiperSlide v-for="(item, idx) in slice.primary.sources" :key="idx" ref="items"
-                class="w-full h-full rounded-xl">
+                class="w-full h-full rounded-xl pr-[35px]">
                 <PrismicLink :field="item.source" target="_blank">
                   <p>{{ item.title }}</p>
                   <img class="rounded-3xl md:rounded-xl" :src="item.source.thumbnail_url" />
@@ -184,9 +184,8 @@ export default {
               </SwiperSlide>
             </Swiper>
           </div>
-          <div data-item class="max-w-[600px] md:mt-[-100px] aspect-video rounded-xl"
+          <div data-item class="max-w-[600px] pr-80 md:mt-[-100px] aspect-video rounded-xl"
             v-else-if="slice.primary.sources.length === 1">
-            {{ console.log(slice.primary) }}
             <PrismicLink :field="slice.primary.sources[0]" target="_blank">
               <img class="rounded-3xl md:rounded-xl" :src="slice.primary.sources[0].source.thumbnail_url" />
             </PrismicLink>
@@ -197,7 +196,7 @@ export default {
   </section>
 </template>
 
-<style>
+<style scoped>
 .swiper {
   overflow-x: hidden;
   padding-right: 100px;
@@ -211,6 +210,5 @@ export default {
 .swiper-wrapper {
   max-width: 620px !important;
   position: relative;
-  gap: 35px;
 }
 </style>
