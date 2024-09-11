@@ -210,43 +210,43 @@ export default {
     <!-- info -->
     <section id="overview" :ref="setRef" data-nav="light" data-section="overview"
       class="bg-primary py-[80px] px-[16px] md:px-[120px] text-secondary">
-      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px] gap-40">
+      <div class="flex flex-col md:flex-row justify-between w-full pb-[40px] md:pb-[80px] gap-80">
         <div class="md:w-[30%] flex flex-col gap-[40px]">
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">Convenor</p>
-            <p class="text-sm uppercase">
+            <p class="uppercase text-landing_mb font-bold mb-[14px]">Convenor</p>
+            <p class="text-xsm uppercase leading-[1.48]">
               {{ page.data?.agency }}
             </p>
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">Focal Point</p>
-            <PrismicRichText class="text-sm uppercase break-words" :field="page.data?.focal_point" />
+            <p class="uppercase text-landing_mb font-bold mb-[14px]">Focal Point</p>
+            <PrismicRichText class="text-xsm uppercase break-words leading-[1.48]" :field="page.data?.focal_point" />
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">Where</p>
-            <p class="text-sm uppercase">
+            <p class="uppercase text-landing_mb font-bold mb-[14px]">Where</p>
+            <p class="text-xsm uppercase leading-[1.48]">
               {{ page.data?.location }}
             </p>
           </div>
           <div data-text>
-            <p class="uppercase font-bold mb-[14px]">When</p>
-            <p class="text-sm uppercase">
+            <p class="uppercase text-landing_mb font-bold mb-[14px]">When</p>
+            <p class="text-xsm uppercase leading-[1.48]">
               {{ page.data?.date }}
             </p>
           </div>
         </div>
 
         <div class="md:w-[70%] max-w-[750px]">
-          <div class="pt-80 pb-40">
+          <div class="pt-80 pb-40 leading-[1.48] text-highlight">
             <PrismicRichText data-text :field="page.data?.overview_primary_text" />
           </div>
-
           <div class="relative">
             <div class="relative" data-text>
-              <PrismicRichText :field="page.data?.overview_secondary_text" class="pb-[54px]" />
+              <PrismicRichText :field="page.data?.overview_secondary_text"
+                class="pb-[54px] text-landing_mb leading-[1.48]" />
               <NuxtLink :to="'/action-days/register'">
                 <button
-                  class="text-xsm h-[40px] border border-[var(--burger-color)] rounded-full uppercase text-white text-sm pl-30 pr-30">
+                  class="min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
                   PARTICIPATION to the event
                 </button>
               </NuxtLink>
