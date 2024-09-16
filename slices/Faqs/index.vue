@@ -166,7 +166,7 @@ export default {
     </h1>
     <div class="max-w-[1300px] flex flex-col md:flex-row justify-around m-[auto] pt-80 gap-80"
       :class="{ 'pt-0': !slice.primary.display_title }">
-      <div class="md:w-1/4 text-secondary relative mb-3">
+      <div class=" text-secondary relative mb-3">
         <div v-for="(item, categoryIdx) in uniqueCategories" :key="categoryIdx" class="py-[20px] flex flex-row">
           <button v-if="uniqueCategories.length > 1" :class="{
             'font-bold btn-gradient-box w-full p-10 rounded-[50px]':
@@ -182,7 +182,7 @@ export default {
         </div>
       </div>
 
-      <div id="faqs-qa" class="md:w-2/3 relative">
+      <div id="faqs-qa" class="md:w-2/3 relative max-w-[920px]">
         <div v-for="(category, categoryIdx) in uniqueCategories" :key="categoryIdx">
           <div v-show="activeCategoryIndex === categoryIdx">
             <div data-title class="uppercase p-10 text-secondary text-base mb-20">
