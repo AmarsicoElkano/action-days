@@ -114,9 +114,9 @@ export default {
     </Head>
 
   </Html>
-  <div>
+  <div class="bg-primary-gradient">
     <!-- hero -->
-    <section ref="hero" class="bg-primary min-h-screen pt-[150px] px-[16px] md:px-[60px] relative">
+    <section ref="hero" class=" min-h-screen pt-[150px] px-[16px] md:px-[60px] relative">
       <img src="/public/img/ellipse.svg" class="absolute top-20 left-0 right-0 mx-auto" />
       <div class="text-secondary relative z-10">
         <div class="pl-40">
@@ -195,3 +195,9 @@ export default {
     <SliceZone wrapper="main" :slices="register?.data.slices ?? []" :components="components" />
   </div>
 </template>
+<style>
+.bg-primary-gradient{
+  background: rgb(0,67,125);
+  background: linear-gradient(170deg, rgba(0,67,125,1) 28%, rgba(53,125,186,1) 100%);
+}
+</style>

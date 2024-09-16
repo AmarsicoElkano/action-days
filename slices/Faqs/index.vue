@@ -158,7 +158,7 @@ export default {
 </script>
 
 <template>
-  <section id="faqs" :ref="setRef" class="bg-primary w-full min-h-screen py-[100px] px-[16px] md:px-[60px]"
+  <section id="faqs" :ref="setRef" class=" w-full min-h-screen py-[100px] px-[16px] md:px-[60px]"
     data-section="faqs" data-nav="light">
     <h1 v-if="slice.primary.display_title" data-title
       class="text-titleSection_mb md:text-titleSection text-secondary text-uppercase">
