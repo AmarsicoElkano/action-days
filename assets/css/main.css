@@ -104,7 +104,6 @@ strong {
 .noise {
   @apply absolute inset-0 h-full bg-repeat;
   background-size: 10%;
-  background: url(/public/img/noise.png) transparent;
 }
 
 .lu {
