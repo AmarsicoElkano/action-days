@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 	},
 	script: [
 		{
-			src: "https://static.cdn.prismic.io/prismic.js?d="+ Date.now() +"&new=true&repo=action-datys",
+			src: "https://static.cdn.prismic.io/prismic.js?new=true&repo=action-datys",
 		},
 	],
 	modules: ["@nuxtjs/prismic", "@nuxtjs/tailwindcss"],
@@ -89,4 +89,12 @@ export default defineNuxtConfig({
 		},
 	},
 	plugins: ["~/plugins/lenis.js"],
+	nitro: {
+		storage: {
+		  'cache': {
+			driver: 'fs',
+			base: './.cache/nitro'
+		  }
+		}
+	  }
 });
