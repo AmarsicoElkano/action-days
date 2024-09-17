@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
   // For example, if you're using Nitro's built-in caching:
   await Promise.all([
     clearNuxtData(),
-    clearNuxtDataCache()
+    //clearNuxtDataCache()
   ])
 
   // You might also want to regenerate any static pages here
