@@ -97,5 +97,5 @@ export default defineNuxtConfig({
 				base: "./.cache/nitro",
 			},
 		},
-	},
+	}
 });
