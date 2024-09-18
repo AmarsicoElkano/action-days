@@ -92,10 +92,10 @@ export default defineNuxtConfig({
 	plugins: ["~/plugins/lenis.js"],
 	nitro: {
 		storage: {
-		  'cache': {
-			driver: 'fs',
-			base: './.cache/nitro'
-		  }
-		}
-	  }
+			cache: {
+				driver: "fs",
+				base: "./.cache/nitro",
+			},
+		},
+	},
 });

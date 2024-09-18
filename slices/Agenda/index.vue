@@ -65,6 +65,7 @@ export default {
     <div class="w-full h-full bg-secondary min-h-screen px-[16px] md:px-[0px] relative">
       <div class="flex flex-col md:flex-row justify-center mx-auto pt-[200px] w-full relative">
         <PrismicImage :field="slice.primary.bg_symbol" class="absolute inset-0 w-full h-full z-0" />
+
         <div class="flex flex-col pb-[40px] md:pb-0px]">
           <p class="text-primary uppercase text-base w-[300px] font-bold">
             {{ slice.primary.title }}
