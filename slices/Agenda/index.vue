@@ -60,8 +60,9 @@ export default {
 </script>
 
 <template>
-  <section :ref="setRef" class="w-full h-auto bg-secondary pb-[0px] md:pb-[213px]" data-section="agenda"
-    data-nav="dark">
+  <section :ref="setRef" class="w-full h-auto bg-secondary pb-[0px] md:pb-[213px]" data-section="agenda" data-nav="dark"
+    :class="slice.primary.card_group.length > 6 ? 'md:pb-[400px]' : 'md:pb-[213px]'">
+    >
     <div class="w-full h-full bg-secondary min-h-screen px-[16px] md:px-[0px] relative">
       <div class="flex flex-col md:flex-row justify-center mx-auto pt-[200px] w-full relative">
         <PrismicImage :field="slice.primary.bg_symbol" class="absolute inset-0 w-full h-full z-0" />
@@ -86,7 +87,7 @@ export default {
                       : 'min-h-[164px] md:min-h-[260px]'
                   ]" data-item>
                   <a :href="el?.link.url" class="group flex flex-col justify-between h-full link">
-                  <!-- <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
+                    <!-- <PrismicLink :field="el?.link" class="group flex flex-col justify-between h-full">
                   </PrismicLink> -->
                     <!-- Hover image -->
                     <PrismicImage v-if="el?.hover_image" :field="el?.hover_image"
@@ -98,7 +99,7 @@ export default {
                     <div class="">
                       <PrismicRichText :field="el.paragraph" :class="el.xl_font_size ? ' text-md' : ' text-base'" />
                     </div>
-                 
+
                   </a>
                 </div>
               </div>
