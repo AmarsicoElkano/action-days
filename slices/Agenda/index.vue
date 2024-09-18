@@ -61,8 +61,7 @@ export default {
 
 <template>
   <section :ref="setRef" class="w-full h-auto bg-secondary pb-[0px] md:pb-[213px]" data-section="agenda" data-nav="dark"
-    :class="slice.primary.card_group.length > 6 ? 'md:pb-[400px]' : 'md:pb-[213px]'">
-    >
+    :class="slice.primary.card_group.length > 8 ? 'md:pb-[600px]' : slice.primary.card_group.length > 6 ? 'md:pb-[400px]' : 'md:pb-[213px]'">
     <div class="w-full h-full bg-secondary min-h-screen px-[16px] md:px-[0px] relative">
       <div class="flex flex-col md:flex-row justify-center mx-auto pt-[200px] w-full relative">
         <PrismicImage :field="slice.primary.bg_symbol" class="absolute inset-0 w-full h-full z-0" />
