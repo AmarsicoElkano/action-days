@@ -4,7 +4,6 @@ const { client } = usePrismic();
 const route = useRoute();
 
 //GET ALL EVENTS
-
 const slug = route.params.uid;
 
 const { data: page } = useAsyncData(`[slug]`, () =>

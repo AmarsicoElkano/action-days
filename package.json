@@ -12,8 +12,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "slicemachine": "start-slicemachine",
-    "lint": "eslint .",
-    "start": "node .output/server/index.mjs"
+    "lint": "eslint ."
   },
   "dependencies": {
     "gsap": "file:gsap-bonus.tgz",
