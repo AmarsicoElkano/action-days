@@ -191,7 +191,6 @@ export default {
             </svg>
           </div>
         </div>
-        <!-- @TODO: responsive swiper width -->
         <SwiperSlide v-for="(item, idx) in slice.primary?.speakers" :key="idx" ref="items"
           class="w-[25%] mt-[100px] max-w-[297px]" data-item>
           <div class="flex flex-col">
