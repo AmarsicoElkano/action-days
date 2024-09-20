@@ -169,6 +169,7 @@ export default {
       <Meta property="twitter:description" :content="metadata?.data?.meta_description" />
       <Meta property="twitter:image" :content="`${metadata?.data?.share_image.url}&w=1920`" />
       <Link rel="icon" type="image/png" :href="`${metadata?.data?.favicon.url}&w=64`" />
+
     </Head>
 
   </Html>
