@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
   ])
   // You might also want to regenerate any static pages here
   // This is an example and may need to be adjusted based on your setup
+  
   await $fetch('/api/revalidate')
   return { status: 200, body: 'Cache cleared successfully' }
 })
