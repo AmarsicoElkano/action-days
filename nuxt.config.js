@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 	modules: ["@nuxtjs/prismic", "@nuxtjs/tailwindcss"],
 	prismic: {
 		endpoint: apiEndpoint || repositoryName,
-		//preview: "/api/preview",
+		preview: "/api/preview",
 		clientConfig: {
 			routes: [
 				// {
