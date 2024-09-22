@@ -11,6 +11,7 @@ export default defineEventHandler(async (event) => {
   // Logic to clear the cache
   // This will depend on how you've implemented caching in your Nuxt 3 app
   // For example, if you're using Nitro's built-in caching:
+  
   await Promise.all([
     clearNuxtData(),
     clearNuxtDataCache()
