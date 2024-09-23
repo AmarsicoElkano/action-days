@@ -32,12 +32,28 @@
             "label": "Announcements",
             "repeat": true,
             "fields": {
+              "display_image": {
+                "type": "Boolean",
+                "config": {
+                  "label": "display image",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
               "image": {
                 "type": "Image",
                 "config": {
                   "label": "Image",
                   "constraint": {},
                   "thumbnails": []
+                }
+              },
+              "source": {
+                "type": "Embed",
+                "config": {
+                  "label": "source",
+                  "placeholder": ""
                 }
               },
               "subtitle": {

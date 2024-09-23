@@ -91,8 +91,12 @@ export default {
       }" :modules="modules" class="relative overflow-hidden min-h-[60rem]">
         <SwiperSlide v-for="(item, idx) in slice.primary.announcements" :key="idx" ref="items" class="w-full h-full">
           <div class="w-full h-full flex flex-col md:flex-row items-center bg-[#195587]">
-            <PrismicImage :field="item.image"
+            <PrismicImage v-if="item.display_image" :field="item.image"
               class="w-full h-full aspect-square md:aspect-auto md:w-1/2 object-cover md:min-h-[620px]" />
+            <PrismicLink class="w-full h-full" v-else-if="item.display_image === false && item.source"
+              :field="item.source" target="_blank">
+              <img class="w-full h-full object-cover" :src="item.source.thumbnail_url" />
+            </PrismicLink>
             <div class=" flex flex-col px-60 h-[360px] md:h-[620px] justify-between py-60 md:pt-[120px]">
               <div class="mb-[20px]">
                 <p class="uppercase font-bold pb-40 text-highlight">

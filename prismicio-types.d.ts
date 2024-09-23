@@ -1221,6 +1221,17 @@ export type AgendaSlice = prismic.SharedSlice<"agenda", AgendaSliceVariation>;
  */
 export interface AnnouncementsSliceDefaultPrimaryAnnouncementsItem {
   /**
+   * display image field in *Announcements → Default → Primary → Announcements*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: announcements.default.primary.announcements[].display_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  display_image: prismic.BooleanField;
+
+  /**
    * Image field in *Announcements → Default → Primary → Announcements*
    *
    * - **Field Type**: Image
@@ -1229,6 +1240,16 @@ export interface AnnouncementsSliceDefaultPrimaryAnnouncementsItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * source field in *Announcements → Default → Primary → Announcements*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: announcements.default.primary.announcements[].source
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  source: prismic.EmbedField;
 
   /**
    * Subtitle field in *Announcements → Default → Primary → Announcements*
