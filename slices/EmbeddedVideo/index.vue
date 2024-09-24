@@ -169,8 +169,9 @@ export default {
         </div>
 
         <div data-item class="mt-100 aspect-video rounded-xl">
-
+          
           <div v-if="slice.primary.sources.length > 1" class="swiper-container">
+            
             <Swiper :slides-per-view="1" :space-between="0" :loop="false" :navigation="{
               prevEl: '.custom-prev',
               nextEl: '.custom-next',
@@ -186,7 +187,7 @@ export default {
           </div>
           <div data-item class="max-w-[600px] pr-80 md:mt-[-100px] aspect-video rounded-xl"
             v-else-if="slice.primary.sources.length === 1">
-            <PrismicLink :field="slice.primary.sources[0]" target="_blank">
+            <PrismicLink :field="slice.primary.sources[0].source" target="_blank">
               <img class="rounded-3xl md:rounded-xl" :src="slice.primary.sources[0].source.thumbnail_url" />
             </PrismicLink>
           </div>
