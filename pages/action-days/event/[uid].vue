@@ -174,6 +174,7 @@ export default {
 
   </Html>
   <div>
+
     <!-- hero -->
     <section :ref="setRef" class="relative w-screen h-screen" data-nav="light" data-section="overview">
       <div class="absolute inset-0">
