@@ -133,10 +133,10 @@ export default {
               <p>{{ item.time }}</p>
             </td>
             <td class="p-[20px] md:w-[40%]">
-              <PrismicRichText :field="item.events" />
+              <PrismicRichText :field="item.events" :class="$style.textFormated" />
             </td>
             <td class="p-[20px] md:w-[50%]">
-              <PrismicRichText :field="item.speakers" />
+              <PrismicRichText :field="item.speakers" :class="$style.textFormated" />
             </td>
             <td v-if="slice.primary.has_rooms" class="p-[20px]">
               <p>{{ item.room }}</p>
@@ -147,3 +147,6 @@ export default {
     </div>
   </section>
 </template>
+<style module>
+.textFormated a{text-decoration: underline}
+</style>

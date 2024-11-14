@@ -245,12 +245,18 @@ export default {
             <div class="relative" data-text>
               <PrismicRichText :field="page.data?.overview_secondary_text"
                 class="pb-[54px] text-landing_mb leading-[1.48]" />
-              <NuxtLink :to="'/action-days/register'">
+              <!-- <NuxtLink :to="'/action-days/register'">
                 <button
                   class="tracking-wider	min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
                   PARTICIPATION to the event
                 </button>
-              </NuxtLink>
+              </NuxtLink> -->
+              <a href="https://sdgs.un.org/basic-page/summit-future-action-days-side-events-summaries-56675" target="_blank">
+                <button
+                  class="tracking-wider	min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
+                  Download the Side Event Summaries Here
+                </button>
+              </a>
             </div>
           </div>
         </div>
