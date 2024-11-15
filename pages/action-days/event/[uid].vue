@@ -9,6 +9,12 @@ const slug = route.params.uid;
 const { data: page } = useAsyncData(`[slug]`, () =>
   client.getByUID("page", slug)
 );
+let CTABUTTON = ''
+if(slug == 'friday-side-events' || slug == 'offsite-friday' || slug == 'saturday-side-events' || slug == 'offsite-saturday'){
+  CTABUTTON = 'Download the Side Event Summaries Here'
+}else{
+  CTABUTTON = 'PARTICIPATION TO THE EVENT'
+}
 
 //METADATA
 const { data: metadata } = await useAsyncData("metadata", () =>
@@ -254,7 +260,7 @@ export default {
               <a href="https://sdgs.un.org/basic-page/summit-future-action-days-side-events-summaries-56675" target="_blank">
                 <button
                   class="tracking-wider	min-h-[52px] font-bold text-base_xsm h-[40px] border border-white border-opacity-25 rounded-full uppercase text-white pl-30 pr-30">
-                  Download the Side Event Summaries Here
+                 {{CTABUTTON}}
                 </button>
               </a>
             </div>

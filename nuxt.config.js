@@ -3,7 +3,7 @@ import { createClient } from "@prismicio/client";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	ssr: true,
+	ssr: false,
 	css: ["~/assets/css/main.css"],
 	devtools: { enabled: false },
 	app: {
